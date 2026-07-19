@@ -269,3 +269,181 @@ header{
     font-size:220px;
 
 }
+/* ========================= */
+/* PRODUTOS */
+/* ========================= */
+
+.produtos{
+
+    padding:70px 8%;
+
+    text-align:center;
+
+}
+
+.produtos h2{
+
+    font-size:38px;
+
+    margin-bottom:40px;
+
+    color:#1F2937;
+
+}
+
+.cards{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.card{
+
+    background:white;
+
+    width:300px;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.card img{
+
+    width:100%;
+
+    border-radius:12px;
+
+}
+
+.desconto{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+.preco-antigo{
+
+    margin-top:15px;
+
+    color:#888;
+
+    text-decoration:line-through;
+
+}
+
+.preco{
+
+    color:#22C55E;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    margin:10px 0;
+
+}
+
+.card button{
+
+    width:100%;
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.card button:hover{
+
+    background:#1D4ED8;
+
+}
+.favorito{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    color:#ccc;
+
+    transition:.3s;
+
+}
+
+.favorito:hover{
+
+    color:red;
+
+}
+
+.estrelas{
+
+    margin-top:10px;
+
+    color:#FFD700;
+
+    font-size:18px;
+
+}
+
+.frete{
+
+    color:#22C55E;
+
+    font-weight:600;
+
+    margin:8px 0;
+
+}
