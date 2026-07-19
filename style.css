@@ -1,0 +1,137 @@
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Corpo */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#F5F7FA;
+    color:#1F2937;
+
+}
+
+/* Cabeçalho */
+
+header{
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 6%;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+/* Logo */
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#2563EB;
+
+}
+
+/* Pesquisa */
+
+.search-box{
+
+    display:flex;
+
+}
+
+.search-box input{
+
+    width:320px;
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px 0 0 8px;
+
+    outline:none;
+
+}
+
+.search-box button{
+
+    background:#F97316;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 18px;
+
+    border-radius:0 8px 8px 0;
+
+    cursor:pointer;
+
+}
+
+/* Ícones */
+
+.icons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.icons a{
+
+    text-decoration:none;
+
+    color:#333;
+
+    font-weight:600;
+
+}
+
+/* Menu */
+
+.menu{
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    padding:15px;
+
+}
+
+.menu a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+}
+
+.menu a:hover{
+
+    color:#FFD54F;
+
+}
