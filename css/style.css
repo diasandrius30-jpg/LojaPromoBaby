@@ -1,5 +1,4 @@
 /* Reset */
-
 *{
     margin:0;
     padding:0;
@@ -8,19 +7,20 @@
 
 /* Corpo */
 
-body{
-
-    font-family:'Poppins',sans-serif;
-    background:#F5F7FA;
-    color:#1F2937;
-
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f4c81 40%, #ff6b00 80%);
+    font-family: 'Arial', sans-serif;
+    color: white;
 }
+
 
 /* Cabeçalho */
 
 header{
 
-    background:white;
+    background:rgb(255, 255, 255);
 
     display:flex;
 
@@ -164,36 +164,20 @@ header{
 
 }
 .hero{
-
     height:500px;
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
-
     text-align:center;
-
 }
-/* HERO */
-
 .hero{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     padding:70px 8%;
-
     background:linear-gradient(135deg,#2563EB,#1E40AF);
-
     color:white;
-
 }
 
 .hero-text{
@@ -305,7 +289,7 @@ header{
 
 .card{
 
-    background:white;
+    background:rgb(246, 242, 242);
 
     width:300px;
 
@@ -320,7 +304,12 @@ header{
     position:relative;
 
 }
-
+.card-produto {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+}
 .card:hover{
 
     transform:translateY(-8px);
@@ -385,7 +374,7 @@ header{
 
     background:#2563EB;
 
-    color:white;
+    color:rgb(243, 240, 240);
 
     border:none;
 
@@ -424,7 +413,7 @@ header{
 
 .favorito:hover{
 
-    color:red;
+    color:rgb(194, 9, 9);
 
 }
 
@@ -447,3 +436,219 @@ header{
     margin:8px 0;
 
 }
+.hero-placeholder{
+
+    font-size:220px;
+
+}
+/* Configuração Principal do Banner */
+/* Configuração com a Imagem Oficial Selecionada */
+/* --- BANNER DE ACESSO (Visitante - Imagem 1) --- */
+/* --- BANNER PRINCIPAL DA TELA INICIAL (Imagem 3D) --- */
+/* --- BANNER DE ACESSO (Visitante - Imagem 1) --- */
+.banner-visitante {
+    width: 100%;
+    min-height: 550px;
+    background-image: url('../1.jpg'); /* Sai da pasta 'css' para buscar a imagem 1 */
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- BANNER ÁREA LOGADA (Cliente - Imagem 2.jpg) --- */
+.banner-logado {
+    width: 100%;
+    min-height: 550px;
+    background-image: url('../2.jpg'); /* Usa a imagem 3D oficial que você enviou */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    padding: 0 5%; /* Usa porcentagem para ficar perfeito em telas de qualquer tamanho */
+    box-sizing: border-box;
+}
+
+/* Caixa de Texto do JavaScript (Ajustada para o espaço escuro do lado esquerdo) */
+.banner-content {
+    max-width: 380px; /* Largura limite para o texto não invadir a área do carrinho e celular */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Poppins', sans-serif;
+    
+    /* Removemos o fundo escuro/borrado anterior, pois o fundo azul original 
+       da imagem já dá um excelente contraste de leitura sozinho! */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra na letra para destacar mais */
+}
+
+/* Estilo das Fontes Injetadas pelo JS */
+.banner-content h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.banner-content p {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    margin: 0 0 10px 0;
+    color: #f0f0f0;
+}
+
+/* Botão Verde CTA */
+.btn-cta {
+    background-color: #00cc66;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 14px 28px;
+    border-radius: 8px;
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(0, 204, 102, 0.4);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Efeito ao passar o mouse no botão */
+.btn-cta:hover {
+    background-color: #00b359;
+    transform: translateY(-2px);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: transparent;
+}
+.menu-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    opacity: 0.8;
+}
+.menu-links a:hover {
+    opacity: 1; /* Efeito ao passar o mouse */
+}
+/* ==========================
+   Ícones do Cabeçalho
+========================== */
+
+.icon-menu{
+    color:#4B5563;
+    transition:.3s;
+}
+
+.icon-menu:hover{
+    color:#F97316;
+    transform:scale(1.15);
+}
+
+.small-text{
+    font-size:15px;
+    font-weight:600;
+    color:#1F2937;
+}
+/* ==========================
+   Ícones do Cabeçalho
+========================== */
+
+.icon-menu{
+    color:#4B5563;
+    transition:.3s;
+}
+
+.icon-menu:hover{
+    color:#F97316;
+    transform:scale(1.15);
+}
+
+.small-text{
+    font-size:15px;
+    font-weight:600;
+    color:#1F2937;
+}
+/* ==========================
+   CONTADOR DO CARRINHO
+========================== */
+
+.badge-cart{
+
+    width:22px;
+    height:22px;
+
+    background:#EF4444;
+
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    border:2px solid white;
+
+}
+/* ==========================
+   ÍCONES DO CABEÇALHO
+========================== */
+
+.icons a{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+
+    text-decoration:none;
+
+    color:#374151;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.icon-menu{
+
+    font-size:28px;
+
+    color:#6B7280;
+
+    transition:all .3s ease;
+
+}
+
+.icons a:hover .icon-menu{
+
+    color:#F97316;
+
+    transform:translateY(-3px);
+
+}
+
+.icons a:hover{
+
+    color:#F97316;
+
+}
+
+.small-text{
+
+    font-size:15px;
+
+    color:#374151;
+
+}
+
+
+
+
