@@ -20,3 +20,59 @@ if (usuarioLogado) {
     bannerContainer.className = "banner-visitante";
     bannerContainer.innerHTML = ""; // Fica limpo pois a imagem 1 já possui os textos fixos nela
 }
+// ============================
+// BOTÃO PESQUISAR
+// ============================
+
+const btnBuscar = document.getElementById("btnBuscar");
+
+btnBuscar.addEventListener("click", function () {
+
+    const texto = document.getElementById("pesquisa").value;
+
+    if (texto.trim() === "") {
+
+        alert("Digite um produto para pesquisar.");
+
+        return;
+    }
+
+    alert("Você pesquisou por: " + texto);
+
+    document.getElementById("promocoes").scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
+}); 
+// ============================
+// BOTÃO SAIBA MAIS
+// ============================
+
+const btnSaibaMais = document.getElementById("btnSaibaMais");
+
+btnSaibaMais.addEventListener("click", function(){
+
+    document.getElementById("sobre").scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+
+});
+// ============================
+// FORMULÁRIO
+// ============================
+
+const formulario = document.getElementById("formContato");
+
+formulario.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    alert("Mensagem enviada com sucesso!");
+
+    formulario.reset();
+
+});
