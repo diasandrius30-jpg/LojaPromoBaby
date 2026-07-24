@@ -1,23 +1,96 @@
-/* Reset */
+/* ==========================================================
+   LOJA PROMO BABY
+   Comparador Inteligente de Ofertas
+
+   Desenvolvedor: Andrius Lopes
+   Versão: 2.0
+   Ano: 2026
+
+   Tecnologias:
+   HTML5
+   CSS3
+   JavaScript
+   Bootstrap
+   Git / GitHub
+========================================================== */
+
+/* ==========================================================
+   RESET GLOBAL
+========================================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-/* Corpo */
-
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0f4c81 40%, #ff6b00 80%);
-    font-family: 'Arial', sans-serif;
-    color: white;
+html{
+    scroll-behavior:smooth;
 }
 
 
-/* Cabeçalho */
+/* ==========================================================
+   VARIÁVEIS DO PROJETO
+========================================================== */
 
+:root{
+
+    /* CORES PRINCIPAIS */
+
+    --azul:#0F4C81;
+    --azul-dark:#1E3A8A;
+
+    --azul-menu:#2563EB;
+
+    --laranja:#FF6B00;
+
+    --verde:#22C55E;
+
+    --branco:#FFFFFF;
+
+
+    /* CORES AUXILIARES */
+
+    --cinza:#555555;
+
+    --cinza-claro:#F5F5F5;
+
+    --preto:#1F2937;
+
+
+    /* EFEITOS */
+
+    --sombra:
+    0 10px 25px rgba(0,0,0,.12);
+
+
+    --raio:18px;
+
+}
+/* ==========================================================
+   CONFIGURAÇÃO GLOBAL
+========================================================== */
+
+body{
+
+    min-height:100vh;
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--azul),
+    var(--laranja)
+    );
+
+    color:var(--branco);
+
+}
+
+/* ==========================================================
+   CABEÇALHO
+========================================================== */
 header{
 
     background:rgb(255, 255, 255);
@@ -30,27 +103,30 @@ header{
 
     padding:20px 6%;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    box-shadow:var(--sombra);
 
 }
 
-/* Logo */
-
+/* ==========================================================
+   LOGO
+========================================================== */
 .logo{
     display:flex;
     align-items:center;
     gap:10px;
     font-size:30px;
     font-weight:700;
-    color:#2563EB;
+    color:var(--azul);
     white-space:nowrap;
 }
 
-/* Pesquisa */
-
+/* ==========================================================
+   BARRA DE PESQUISA
+========================================================== */
 .search-box{
 
     display:flex;
+    align-items:center;
 
 }
 
@@ -70,7 +146,7 @@ header{
 
 .search-box button{
 
-    background:#F97316;
+   background:var(--laranja);
 
     color:white;
 
@@ -84,8 +160,9 @@ header{
 
 }
 
-/* Ícones */
-
+/* ==========================================================
+   ÍCONES
+========================================================== */
 .icons{
     display:flex;
     gap:30px;
@@ -100,14 +177,15 @@ header{
 }
 
 .icons a:hover{
-    color:#F97316;
+    color:var(--laranja);
 }
 
-/* Menu */
-
+/* ==========================================================
+   MENU
+========================================================== */
 .menu{
 
-    background:#2563EB;
+    background:var(--azul);
 
     display:flex;
 
@@ -134,28 +212,11 @@ header{
     color:#FFD54F;
 
 }
-.hero button{
 
-    margin-top:30px;
 
-    padding:18px 40px;
-
-    background:#22C55E;
-
-    color:white;
-
-    border:none;
-
-    border-radius:40px;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
+/* ==========================================================
+   HERO / BANNER
+========================================================== */
 .hero button:hover{
 
     transform:scale(1.05);
@@ -163,20 +224,13 @@ header{
     background:#16A34A;
 
 }
-.hero{
-    height:500px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
+
 .hero{
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:70px 8%;
-    background:linear-gradient(135deg,#2563EB,#1E40AF);
+    background:linear-gradient(135deg,var(--azul),var(--azul-dark));
     color:white;
 }
 
@@ -188,7 +242,7 @@ header{
 
 .oferta{
 
-    background:#F97316;
+    background:var(--laranja);
 
     padding:8px 18px;
 
@@ -224,7 +278,7 @@ header{
 
     margin-top:35px;
 
-    background:#22C55E;
+   background:var(--verde);
 
     border:none;
 
@@ -253,10 +307,14 @@ header{
     font-size:220px;
 
 }
-/* ========================= */
-/* PRODUTOS */
-/* ========================= */
 
+/* ==========================================================
+   BOTÕES
+========================================================== */
+
+/* ==========================================================
+   PRODUTOS
+========================================================== */
 .produtos{
 
     padding:70px 8%;
@@ -275,6 +333,10 @@ header{
 
 }
 
+
+/* ==========================================================
+   CARDS
+========================================================== */
 .cards{
 
     display:flex;
@@ -324,341 +386,17 @@ header{
 
 }
 
-.desconto{
 
-    position:absolute;
-
-    top:15px;
-
-    left:15px;
-
-    background:#EF4444;
-
-    color:white;
-
-    padding:6px 12px;
-
-    border-radius:20px;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-}
-
-.preco-antigo{
-
-    margin-top:15px;
-
-    color:#888;
-
-    text-decoration:line-through;
-
-}
-
-.preco{
-
-    color:#22C55E;
-
-    font-size:28px;
-
-    font-weight:bold;
-
-    margin:10px 0;
-
-}
-
-.card button{
-
-    width:100%;
-
-    background:#2563EB;
-
-    color:rgb(243, 240, 240);
-
-    border:none;
-
-    padding:14px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.card button:hover{
-
-    background:#1D4ED8;
-
-}
-.favorito{
-
-    position:absolute;
-
-    top:15px;
-
-    right:15px;
-
-    font-size:24px;
-
-    cursor:pointer;
-
-    color:#ccc;
-
-    transition:.3s;
-
-}
-
-.favorito:hover{
-
-    color:rgb(194, 9, 9);
-
-}
-
-.estrelas{
-
-    margin-top:10px;
-
-    color:#FFD700;
-
-    font-size:18px;
-
-}
-
-.frete{
-
-    color:#22C55E;
-
-    font-weight:600;
-
-    margin:8px 0;
-
-}
-.hero-placeholder{
-
-    font-size:220px;
-
-}
-/* Configuração Principal do Banner */
-/* Configuração com a Imagem Oficial Selecionada */
-/* --- BANNER DE ACESSO (Visitante - Imagem 1) --- */
-/* --- BANNER PRINCIPAL DA TELA INICIAL (Imagem 3D) --- */
-/* --- BANNER DE ACESSO (Visitante - Imagem 1) --- */
-.banner-visitante {
-    width: 100%;
-    min-height: 550px;
-    background-image: url('../1.jpg'); /* Sai da pasta 'css' para buscar a imagem 1 */
-    background-size: cover;
-    background-position: center;
-}
-
-/* --- BANNER ÁREA LOGADA (Cliente - Imagem 2.jpg) --- */
-.banner-logado {
-    width: 100%;
-    min-height: 550px;
-    background-image: url('../2.jpg'); /* Usa a imagem 3D oficial que você enviou */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    padding: 0 5%; /* Usa porcentagem para ficar perfeito em telas de qualquer tamanho */
-    box-sizing: border-box;
-}
-
-/* Caixa de Texto do JavaScript (Ajustada para o espaço escuro do lado esquerdo) */
-.banner-content {
-    max-width: 380px; /* Largura limite para o texto não invadir a área do carrinho e celular */
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    font-family: 'Poppins', sans-serif;
-    
-    /* Removemos o fundo escuro/borrado anterior, pois o fundo azul original 
-       da imagem já dá um excelente contraste de leitura sozinho! */
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra na letra para destacar mais */
-}
-
-/* Estilo das Fontes Injetadas pelo JS */
-.banner-content h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 0;
-}
-
-.banner-content p {
-    font-size: 1.05rem;
-    line-height: 1.4;
-    margin: 0 0 10px 0;
-    color: #f0f0f0;
-}
-
-/* Botão Verde CTA */
-.btn-cta {
-    background-color: #00cc66;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 14px 28px;
-    border-radius: 8px;
-    width: fit-content;
-    box-shadow: 0 4px 15px rgba(0, 204, 102, 0.4);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-/* Efeito ao passar o mouse no botão */
-.btn-cta:hover {
-    background-color: #00b359;
-    transform: translateY(-2px);
-}
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: transparent;
-}
-.menu-links a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    opacity: 0.8;
-}
-.menu-links a:hover {
-    opacity: 1; /* Efeito ao passar o mouse */
-}
-/* ==========================
-   Ícones do Cabeçalho
-========================== */
-
-.icon-menu{
-    color:#4B5563;
-    transition:.3s;
-}
-
-.icon-menu:hover{
-    color:#F97316;
-    transform:scale(1.15);
-}
-
-.small-text{
-    font-size:15px;
-    font-weight:600;
-    color:#1F2937;
-}
-/* ==========================
-   Ícones do Cabeçalho
-========================== */
-
-.icon-menu{
-    color:#4B5563;
-    transition:.3s;
-}
-
-.icon-menu:hover{
-    color:#F97316;
-    transform:scale(1.15);
-}
-
-.small-text{
-    font-size:15px;
-    font-weight:600;
-    color:#1F2937;
-}
-/* ==========================
-   CONTADOR DO CARRINHO
-========================== */
-
-.badge-cart{
-
-    width:22px;
-    height:22px;
-
-    background:#EF4444;
-
-    color:#fff;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    border:2px solid white;
-
-}
-/* ==========================
-   ÍCONES DO CABEÇALHO
-========================== */
-
-.icons a{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:5px;
-
-    text-decoration:none;
-
-    color:#374151;
-
-    font-weight:600;
-
-    transition:.3s;
-}
-
-.icon-menu{
-
-    font-size:28px;
-
-    color:#6B7280;
-
-    transition:all .3s ease;
-
-}
-
-.icons a:hover .icon-menu{
-
-    color:#F97316;
-
-    transform:translateY(-3px);
-
-}
-
-.icons a:hover{
-
-    color:#F97316;
-
-}
-
-.small-text{
-
-    font-size:15px;
-
-    color:#374151;
-
-}
-/* ==========================
+/* ==========================================================
    CONTATO
-========================== */
-
+========================================================== */
 .contato{
 
     padding:80px 0;
 
     background:#ffffff;
 
-    color:#333;
+    color:var(--cinza);
 
 }
 
@@ -756,6 +494,28 @@ header{
     background:#ea580c;
 
 }
+/* ==========================================================
+   RODAPÉ
+========================================================== */
+/* Desenvolvido por Andrius Lopes
+   Versão 2.0 • 2026
+   Projeto acadêmico com foco em Startup e Portfólio */
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+/* TABLETS */
+@media(max-width:900px){
+
+}
+
+
+/* CELULARES */
+@media(max-width:600px){
+
+}
+
+
 
 
 

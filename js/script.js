@@ -16,7 +16,7 @@ if (usuarioLogado) {
         </div>
     `;
 } else {
-    // Aplica o design de visitante (Usa a classe do CSS com a imagem 1.jpg)
+    // Aplica o design de visitante (Usa a classe do CSS com a imagem Marketplace.png)
     bannerContainer.className = "banner-visitante";
     bannerContainer.innerHTML = ""; // Fica limpo pois a imagem 1 já possui os textos fixos nela
 }
