@@ -1,78 +1,245 @@
-// CONTROLE DE ACESSO: Mude para 'false' para ver o visitante e 'true' para ver logado
-const usuarioLogado = true; 
+/* ==========================================================
+   LOJA PROMO BABY
+   Desenvolvedor: Andrius Lopes
+   Versão 2.1
+========================================================== */
 
-// Captura o elemento do banner do HTML
-const bannerContainer = document.getElementById('main-banner');
 
-// Executa a lógica de troca baseada no status do usuário
-if (usuarioLogado) {
-    // Aplica o design do usuário logado (Usa a classe do CSS com a imagem 2.jpg)
-    bannerContainer.className = "banner-logado";
-    bannerContainer.innerHTML = `
-        <div class="banner-content">
-            <h1>Olá, que bom ver você de volta!</h1>
-            <p>Preparamos uma seleção exclusiva com os maiores descontos do dia.</p>
-            <a href="#promocoes" class="btn-cta">🛒 Ver Minhas Ofertas</a>
-        </div>
-    `;
-} else {
-    // Aplica o design de visitante (Usa a classe do CSS com a imagem Marketplace.png)
-    bannerContainer.className = "banner-visitante";
-    bannerContainer.innerHTML = ""; // Fica limpo pois a imagem 1 já possui os textos fixos nela
+/* ==========================================================
+   PESQUISA
+========================================================== */
+
+const campoPesquisa = document.getElementById("pesquisa");
+const botaoBuscar = document.getElementById("btnBuscar");
+
+
+if(botaoBuscar && campoPesquisa){
+
+    botaoBuscar.addEventListener("click",()=>{
+
+        const texto = campoPesquisa.value.trim();
+
+
+        if(texto === ""){
+
+            alert("Digite um produto para pesquisar.");
+
+            return;
+
+        }
+
+
+        alert("Pesquisando por: " + texto);
+
+
+    });
+
 }
-// ============================
-// BOTÃO PESQUISAR
-// ============================
 
-const btnBuscar = document.getElementById("btnBuscar");
 
-btnBuscar.addEventListener("click", function () {
 
-    const texto = document.getElementById("pesquisa").value;
+/* ==========================================================
+   FAVORITOS
+========================================================== */
 
-    if (texto.trim() === "") {
 
-        alert("Digite um produto para pesquisar.");
+const favoritos = document.querySelectorAll(".fa-heart");
 
-        return;
-    }
 
-    alert("Você pesquisou por: " + texto);
+favoritos.forEach((icone)=>{
 
-    document.getElementById("promocoes").scrollIntoView({
 
-        behavior: "smooth"
+    icone.addEventListener("click",()=>{
 
-    });
 
-}); 
-// ============================
-// BOTÃO SAIBA MAIS
-// ============================
+        icone.classList.toggle("fa-regular");
 
-const btnSaibaMais = document.getElementById("btnSaibaMais");
+        icone.classList.toggle("fa-solid");
 
-btnSaibaMais.addEventListener("click", function(){
 
-    document.getElementById("sobre").scrollIntoView({
+        icone.style.color="red";
 
-        behavior:"smooth"
 
     });
 
-});
-// ============================
-// FORMULÁRIO
-// ============================
-
-const formulario = document.getElementById("formContato");
-
-formulario.addEventListener("submit", function(event){
-
-    event.preventDefault();
-
-    alert("Mensagem enviada com sucesso!");
-
-    formulario.reset();
 
 });
+
+
+
+/* ==========================================================
+   CARRINHO
+========================================================== */
+
+
+let carrinho = 0;
+
+
+const badge = document.querySelector(".badge-cart");
+
+
+const botoesComprar =
+document.querySelectorAll(".btn-comprar");
+
+
+
+botoesComprar.forEach(botao=>{
+
+
+    botao.addEventListener("click",()=>{
+
+
+        carrinho++;
+
+
+        if(badge){
+
+            badge.textContent=carrinho;
+
+        }
+
+
+        alert("Produto adicionado ao carrinho!");
+
+
+    });
+
+
+});
+
+
+
+/* ==========================================================
+   FORMULÁRIO
+========================================================== */
+
+
+const formulario =
+document.getElementById("formContato");
+
+
+
+if(formulario){
+
+
+    formulario.addEventListener("submit",(e)=>{
+
+
+        e.preventDefault();
+
+
+        alert("Mensagem enviada com sucesso!");
+
+
+        formulario.reset();
+
+
+    });
+
+
+}
+
+
+
+
+/* ==========================================================
+   VIA CEP
+========================================================== */
+
+
+const cep =
+document.getElementById("cep");
+
+
+
+if(cep){
+
+
+    cep.addEventListener("blur",()=>{
+
+
+        let valorCep =
+        cep.value.replace(/\D/g,"");
+
+
+
+        if(valorCep.length !== 8){
+
+            alert("Digite um CEP válido.");
+
+            return;
+
+        }
+
+
+
+        fetch(`https://viacep.com.br/ws/${valorCep}/json/`)
+
+
+        .then(resposta=>resposta.json())
+
+
+        .then(dados=>{
+
+
+            if(dados.erro){
+
+                alert("CEP não encontrado.");
+
+                return;
+
+            }
+
+
+
+            const cidade =
+            document.getElementById("cidade");
+
+
+            const estado =
+            document.getElementById("estado");
+
+
+            const rua =
+            document.getElementById("rua");
+
+
+
+            if(cidade){
+
+                cidade.value=dados.localidade;
+
+            }
+
+
+            if(estado){
+
+                estado.value=dados.uf;
+
+            }
+
+
+            if(rua){
+
+                rua.value=dados.logradouro;
+
+            }
+
+
+
+        })
+
+
+        .catch(()=>{
+
+
+            alert("Erro ao consultar CEP.");
+
+        });
+
+
+
+    });
+
+
+}

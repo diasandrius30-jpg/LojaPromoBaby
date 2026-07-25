@@ -57,22 +57,53 @@ html{
 
     --preto:#1F2937;
 
+    --borda:#E5E7EB;
+
 
     /* EFEITOS */
 
     --sombra:
-    0 10px 25px rgba(0,0,0,.12);
+0 12px 30px rgba(15,76,129,.12);
+
+--sombra-hover:
+0 20px 45px rgba(15,76,129,.18);
 
 
     --raio:18px;
 
 }
 /* ==========================================================
+   TRANSIÇÕES
+========================================================== */
+
+a,
+button,
+.card,
+input,
+img{
+
+    transition:all .30s ease;
+
+}
+
+/* ==========================================================
+   UTILITÁRIOS
+========================================================== */
+
+/* ==========================================================
+   MARKETPLACES
+========================================================== */
+
+/* ==========================================================
+   BANNERS
+========================================================== */
+/* ==========================================================
    CONFIGURAÇÃO GLOBAL
 ========================================================== */
 
 body{
 
+    margin:0;
     min-height:100vh;
 
     font-family:'Poppins',sans-serif;
@@ -93,7 +124,7 @@ body{
 ========================================================== */
 header{
 
-    background:rgb(255, 255, 255);
+    background:var(--branco);
 
     display:flex;
 
@@ -104,6 +135,14 @@ header{
     padding:20px 6%;
 
     box-shadow:var(--sombra);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+     backdrop-filter:blur(10px);
 
 }
 
@@ -118,6 +157,13 @@ header{
     font-weight:700;
     color:var(--azul);
     white-space:nowrap;
+    transition:.3s;
+    cursor:pointer;
+}
+.logo:hover{
+
+    transform:scale(1.03);
+
 }
 
 /* ==========================================================
@@ -136,11 +182,19 @@ header{
 
     padding:12px;
 
-    border:1px solid #ddd;
+  border:1px solid var(--borda);
 
     border-radius:8px 0 0 8px;
 
     outline:none;
+    
+ transition: 3s;
+}
+.search-box input:focus{
+
+    border-color:var(--laranja);
+
+    box-shadow:0 0 10px rgba(255,107,0,.25);
 
 }
 
@@ -171,13 +225,21 @@ header{
 
 .icons a{
     text-decoration:none;
-    color:#333;
+    color:var(--preto);
     font-weight:600;
     transition:.3s;
 }
 
 .icons a:hover{
     color:var(--laranja);
+}
+
+.icons a:hover{
+
+    color:var(--laranja);
+
+    transform:translateY(-2px);
+
 }
 
 /* ==========================================================
@@ -199,50 +261,61 @@ header{
 
 .menu a{
 
-    color:white;
+    color:var(--branco);
 
     text-decoration:none;
 
     font-weight:500;
 
+    transition: .3s;
+
 }
 
 .menu a:hover{
 
-    color:#FFD54F;
+    color:var(--laranja);
+
+    transform:translateY(-2px);
 
 }
-
 
 /* ==========================================================
    HERO / BANNER
 ========================================================== */
-.hero button:hover{
 
-    transform:scale(1.05);
+.hero-section{
 
-    background:#16A34A;
-
-}
-
-.hero{
     display:flex;
-    justify-content:space-between;
+
     align-items:center;
+
     padding:70px 8%;
-    background:linear-gradient(135deg,var(--azul),var(--azul-dark));
-    color:white;
+
+    background:linear-gradient(
+        135deg,
+        var(--azul),
+        var(--azul-dark)
+    );
+
+    color:var(--branco);
+
+    overflow:hidden;
+
 }
 
-.hero-text{
+.hero-content{
 
-    width:55%;
+    width:100%;
 
 }
 
-.oferta{
+.hero-badge{
+
+    display:inline-block;
 
     background:var(--laranja);
+
+    color:var(--branco);
 
     padding:8px 18px;
 
@@ -250,45 +323,45 @@ header{
 
     font-size:14px;
 
-    font-weight:bold;
+    font-weight:700;
+
+    margin-bottom:20px;
 
 }
 
-.hero h1{
-
-    margin-top:20px;
+.hero-section h1{
 
     font-size:55px;
 
     line-height:65px;
 
+    font-weight:700;
+
+    margin-bottom:20px;
+
 }
 
-.hero p{
-
-    margin-top:20px;
+.hero-section p{
 
     font-size:20px;
 
     line-height:32px;
 
+    margin-bottom:30px;
+
 }
 
-.hero button{
-
-    margin-top:35px;
-
-   background:var(--verde);
+.hero-section button{
 
     border:none;
 
-    color:white;
-
-    padding:18px 45px;
-
     border-radius:40px;
 
+    padding:16px 40px;
+
     font-size:18px;
+
+    font-weight:600;
 
     cursor:pointer;
 
@@ -296,21 +369,72 @@ header{
 
 }
 
-.hero button:hover{
+.hero-section button:hover{
 
-    transform:scale(1.08);
+    transform:translateY(-3px);
 
 }
 
 .hero-image{
 
-    font-size:220px;
+    text-align:center;
 
 }
 
+.hero-image img{
+
+    width:100%;
+
+    max-width:550px;
+
+    height:auto;
+
+    border-radius:var(--raio);
+
+    transition:.3s;
+
+}
+
+.hero-image img:hover{
+
+    transform:scale(1.03);
+
+}
+
+.marketplaces-row{
+
+    margin-top:30px;
+
+}
+
+.badge-market{
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.badge-market:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--sombra);
+
+}
 /* ==========================================================
    BOTÕES
 ========================================================== */
+.search-box button {
+    transition:.3s;
+    font-weight:600;
+}
+
+.search-box button:hover{
+
+    background:#e85d04;
+
+}
 
 /* ==========================================================
    PRODUTOS
@@ -329,7 +453,7 @@ header{
 
     margin-bottom:40px;
 
-    color:#1F2937;
+    color:var(--preto);
 
 }
 
@@ -351,30 +475,41 @@ header{
 
 .card{
 
-    background:rgb(246, 242, 242);
+    background:var(--branco);
 
     width:300px;
 
-    border-radius:18px;
+  border-radius:var(--raio);
 
     padding:20px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.10);
+    box-shadow:var(--sombra);
+
+     overflow:hidden;
 
     transition:.3s;
 
     position:relative;
 
+    border:none;
+
 }
 .card-produto {
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    background:var(--branco);
+
+    border-radius: var(--raio);
+
+    box-shadow:var(--sombra);
+    
     padding: 20px;
 }
 .card:hover{
 
     transform:translateY(-8px);
+
+    box-shadow:
+    0 18px 35px rgba(0,0,0,.18);
 
 }
 
@@ -382,10 +517,21 @@ header{
 
     width:100%;
 
+    height:180px;
+
+    object-fit:contain;
+
     border-radius:12px;
+
+    transition:.3s;
 
 }
 
+.card:hover img{
+
+    transform:scale(1.05);
+
+}
 
 /* ==========================================================
    CONTATO
@@ -394,7 +540,7 @@ header{
 
     padding:80px 0;
 
-    background:#ffffff;
+    background:var(--branco);
 
     color:var(--cinza);
 
@@ -451,7 +597,7 @@ header{
 
     border-radius:10px;
 
-    border:1px solid #ddd;
+    border:1px solid var(--borda);
 
     font-size:16px;
 
@@ -473,13 +619,13 @@ header{
 
     padding:18px;
 
-    background:#F97316;
+    background:var(--laranja);
 
-    color:white;
+    color:var(--branco);
 
     border:none;
 
-    border-radius:12px;
+    border-radius:var(--raio);
 
     font-size:18px;
 
@@ -491,7 +637,7 @@ header{
 
 #formContato button:hover{
 
-    background:#ea580c;
+    background:var(--laranja);
 
 }
 /* ==========================================================
@@ -504,18 +650,295 @@ header{
 /* ==========================================================
    RESPONSIVIDADE
 ========================================================== */
-/* TABLETS */
-@media(max-width:900px){
+
+/* ===========================
+   TABLETS (até 992px)
+=========================== */
+
+@media (max-width:992px){
+
+    /* Cabeçalho */
+
+    header{
+
+        padding:20px;
+
+    }
+
+    .logo{
+
+        text-align:center;
+
+        margin-bottom:15px;
+
+    }
+
+    .search-box{
+
+        width:100%;
+
+        margin:15px 0;
+
+    }
+
+    .search-box input{
+
+        width:100%;
+
+    }
+
+    .icons{
+
+        justify-content:center;
+
+        width:100%;
+
+        gap:20px;
+
+    }
+
+    /* Menu */
+
+    .menu .container{
+
+        justify-content:center;
+
+        gap:20px;
+
+    }
+
+    /* Hero */
+
+    .hero-section{
+
+        padding:50px 20px;
+
+    }
+
+    .hero-section h1{
+
+        font-size:42px;
+
+        line-height:50px;
+
+        text-align:center;
+
+    }
+
+    .hero-section p{
+
+        text-align:center;
+
+    }
+
+    .hero-content{
+
+        text-align:center;
+
+    }
+
+    .marketplaces-row{
+
+        justify-content:center;
+
+    }
+
+    .hero-image{
+
+        margin-top:40px;
+
+    }
+
+    /* Produtos */
+
+    .cards{
+
+        justify-content:center;
+
+    }
+
+    .card{
+
+        width:280px;
+
+    }
 
 }
 
+/* ===========================
+   CELULARES (até 768px)
+=========================== */
 
-/* CELULARES */
-@media(max-width:600px){
+@media (max-width:768px){
+
+    header{
+
+        padding:15px;
+
+    }
+
+    .logo h1{
+
+        font-size:26px;
+
+    }
+
+    .logo p{
+
+        font-size:14px;
+
+    }
+
+    .search-box{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+    .search-box input{
+
+        width:100%;
+
+        border-radius:10px;
+
+    }
+
+    .search-box button{
+
+        width:100%;
+
+        border-radius:10px;
+
+    }
+
+    .icons{
+
+        gap:25px;
+
+        flex-wrap:wrap;
+
+    }
+
+    .menu .container{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:12px;
+
+    }
+
+    .hero-section{
+
+        padding:40px 20px;
+
+    }
+
+    .hero-section h1{
+
+        font-size:34px;
+
+        line-height:42px;
+
+    }
+
+    .hero-section p{
+
+        font-size:18px;
+
+        line-height:28px;
+
+    }
+
+    .hero-image img{
+
+        max-width:320px;
+
+    }
+
+    .marketplaces-row{
+
+        justify-content:center;
+
+    }
+
+    .badge-market{
+
+        font-size:13px;
+
+    }
+
+    .cards{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .card{
+
+        width:100%;
+
+        max-width:340px;
+
+    }
+
+    .linha{
+
+        flex-direction:column;
+
+    }
 
 }
+/* ===========================
+   CELULARES PEQUENOS
+=========================== */
 
+@media (max-width:480px){
 
+    .hero-section h1{
+
+        font-size:28px;
+
+        line-height:36px;
+
+    }
+
+    .hero-section p{
+
+        font-size:16px;
+
+    }
+
+    .hero-section button{
+
+        width:100%;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+    .icons{
+
+        gap:18px;
+
+    }
+
+    .footer{
+
+        padding:40px 20px;
+
+    }
+
+}
 
 
 
