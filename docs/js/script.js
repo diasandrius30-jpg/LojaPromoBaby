@@ -4,7 +4,41 @@
    Versão 2.1
 ========================================================== */
 
+/* ==========================================================
+   BANCO DE PRODUTOS
+========================================================== */
 
+const produtos = [
+
+    {
+        nome: "Smartwatch Ultra 8",
+        loja: "Shopee",
+        preco: "R$ 579,90",
+        categoria: "Eletrônicos"
+    },
+
+    {
+        nome: "Fone Bluetooth JBL",
+        loja: "Amazon",
+        preco: "R$ 249,90",
+        categoria: "Áudio"
+    },
+
+    {
+        nome: "Notebook Gamer",
+        loja: "Mercado Livre",
+        preco: "R$ 3.499,90",
+        categoria: "Informática"
+    },
+
+    {
+        nome: "Celular Samsung Galaxy",
+        loja: "TikTok Shop",
+        preco: "R$ 1.899,90",
+        categoria: "Celulares"
+    }
+
+];
 /* ==========================================================
    PESQUISA
 ========================================================== */
@@ -27,15 +61,79 @@ if(botaoBuscar && campoPesquisa){
             return;
 
         }
+        
+       const resultado = produtos.filter(produto =>
+    produto.nome.toLowerCase().includes(texto.toLowerCase()) ||
+    produto.categoria.toLowerCase().includes(texto.toLowerCase())
+);
 
 
-        alert("Pesquisando por: " + texto);
+if(resultado.length === 0){
 
+    const areaResultado = document.getElementById("resultadoBusca");
+
+    areaResultado.innerHTML = `
+    
+    <div class="alert alert-warning">
+        Nenhum produto encontrado.
+    </div>
+
+    `;
+
+}else{
+
+    const areaResultado = document.getElementById("resultadoBusca");
+
+    areaResultado.innerHTML = `
+    
+    <h3 class="fw-bold mb-3">
+        🔎 Resultado da busca
+    </h3>
+
+    `;
+
+
+    resultado.forEach(produto=>{
+
+
+        areaResultado.innerHTML += `
+
+        <div class="card shadow-sm mb-3 p-3">
+
+            <h4 class="fw-bold">
+                ${produto.nome}
+            </h4>
+
+            <p class="mb-1">
+                🏪 Loja: ${produto.loja}
+            </p>
+
+            <p class="mb-1">
+                📂 Categoria: ${produto.categoria}
+            </p>
+
+            <p class="text-success fw-bold">
+                💰 ${produto.preco}
+            </p>
+
+
+            <button class="btn btn-primary rounded-pill">
+
+                Comprar Agora
+
+            </button>
+
+        </div>
+
+        `;
 
     });
 
 }
 
+    });
+
+}
 
 
 /* ==========================================================
