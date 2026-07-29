@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "nome": "Smartwatch Ultra 8",
+    "categoria": "Smartwatch",
+    "loja": "Shopee",
+    "preco": 579.90,
+    "precoAntigo": 899.90,
+    "desconto": 35,
+    "avaliacao": 4.8,
+    "imagem": "imagens/produtos/smartwatch.webp"
+  },
+  {
+    "id": 2,
+    "nome": "Fone Bluetooth JBL",
+    "categoria": "Fone",
+    "loja": "Amazon",
+    "preco": 249.90,
+    "precoAntigo": 349.90,
+    "desconto": 28,
+    "avaliacao": 4.6,
+    "imagem": "imagens/produtos/jbl.webp"
+  },
+  {
+    "id": 3,
+    "nome": "Notebook Gamer",
+    "categoria": "Notebook",
+    "loja": "Mercado Livre",
+    "preco": 3999.90,
+    "precoAntigo": 4999.90,
+    "desconto": 20,
+    "avaliacao": 4.9,
+    "imagem": "imagens/produtos/notebook.webp"
+  }
+]

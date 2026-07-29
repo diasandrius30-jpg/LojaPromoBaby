@@ -4,35 +4,53 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Compare ofertas da Shopee, Amazon, Mercado Livre e TikTok Shop em um único lugar.">
+
+    <meta
+        name="author"
+        content="Andrius Lopes">
 
     <title>Loja Promo Baby</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet"
-          href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css">
 
 </head>
 
 <body>
-    
 
 <!-- ==========================================================
      CABEÇALHO
@@ -40,71 +58,120 @@
 
 <header class="bg-white py-3 border-bottom shadow-sm">
 
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+    <div class="container">
 
-        <!-- Logo -->
-        <div class="logo">
+        <div class="row align-items-center gy-3">
 
-            <h1 class="fs-3 fw-bold text-primary m-0">
-                🛒 LOJA PROMO BABY
-            </h1>
+            <!-- LOGO -->
+            <div class="col-lg-3">
 
-            <p class="mb-0">
-                <small>As melhores promoções da internet em um só lugar!</small>
-            </p>
+                <div class="logo">
 
-        </div>
+                    <h1 class="fs-3 fw-bold text-primary m-0">
 
-        <!-- Pesquisa -->
-        <div class="search-box d-flex w-100 mx-md-4" style="max-width:550px;">
+                        🛒 LOJA PROMO BABY
 
-            <input
-                type="text"
-                id="pesquisa"
-                class="form-control rounded-start"
-                placeholder="Pesquise produtos, categorias ou lojas...">
+                    </h1>
 
-            <button
-                id="btnBuscar"
-                class="btn btn-warning px-4 rounded-end text-white fw-bold">
+                    <p class="mb-0">
 
-                Buscar
+                        <small>
+                            As melhores promoções da internet em um só lugar!
+                        </small>
 
-            </button>
+                    </p>
 
-        </div>
+                </div>
 
-        <!-- Ícones -->
-        <div class="icons d-flex align-items-center gap-4">
+            </div>
 
-            <a href="#" class="text-dark text-decoration-none text-center d-flex flex-column align-items-center position-relative">
-                <i class="fa-regular fa-heart icon-menu"></i>
-                <span class="small-text fw-medium">Favoritos</span>
-            </a>
+            <!-- PESQUISA -->
+            <div class="col-lg-6">
 
-            <a href="#" class="text-dark text-decoration-none text-center d-flex flex-column align-items-center position-relative">
+                <div class="search-box d-flex">
 
-                <i class="fa-solid fa-cart-shopping icon-menu"></i>
+                    <input
+                        id="pesquisa"
+                        type="text"
+                        class="form-control rounded-start"
+                        placeholder="Pesquise produtos, categorias ou lojas..."
+                        aria-label="Pesquisar produtos">
 
-               <span class="badge-cart">
-    0
-</span>
+                    <button
+                        id="btnBuscar"
+                        class="btn btn-warning px-4 rounded-end text-white fw-bold"
+                        aria-label="Pesquisar">
 
-                <span class="small-text fw-medium">
-                    Carrinho
-                </span>
+                        Buscar
 
-            </a>
+                    </button>
 
-            <a href="#" class="text-dark text-decoration-none text-center d-flex flex-column align-items-center">
+                </div>
 
-                <i class="fa-regular fa-user icon-menu"></i>
+            </div>
 
-                <span class="small-text fw-medium">
-                    Entrar
-                </span>
+            <!-- ÍCONES -->
+            <div class="col-lg-3">
 
-            </a>
+                <div class="icons d-flex justify-content-lg-end justify-content-center gap-4">
+
+                    <!-- Favoritos -->
+                    <a
+                        href="#"
+                        class="text-dark text-decoration-none text-center">
+
+                        <i class="fa-regular fa-heart icon-menu"></i>
+
+                        <div class="small-text fw-medium">
+
+                            Favoritos
+
+                        </div>
+
+                    </a>
+
+                    <!-- Carrinho -->
+                    <a
+                        href="#"
+                        class="text-dark text-decoration-none text-center position-relative">
+
+                        <i class="fa-solid fa-cart-shopping icon-menu"></i>
+
+                        <span class="badge-cart">
+
+                            0
+
+                        </span>
+
+                        <div class="small-text fw-medium">
+
+                            Carrinho
+
+                        </div>
+
+                    </a>
+
+                    <!-- Login -->
+                    <a
+                        href="#"
+                        id="btnLogin"
+                        class="text-dark text-decoration-none text-center"
+                        data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+
+                        <i class="fa-regular fa-user icon-menu"></i>
+
+                        <div class="small-text fw-medium">
+
+                            Entrar
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -112,14 +179,13 @@
 
 </header>
 
+<!-- ==========================================================
+     RESULTADO DA PESQUISA
+========================================================== -->
 
-<!-- RESULTADO BUSCA -->
-
-<section id="resultadoBusca" class="container my-4">
-
-</section>
-
-<section id="resultadoBusca" class="container my-4">
+<section
+    id="resultadoBusca"
+    class="container my-4">
 
 </section>
 
@@ -127,190 +193,74 @@
      MENU
 ========================================================== -->
 
-<nav class="menu py-2 shadow-sm">
+<nav class="menu shadow-sm">
 
-    <div class="container d-flex flex-wrap gap-4">
+    <div class="container">
 
-        <a href="#"
-           class="text-white text-decoration-none fw-medium active">
+        <div class="d-flex flex-wrap gap-4 py-2">
 
-            <i class="fa-solid fa-house me-1"></i>
+            <a
+                href="#"
+                class="text-white text-decoration-none fw-semibold active">
 
-            Início
+                <i class="fa-solid fa-house me-2"></i>
 
-        </a>
+                Início
 
-        <a href="#"
-           class="text-white text-decoration-none fw-medium">
+            </a>
 
-            <i class="fa-solid fa-tag me-1"></i>
+            <a
+                href="#promocoes"
+                class="text-white text-decoration-none fw-semibold">
 
-            Produtos
+                <i class="fa-solid fa-tag me-2"></i>
 
-        </a>
+                Produtos
 
-        <a href="#"
-           class="text-white text-decoration-none fw-medium">
+            </a>
 
-            <i class="fa-solid fa-folder me-1"></i>
+            <a
+                href="#"
+                class="text-white text-decoration-none fw-semibold">
 
-            Categorias
+                <i class="fa-solid fa-folder me-2"></i>
 
-        </a>
+                Categorias
 
-        <a href="#"
-           class="text-white text-decoration-none fw-medium">
+            </a>
 
-            <i class="fa-solid fa-fire me-1"></i>
+            <a
+                href="#"
+                class="text-white text-decoration-none fw-semibold">
 
-            Ofertas
+                <i class="fa-solid fa-fire me-2"></i>
 
-        </a>
+                Ofertas
 
-        <a href="#contato"
-           class="text-white text-decoration-none fw-medium">
+            </a>
 
-            <i class="fa-solid fa-phone me-1"></i>
+            <a
+                href="#contato"
+                class="text-white text-decoration-none fw-semibold">
 
-            Contato
+                <i class="fa-solid fa-phone me-2"></i>
 
-        </a>
+                Contato
+
+            </a>
+
+        </div>
 
     </div>
 
 </nav>
 
 <!-- ==========================================================
-     HERO
+     CONTEÚDO PRINCIPAL
 ========================================================== -->
 
-<section class="hero-section text-white position-relative overflow-hidden py-5">
-
-    <div class="container">
-
-        <div class="row align-items-center gy-5">
-
-            <!-- TEXTO -->
-
-            <div class="col-lg-6 hero-content">
-
-                <span class="badge bg-warning text-dark mb-3 px-3 py-2 text-uppercase fw-bold">
-
-                    🔥 Super Ofertas
-
-                </span>
-
-                <h1 class="display-4 fw-bold mb-3">
-
-                    Compare ofertas dos maiores marketplaces
-
-                </h1>
-
-                <p class="lead mb-4 text-white-50">
-
-                    Compare ofertas da
-
-                    <span class="text-warning fw-semibold">
-
-                        Shopee
-
-                    </span>,
-
-                    <span class="fw-semibold text-white">
-
-                        Amazon
-
-                    </span>,
-
-                    <span class="text-warning fw-semibold">
-
-                        Mercado Livre
-
-                    </span>
-
-                    e
-
-                    <span class="text-info fw-semibold">
-
-                        TikTok Shop
-
-                    </span>
-
-                    em um único lugar.
-
-                </p>
-
-                <div class="d-flex flex-wrap gap-3 mb-5">
-
-                    <button id="btnPromo"
-                            class="btn btn-success btn-lg rounded-pill px-4 fw-bold shadow">
-
-                        <i class="fa-solid fa-cart-shopping me-2"></i>
-
-                        Ver Promoções
-
-                    </button>
-
-                    <button id="btnSaibaMais"
-                            class="btn btn-light btn-lg rounded-pill px-4 fw-bold text-primary shadow">
-
-                        Saiba Mais
-
-                    </button>
-
-                </div>
-
-                <div class="marketplaces-row d-flex flex-wrap gap-2">
-
-                    <span class="badge-market bg-white text-dark py-2 px-3 rounded shadow-sm">
-
-                        Shopee
-
-                    </span>
-
-                    <span class="badge-market bg-white text-dark py-2 px-3 rounded shadow-sm">
-
-                        Amazon
-
-                    </span>
-
-                    <span class="badge-market bg-white text-dark py-2 px-3 rounded shadow-sm">
-
-                        Mercado Livre
-
-                    </span>
-
-                    <span class="badge-market bg-white text-dark py-2 px-3 rounded shadow-sm">
-
-                        TikTok Shop
-
-                    </span>
-
-                </div>
-
-            </div>
-
-            <!-- IMAGEM -->
-  <div class="col-lg-6 hero-image text-center">
-
-                <img
-                    src="imagens/Marketplace.png"
-                    alt="Comparador Inteligente de Ofertas"
-                    class="img-fluid"
-                    loading="lazy">
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-<!-- ==========================================================
-     PRODUTOS
-========================================================== -->
-
-<section id="promocoes" class="bg-white py-5">
+<main>
+    <section id="promocoes" class="bg-white py-5">
 
     <div class="container">
 
@@ -324,8 +274,7 @@
 
             </h2>
 
-            <a href="#"
-               class="text-primary text-decoration-none fw-semibold">
+            <a href="#" class="text-primary text-decoration-none fw-semibold">
 
                 Ver todos
 
@@ -335,153 +284,134 @@
 
         </div>
 
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+        <div
+            id="listaProdutos"
+            class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
 
-            <!-- PRODUTO 1 -->
+            <!-- Os produtos serão inseridos pelo JavaScript -->
 
-            <div class="col">
+        </div>
 
-                <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
+    </div>
 
-                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">
+</section>
+<!-- ==========================================================
+     CONTATO
+========================================================== -->
 
-                        -35%
+<section id="contato" class="contato">
 
-                    </span>
+    <div class="container">
 
-                    <button class="btn btn-favorite position-absolute top-0 end-0 m-2 p-0 border-0 bg-transparent text-muted">
+        <div class="row justify-content-center">
 
-                        <i class="fa-regular fa-heart"></i>
+            <div class="col-lg-8">
 
-                    </button>
+                <h2 class="text-center mb-3">
 
-                    <div class="text-center py-3 bg-light rounded mb-2">
+                    📩 Entre em Contato
 
-                        <img
-                            src="https://placehold.co/300x300"
-                            class="img-fluid"
-                            alt="Smartwatch Ultra">
+                </h2>
 
-                    </div>
+                <p class="text-center mb-5">
 
-                    <div class="card-body p-1 d-flex flex-column">
+                    Tem alguma dúvida, sugestão ou deseja divulgar seus produtos?
+                    Entre em contato conosco.
 
-                        <span class="badge bg-danger-subtle text-danger align-self-start mb-2">
+                </p>
 
-                            Shopee
+                <form id="formContato">
 
-                        </span>
+                    <div class="row g-3">
 
-                        <h3 class="fs-6 fw-bold text-dark">
+                        <div class="col-md-6">
 
-                            Smartwatch Ultra 8
-
-                        </h3>
-
-                        <div class="text-warning mb-2">
-
-                            ⭐⭐⭐⭐⭐
-                            <span class="text-muted">(4.8)</span>
-
-                        </div>
-
-                        <p class="text-decoration-line-through text-muted mb-0">
-
-                            R$ 899,90
-
-                        </p>
-
-                        <p class="text-success fw-bold fs-5">
-
-                            R$ 579,90
-
-                        </p>
-                       
-                        <button class="btn btn-primary rounded-pill mt-auto btn-comprar">
-
-                            <i class="fa-solid fa-cart-shopping me-1"></i>
-
-                            Comprar Agora
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- PRODUTO 2 -->
-
-            <div class="col">
-
-                <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
-
-                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">
-
-                        -28%
-
-                    </span>
-
-                    <button class="btn btn-favorite position-absolute top-0 end-0 m-2 p-0 border-0 bg-transparent text-muted">
-
-                        <i class="fa-regular fa-heart"></i>
-
-                    </button>
-
-                    <div class="text-center py-3 bg-light rounded mb-2">
-
-                        <img
-                            src="https://placehold.co/300x300"
-                            class="img-fluid"
-                            alt="Fone Bluetooth">
-
-                    </div>
-
-                    <div class="card-body p-1 d-flex flex-column">
-
-                        <span class="badge bg-dark text-white align-self-start mb-2">
-
-                            Amazon
-
-                        </span>
-
-                        <h3 class="fs-6 fw-bold text-dark">
-
-                            Fone Bluetooth JBL
-
-                        </h3>
-
-                        <div class="text-warning mb-2">
-
-                            ⭐⭐⭐⭐⭐
-                            <span class="text-muted">(4.6)</span>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="nome"
+                                placeholder="Nome"
+                                required>
 
                         </div>
 
-                        <p class="text-decoration-line-through text-muted mb-0">
+                        <div class="col-md-6">
 
-                            R$ 349,90
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                placeholder="E-mail"
+                                required>
 
-                        </p>
+                        </div>
 
-                        <p class="text-success fw-bold fs-5">
+                        <div class="col-md-6">
 
-                            R$ 249,90
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="cep"
+                                placeholder="CEP">
 
-                        </p>
+                        </div>
 
-                        <button class="btn btn-primary rounded-pill mt-auto btn-comprar">
+                        <div class="col-md-6">
 
-                            <i class="fa-solid fa-cart-shopping me-1"></i>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="rua"
+                                placeholder="Rua">
 
-                            Comprar Agora
+                        </div>
 
-                        </button>
+                        <div class="col-md-6">
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="cidade"
+                                placeholder="Cidade">
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="estado"
+                                placeholder="Estado">
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <textarea
+                                class="form-control"
+                                id="mensagem"
+                                rows="5"
+                                placeholder="Digite sua mensagem..."
+                                required></textarea>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <button
+                                type="submit"
+                                class="btn btn-warning w-100 fw-bold">
+
+                                Enviar Mensagem
+
+                            </button>
+
+                        </div>
 
                     </div>
 
-                </div>
+                </form>
 
             </div>
 
@@ -491,83 +421,316 @@
 
 </section>
 
-         
-<!-- ==========================
-     CONTATO
-========================== -->
-
-<section id="contato" class="contato">
-
-    <div class="container">
-
-        <h2>📩 Entre em Contato</h2>
-
-        <p>
-            Tem alguma dúvida ou sugestão? 
-            Envie sua mensagem.
-        </p>
-
-        <form id="formContato">
-
-          <!-- Seu formulário permanece exatamente igual -->
-
-        </form>
-
-    </div>
-
-</section>
-
-
-            <!-- ==========================================================
+<!-- ==========================================================
      RODAPÉ
 ========================================================== -->
 
-<footer class="footer">
+<footer class="footer py-5">
 
     <div class="container">
 
-        <h3>
+        <div class="row gy-4">
 
-            🛒 LOJA PROMO BABY
+            <!-- Logo -->
 
-        </h3>
+            <div class="col-lg-4">
 
-        <p>
+                <h3 class="fw-bold">
 
-            Comparador Inteligente de Ofertas.
+                    🛒 LOJA PROMO BABY
 
-        </p>
+                </h3>
 
-        <hr>
+                <p>
 
-        <p>
+                    Comparador Inteligente de Ofertas.
 
-            © 2026 Loja Promo Baby
+                </p>
 
-        </p>
+                <p>
 
-        <p>
+                    Encontre as melhores promoções dos maiores marketplaces do Brasil em um único lugar.
 
-            Desenvolvido por
-            <strong>Andrius Lopes</strong>
+                </p>
 
-        </p>
+            </div>
 
-        <p>
+            <!-- Links -->
 
-            Versão 2.0 • Projeto iniciado em 2026
+            <div class="col-lg-4">
 
-        </p>
+                <h5 class="fw-bold mb-3">
 
-        <p>
+                    Navegação
 
-            HTML • CSS • JavaScript • Bootstrap • GitHub
+                </h5>
 
-        </p>
+                <ul class="list-unstyled">
+
+                    <li>
+
+                        <a href="#"
+                           class="text-decoration-none">
+
+                            Início
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#promocoes"
+                           class="text-decoration-none">
+
+                            Produtos
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#contato"
+                           class="text-decoration-none">
+
+                            Contato
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Tecnologias -->
+
+            <div class="col-lg-4">
+
+                <h5 class="fw-bold mb-3">
+
+                    Tecnologias
+
+                </h5>
+
+                <p>
+
+                    HTML5
+
+                </p>
+
+                <p>
+
+                    CSS3
+
+                </p>
+
+                <p>
+
+                    JavaScript
+
+                </p>
+
+                <p>
+
+                    Bootstrap 5
+
+                </p>
+
+                <p>
+
+                    Git & GitHub
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr class="my-4">
+
+        <div class="text-center">
+
+            <p class="mb-1">
+
+                © 2026 Loja Promo Baby
+
+            </p>
+
+            <p class="mb-1">
+
+                Desenvolvido por <strong>Andrius Lopes</strong>
+
+            </p>
+
+            <p class="mb-0">
+
+                Versão 3.0 • Todos os direitos reservados.
+
+            </p>
+
+        </div>
 
     </div>
 
 </footer>
+<!-- ==========================================================
+     MODAL LOGIN
+========================================================== -->
+
+<div class="modal fade"
+     id="loginModal"
+     tabindex="-1"
+     aria-labelledby="loginModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+
+            <!-- Cabeçalho -->
+
+            <div class="modal-header bg-primary text-white">
+
+                <h5 class="modal-title fw-bold"
+                    id="loginModalLabel">
+
+                    <i class="fa-solid fa-user me-2"></i>
+
+                    Área do Cliente
+
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+            <!-- Corpo -->
+
+            <div class="modal-body p-4">
+
+                <div class="text-center mb-4">
+
+                    <img
+                        src="imagens/banner-login.png"
+                        class="img-fluid rounded-3"
+                        alt="Login">
+
+                </div>
+
+                <!-- Nome -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Nome
+
+                    </label>
+
+                    <input
+                        id="nomeUsuario"
+                        type="text"
+                        class="form-control"
+                        placeholder="Digite seu nome">
+
+                </div>
+
+                <!-- Email -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        E-mail
+
+                    </label>
+
+                    <input
+                        id="emailLogin"
+                        type="email"
+                        class="form-control"
+                        placeholder="Digite seu e-mail">
+
+                </div>
+
+                <!-- Senha -->
+
+                <div class="mb-4">
+
+                    <label class="form-label">
+
+                        Senha
+
+                    </label>
+
+                    <input
+                        id="senhaLogin"
+                        type="password"
+                        class="form-control"
+                        placeholder="Digite sua senha">
+
+                </div>
+
+                <!-- Botões -->
+
+                <div class="d-grid gap-3">
+
+                    <button
+                        id="entrarSistema"
+                        class="btn btn-success fw-bold">
+
+                        <i class="fa-solid fa-right-to-bracket me-2"></i>
+
+                        Entrar
+
+                    </button>
+
+                    <button
+                        id="btnCadastrar"
+                        class="btn btn-primary fw-bold">
+
+                        <i class="fa-solid fa-user-plus me-2"></i>
+
+                        Criar Conta
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Rodapé -->
+
+            <div class="modal-footer justify-content-center">
+
+                <small class="text-muted">
+
+                    Loja Promo Baby © 2026
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+<!-- ==========================================================
+     SCRIPTS
+========================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="js/script.js"></script>
 
