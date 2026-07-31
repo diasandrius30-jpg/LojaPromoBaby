@@ -1,1870 +1,446 @@
 /* ==========================================================
    LOJA PROMO BABY
-   STYLE.CSS v4.0
-
-   PARTE 1/4
-   HEADER + MENU + HERO
-
-   Baseado na referência visual enviada
+   Desenvolvedor: Andrius Lopes
+   Arquivo: style.css
+   Versão: 3.0 (Alinhado com Bootstrap 5 e JS)
 ========================================================== */
 
-
-/* ==========================
-   RESET
-========================== */
-
-* {
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
-}
-
-
-body {
-
-    font-family:'Poppins', sans-serif;
-
-    background:#f5f7fb;
-
-    color:#222;
-
-}
-
-
-
-/* ==========================
-   VARIÁVEIS
-========================== */
-
-
+/* 1. VARIÁVEIS DE AMBIENTE E CORES GLOBAIS
+========================================================== */
 :root {
-
-
-    --azul:#0754d9;
-
-    --azul-dark:#003bb3;
-
-    --laranja:#ff7900;
-
-    --amarelo:#ffd900;
-
-    --verde:#18b900;
-
-    --branco:#ffffff;
-
-    --cinza:#f5f7fb;
-
-    --texto:#222;
-
-
-    --sombra:
-
-    0 5px 20px rgba(0,0,0,.10);
-
-
-    --radius:
-
-    18px;
-
-
+    --blue-primary: #0046c7;
+    --blue-dark: #002c80;
+    --orange-accent: #ff6a00;
+    --orange-hover: #e05d00;
+    --yellow-accent: #ffb700;
+    --green-btn: #00cc44;
+    --green-hover: #00aa38;
+    --text-dark: #212529;
+    --bg-light: #f8f9fa;
 }
 
-
-
-/* ==========================
-   CONTAINER
-========================== */
-
-
-.container {
-
-    width:94%;
-
-    max-width:1400px;
-
-    margin:auto;
-
+/* 2. REGRAS GLOBAIS
+========================================================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
 }
 
+/* 3. TOPO E CABEÇALHO (HEADER)
+========================================================== */
+.search-box .form-control:focus {
+    border-color: var(--blue-primary);
+    box-shadow: 0 0 0 0.25rem rgba(0, 70, 199, 0.15);
+}
+
+/* Customização do Botão de Busca */
+.btn-orange {
+    background-color: var(--orange-accent);
+    border-color: var(--orange-accent);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-orange:hover, 
+.btn-orange:focus {
+    background-color: var(--orange-hover);
+    border-color: var(--orange-hover);
+    color: #ffffff !important;
+}
+
+/* Ícones de Ação no Topo */
 
 
+
+.header-icon-link {
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block;
+}
+
+.header-icon-link:hover {
+    color: var(--blue-primary) !important;
+    transform: translateY(-2px);
+}
+
+/* 4. MENU DE NAVEGAÇÃO HORIZONTAL
+========================================================== */
+.bg-primary-blue {
+    background-color: var(--blue-primary) !important;
+}
+
+.nav-link-custom {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-link-custom:hover, 
+.nav-link-custom.active {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 5. SEÇÃO HERO (BANNER PRINCIPAL COM GRADIENTE)
+========================================================== */
+.hero-section {
+    /* Gradiente diagonal idêntico ao da imagem de referência */
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 60%, var(--orange-accent) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-orange {
+    background-color: var(--orange-accent) !important;
+}
+
+.hero-title {
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.text-light-opacity {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Botão de Promoções (Verde) */
+.btn-success-custom {
+    background-color: var(--green-btn);
+    color: #ffffff;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-success-custom:hover {
+    background-color: var(--green-hover);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Tags das Lojas Parceiras */
+.partner-tags .badge {
+    font-weight: 600;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-transform: capitalize;
+}
+
+.hero-image-placeholder {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+/* 6. VITRINE E CARDS DE PRODUTOS
+========================================================== */
+.product-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: #ffffff;
+    border-radius: 12px !important; /* Cantos arredondados do layout original */
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Botão de Favoritar Interno do Card */
+.wishlist-btn {
+    color: #6c757d;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+.wishlist-btn:hover,
+.wishlist-btn.ativo {
+    color: #dc3545 !important; /* Cor vermelha do Bootstrap para o coração ativo */
+    transform: scale(1.1);
+}
+
+/* Badges específicas dos canais de vendas nos cards */
+.font-size-xs {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Botão de Compra no Card */
+.product-card .buy-btn,
+.product-card .btn-primary {
+    background-color: var(--blue-primary);
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.product-card .buy-btn:hover,
+.product-card .btn-primary:hover {
+    background-color: var(--blue-dark);
+}
+
+/* 7. PÁGINA / ÁREA DO CARRINHO (INTEGRAÇÃO COM O JS)
+========================================================== */
+.item-carrinho {
+    transition: background-color 0.2s ease;
+}
+
+.item-carrinho:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+/* 8. RESPONSIVIDADE (MEDIA QUERIES)
+========================================================== */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .nav-link-custom {
+        width: 100%;
+        justify-content: center;
+    }
+}
 /* ==========================================================
-   HEADER SUPERIOR
+   ESTILOS EXCLUSIVOS DA TELA DE LOGIN PREMIUM
 ========================================================== */
 
-
-.header-top {
-
-
-    background:white;
-
-    padding:22px 0;
-
-
+/* Define o mockup como background cobrindo 100% da tela */
+.login-page-bg {
+    background: url('../img/nova-composicao-banner.png') no-repeat center right;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    background-color: #0243be; /* Fallback caso a imagem demore a carregar */
 }
 
-
-
-.header-content {
-
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:35px;
-
-
+/* Camada escura de proteção opcional para telas mobile lerem melhor o form */
+.login-page-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(2,67,190,0.85) 0%, rgba(2,67,190,0.4) 50%, rgba(255,93,2,0.3) 100%);
+    z-index: 1;
 }
 
-
-
-/* ==========================
-   LOGO
-========================== */
-
-
-.logo {
-
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    text-decoration:none;
-
+/* Customização dos inputs transparentes do formulário */
+.login-input {
+    color: #ffffff !important;
+    border-radius: 0 6px 6px 0 !important;
+}
+.login-input:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: #ff5e03 !important;
+    box-shadow: none !important;
 }
 
-
-
-.logo-icon {
-
-
-    font-size:40px;
-
+.input-group-text {
+    border-radius: 6px 0 0 6px !important;
 }
 
-
-
-.logo-text {
-
-
-    font-size:32px;
-
-    font-weight:800;
-
-    letter-spacing:-1px;
-
-
+/* Botões laranjas idênticos aos da imagem */
+.btn-orange-main {
+    background-color: #ff5e03 !important;
+    color: #ffffff !important;
+    border: none !important;
+    transition: background-color 0.2s ease-in-out;
+}
+.btn-orange-main:hover {
+    background-color: #e04f00 !important;
 }
 
-
-
-.logo-text .loja {
-
-    color:var(--azul);
-
+.hover-underline:hover {
+    text-decoration: underline !important;
 }
 
-
-
-.logo-text .promo {
-
-    color:var(--laranja);
-
+/* Responsividade para o plano de fundo em telas pequenas */
+@media (max-width: 767.98px) {
+    .login-page-bg {
+        background-position: center center;
+    }
+    .dynamic-login-box {
+        background-color: rgba(2, 67, 190, 0.95);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+}
+/* 1. TOPO (Header): Alinhamento e Distribuição */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: #ffffff;
+  font-family: sans-serif;
 }
 
-
-
-.logo-text .baby {
-
-    color:var(--azul);
-
+.logo-container {
+  display: flex;
+  flex-direction: column;
 }
 
-
-
-.logo-sub {
-
-
-    display:block;
-
-    font-size:13px;
-
-    color:#555;
-
-    margin-top:5px;
-
-
+/* Barra de Busca */
+.busca-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 500px;
+  margin: 0 20px;
 }
 
-
-
-/* ==========================================================
-   PESQUISA
-========================================================== */
-
-
-.search-area {
-
-
-    flex:1;
-
-    max-width:600px;
-
+.busca-container input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
 }
 
-
-
-.search-box {
-
-
-    display:flex;
-
-    background:white;
-
-    border:1px solid #ddd;
-
-    border-radius:12px;
-
-    overflow:hidden;
-
-    height:48px;
-
-
+.busca-container button {
+  background-color: #ff9100; /* Laranja idêntico ao botão Buscar */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-
-
-.search-box input {
-
-
-    flex:1;
-
-    border:none;
-
-    outline:none;
-
-    padding:0 20px;
-
-    font-size:15px;
-
-
-}
-
-
-
-.search-box button {
-
-
-    width:100px;
-
-    border:none;
-
-    background:var(--laranja);
-
-    color:white;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-
-}
-
-
-
-.search-box button:hover {
-
-
-    background:#e86d00;
-
-
-}
-
-
-
-/* ==========================================================
-   AÇÕES HEADER
-========================================================== */
-
-
+/* Ícones da Direita (Favoritos, Carrinho, Entrar) */
 .header-actions {
-
-
-    display:flex;
-
-    gap:30px;
-
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
-
-
-.header-action {
-
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    color:#222;
-
-    text-decoration:none;
-
-    font-size:14px;
-
-    font-weight:600;
-
-
+/* 2. MENU DE NAVEGAÇÃO: Corrigindo o sumiço dos links */
+nav {
+  background-color: #0056ff; /* Azul royal do menu */
+  display: flex;
+  gap: 25px;
+  padding: 12px 5%;
 }
 
-
-
-.header-action i {
-
-
-    font-size:28px;
-
-    margin-bottom:5px;
-
-
+nav a {
+  color: #ffffff !important; /* Força o texto a ficar branco */
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço para os ícones */
 }
 
-
-
-.header-action:hover {
-
-
-    color:var(--azul);
-
-
-}
-
-
-
-/* Carrinho contador */
-
-
-.cart-count {
-
-
-    position:absolute;
-
-    background:#ff3b30;
-
-    color:white;
-
-    width:20px;
-
-    height:20px;
-
-    border-radius:50%;
-
-    font-size:12px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-
-}
-
-
-
-/* ==========================================================
-   MENU AZUL
-========================================================== */
-
-
-.menu {
-
-
-    background:
-
-    linear-gradient(
-
-    90deg,
-
-    var(--azul-dark),
-
-    var(--azul)
-
-    );
-
-
-}
-
-
-
-.menu ul {
-
-
-    display:flex;
-
-    align-items:center;
-
-    list-style:none;
-
-    height:55px;
-
-    gap:40px;
-
-
-}
-
-
-
-.menu a {
-
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    padding:18px 5px;
-
-    position:relative;
-
-
-}
-
-
-
-.menu a.active::after {
-
-
-    content:"";
-
-    position:absolute;
-
-    bottom:0;
-
-    left:0;
-
-    width:100%;
-
-    height:4px;
-
-    background:var(--laranja);
-
-
-}
-
-
-
-/* ==========================================================
-   HERO
-========================================================== */
-
-
-.hero {
-
-
-    padding:15px 0 25px;
-
-
-}
-
-
-
+/* 3. BANNER PRINCIPAL (Hero Section) */
 .hero-banner {
-
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    box-shadow:var(--sombra);
-
-
+  background: linear-gradient(135deg, #003699 0%, #002266 100%); /* Gradiente azul escuro */
+  color: #ffffff;
+  padding: 60px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
 }
-
-
-
-.hero-banner img {
-
-
-    width:100%;
-
-    display:block;
-
-
-}
-
-
-
-/* caso tenha texto sobreposto */
-
 
 .hero-content {
-
-
-    position:absolute;
-
-}
-
-
-
-.btn-oferta {
-
-
-    background:#22c55e;
-
-    color:white;
-
-    padding:15px 35px;
-
-    border-radius:12px;
-
-    border:none;
-
-    font-size:17px;
-
-    font-weight:700;
-
-
-}
-
-
-
-.btn-info {
-
-
-    background:white;
-
-    color:var(--azul);
-
-    padding:15px 35px;
-
-    border-radius:12px;
-
-    font-weight:700;
-
-
-}
-
-/* ==========================================================
-   FIM PARTE 1/4
-========================================================== *
-
-/* ==========================================================
-   SEÇÃO DE PRODUTOS
-========================================================== */
-
-
-.produtos {
-
-
-    padding:50px 0;
-
-
-}
-
-
-
-.produtos h2 {
-
-
-    text-align:center;
-
-
-    font-size:32px;
-
-
-    color:var(--dark);
-
-
-    margin-bottom:35px;
-
-
-}
-
-
-
-.produtos h2 span {
-
-
-    color:var(--primary);
-
-
-}
-
-
-
-/* ==========================================================
-   GRID DE PRODUTOS
-========================================================== */
-
-
-.produtos-grid {
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-
-    repeat(4,1fr);
-
-
-    gap:25px;
-
-
-}
-
-
-
-/* ==========================================================
-   CARD DO PRODUTO
-========================================================== */
-
-
-.produto-card {
-
-
-    background:
-
-    var(--white);
-
-
-    border-radius:
-
-    var(--radius);
-
-
-    padding:18px;
-
-
-    box-shadow:
-
-    var(--shadow);
-
-
-    position:relative;
-
-
-    overflow:hidden;
-
-
-    transition:.35s;
-
-
-}
-
-
-
-.produto-card:hover {
-
-
-    transform:
-
-    translateY(-8px);
-
-
-    box-shadow:
-
-    0 15px 35px rgba(0,0,0,.15);
-
-
-}
-
-
-
-/* ==========================================================
-   IMAGEM DO PRODUTO
-========================================================== */
-
-
-.produto-card img {
-
-
-    width:100%;
-
-
-    height:220px;
-
-
-    object-fit:contain;
-
-
-    border-radius:15px;
-
-
-    background:#fafafa;
-
-
-}
-
-
-
-/* ==========================================================
-   SELO DE DESCONTO
-========================================================== */
-
-
-.desconto {
-
-
-    position:absolute;
-
-
-    top:15px;
-
-
-    left:15px;
-
-
-    background:
-
-    var(--primary);
-
-
-    color:white;
-
-
-    padding:
-
-    7px 12px;
-
-
-    border-radius:20px;
-
-
-    font-size:13px;
-
-
-    font-weight:bold;
-
-
-}
-
-
-
-/* ==========================================================
-   FAVORITO
-========================================================== */
-
-
-.favorito {
-
-
-    position:absolute;
-
-
-    top:15px;
-
-
-    right:15px;
-
-
-    width:38px;
-
-
-    height:38px;
-
-
-    border-radius:50%;
-
-
-    background:white;
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    cursor:pointer;
-
-
-    box-shadow:
-
-    0 4px 10px rgba(0,0,0,.15);
-
-
-}
-
-
-
-.favorito i {
-
-
-    color:#aaa;
-
-
-    font-size:20px;
-
-
-    transition:.3s;
-
-
-}
-
-
-
-.favorito:hover i {
-
-
-    color:#ff0000;
-
-
-}
-
-
-
-/* ==========================================================
-   INFORMAÇÕES DO PRODUTO
-========================================================== */
-
-
-.produto-card h3 {
-
-
-    margin-top:18px;
-
-
-    font-size:17px;
-
-
-    min-height:50px;
-
-
-    color:#333;
-
-
-    line-height:1.4;
-
-
-}
-
-
-
-.avaliacao {
-
-
-    margin:
-
-    10px 0;
-
-
-    color:#ffc107;
-
-
-    font-size:15px;
-
-
-}
-
-
-
-.avaliacao span {
-
-
-    color:#777;
-
-
-    font-size:13px;
-
-
-}
-
-
-
-/* ==========================================================
-   PREÇOS
-========================================================== */
-
-
-.preco-antigo {
-
-
-    color:#999;
-
-
-    text-decoration:
-
-    line-through;
-
-
-    font-size:14px;
-
-
-}
-
-
-
-.preco {
-
-
-    font-size:28px;
-
-
-    font-weight:700;
-
-
-    color:
-
-    var(--primary);
-
-
-    margin:
-
-    5px 0;
-
-
-}
-
-
-
-.preco small {
-
-
-    font-size:16px;
-
-
-}
-
-
-
-.parcelamento {
-
-
-    font-size:13px;
-
-
-    color:
-
-    var(--success);
-
-
-    font-weight:500;
-
-
-}
-
-
-
-/* ==========================================================
-   FRETE
-========================================================== */
-
-
-.frete {
-
-
-    margin-top:12px;
-
-
-    color:
-
-    var(--success);
-
-
-    font-size:14px;
-
-
-    font-weight:600;
-
-
-}
-
-
-
-/* ==========================================================
-   BOTÃO COMPRAR
-========================================================== */
-
-
-.btn-comprar {
-
-
-    width:100%;
-
-
-    margin-top:18px;
-
-
-    padding:
-
-    13px;
-
-
-    border:none;
-
-
-    border-radius:30px;
-
-
-    background:
-
-    var(--secondary);
-
-
-    color:white;
-
-
-    font-size:16px;
-
-
-    font-weight:bold;
-
-
-    cursor:pointer;
-
-
-    transition:.3s;
-
-
-}
-
-
-
-.btn-comprar:hover {
-
-
-    background:#228be6;
-
-
-    transform:
-
-    scale(1.03);
-
-
-}
-
-
-
-/* ==========================================================
-   BOTÃO PROMOÇÃO
-========================================================== */
-
-
-.btn-promo {
-
-
-    background:
-
-    var(--success);
-
-
-}
-
-
-
-.btn-promo:hover {
-
-
-    background:#12b886;
-
-
-}
-
-
-
-/* ==========================================================
-   TAG MARKETPLACE
-========================================================== */
-
-
-.marketplace {
-
-
-    display:flex;
-
-
-    gap:8px;
-
-
-    margin-top:12px;
-
-
-    align-items:center;
-
-
-}
-
-
-
-.marketplace img {
-
-
-    width:25px;
-
-
-    height:25px;
-
-
-}
-
-
-
-/* ==========================================================
-   PRODUTO DESTAQUE
-========================================================== */
-
-
-.produto-destaque {
-
-
-    border:
-
-    3px solid var(--warning);
-
-
-}
-
-
-
-/* ==========================================================
-   FIM PARTE 2/4
-
-========================================================== */
-/* ==========================================================
-   ÁREA CARRINHO
-========================================================== */
-
-
-.carrinho {
-
-
-    padding:50px 0;
-
-
-}
-
-
-
-.carrinho-container {
-
-
-    background:white;
-
-
-    border-radius:
-
-    var(--radius);
-
-
-    padding:30px;
-
-
-    box-shadow:
-
-    var(--shadow);
-
-
-}
-
-
-
-.carrinho h2 {
-
-
-    text-align:center;
-
-
-    margin-bottom:30px;
-
-
-    color:
-
-    var(--dark);
-
-
-}
-
-
-
-/* Item carrinho */
-
-
-.item-carrinho {
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    justify-content:space-between;
-
-
-    gap:20px;
-
-
-    padding:15px;
-
-
-    border-bottom:
-
-    1px solid #eee;
-
-
-}
-
-
-
-.item-carrinho img {
-
-
-    width:80px;
-
-
-    height:80px;
-
-
-    object-fit:contain;
-
-
-    border-radius:12px;
-
-
-}
-
-
-
-/* Nome produto */
-
-
-.item-info {
-
-
-    flex:1;
-
-
-}
-
-
-
-.item-info h3 {
-
-
-    font-size:16px;
-
-
-}
-
-
-
-.item-info p {
-
-
-    color:
-
-    var(--primary);
-
-
-    font-weight:bold;
-
-
-}
-
-
-
-/* Quantidade */
-
-
-.quantidade {
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    gap:10px;
-
-
-}
-
-
-
-.quantidade button {
-
-
-    width:32px;
-
-
-    height:32px;
-
-
-    border:none;
-
-
-    border-radius:50%;
-
-
-    background:
-
-    var(--secondary);
-
-
-    color:white;
-
-
-    cursor:pointer;
-
-
-}
-
-
-
-/* Remover */
-
-
-.remover {
-
-
-    color:#ff0000;
-
-
-    cursor:pointer;
-
-
-    font-size:20px;
-
-
-}
-
-
-
-/* Total */
-
-
-.total-carrinho {
-
-
-    margin-top:25px;
-
-
-    text-align:right;
-
-
-    font-size:25px;
-
-
-    font-weight:bold;
-
-
-    color:
-
-    var(--primary);
-
-
-}
-
-
-
-/* ==========================================================
-   FAVORITOS
-========================================================== */
-
-
-.favoritos {
-
-
-    padding:50px 0;
-
-
-}
-
-
-
-.favoritos-box {
-
-
-    background:white;
-
-
-    padding:30px;
-
-
-    border-radius:
-
-    var(--radius);
-
-
-    box-shadow:
-
-    var(--shadow);
-
-
-}
-
-
-
-.favoritos-box h2 {
-
-
-    text-align:center;
-
-
-    margin-bottom:25px;
-
-
-}
-
-
-
-/* Lista favoritos */
-
-
-.lista-favoritos {
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-    repeat(3,1fr);
-
-
-    gap:20px;
-
-
-}
-
-
-
-.favorito-item {
-
-
-    background:#fafafa;
-
-
-    padding:20px;
-
-
-    border-radius:15px;
-
-
-    text-align:center;
-
-
-}
-
-
-
-.favorito-item i {
-
-
-    color:red;
-
-
-    font-size:25px;
-
-
-}
-
-
-
-/* ==========================================================
-   CONTATO
-========================================================== */
-
-
-.contato {
-
-
-    padding:60px 0;
-
-
-}
-
-
-
-.contato-container {
-
-
-    background:white;
-
-
-    padding:40px;
-
-
-    border-radius:
-
-    25px;
-
-
-    box-shadow:
-
-    var(--shadow);
-
-
-}
-
-
-
-.contato h2 {
-
-
-    text-align:center;
-
-
-    color:
-
-    var(--dark);
-
-
-    margin-bottom:30px;
-
-
-}
-
-
-
-.form-group {
-
-
-    margin-bottom:20px;
-
-
-}
-
-
-
-.form-group input,
-
-.form-group textarea {
-
-
-    width:100%;
-
-
-    padding:15px;
-
-
-    border:
-
-    1px solid #ddd;
-
-
-    border-radius:12px;
-
-
-    outline:none;
-
-
-    font-family:inherit;
-
-
-}
-
-
-
-.form-group textarea {
-
-
-    height:120px;
-
-
-    resize:none;
-
-
+  max-width: 50%;
 }
-
-
-
-/* Botão enviar */
-
-
-.btn-enviar {
-
-
-    width:100%;
-
-
-    padding:15px;
-
-
-    border:none;
-
-
-    border-radius:30px;
-
-
-    background:
 
-    var(--primary);
-
-
-    color:white;
-
-
-    font-size:17px;
-
-
-    font-weight:bold;
-
-
-    cursor:pointer;
-
-
-    transition:.3s;
-
-
+/* Botões do Banner */
+.btn-verde {
+  background-color: #00b33c;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
-
-
-
-.btn-enviar:hover {
-
 
-    background:#fa5252;
-
-
+.btn-saiba-mais {
+  background-color: #ffffff;
+  color: #003699;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  margin-left: 15px;
+  cursor: pointer;
 }
-
-
-
-/* ==========================================================
-   CTA FINAL
-========================================================== */
-
-
-.cta {
-
-
-    background:
-
-
-    linear-gradient(
-
-    135deg,
-
-    var(--secondary),
-
-    var(--purple)
-
-    );
-
-
-    padding:50px 20px;
-
-
-    text-align:center;
-
-
-    color:white;
-
-
+/* --- Cores do Título da Logo --- */
+.logo-container h1 {
+  font-size: 32px; /* Aumentado para dar destaque igual ao modelo */
+  font-weight: 800;
+  margin-bottom: 5px;
 }
-
 
-
-.cta h2 {
-
-
-    font-size:35px;
-
-
+.cor-azul {
+  color: #003fa4; /* Azul escuro principal */
 }
-
-
-
-.cta p {
 
-
-    margin:15px 0;
-
-
-    font-size:18px;
-
-
+.cor-laranja {
+  color: #ffae00; /* Laranja promocional */
 }
-
-
-
-.cta a {
-
-
-    display:inline-block;
-
-
-    background:white;
-
-
-    color:
-
-    var(--purple);
-
 
-    padding:
 
-    14px 35px;
-
-
-    border-radius:30px;
-
-
-    text-decoration:none;
-
-
-    font-weight:bold;
-
-
+/* --- Alinhamento Lado a Lado do Menu --- */
+.menu {
+  background-color: #015eff; /* Azul royal do fundo */
+  width: 100%;
 }
-
-
-
-/* ==========================================================
-   FOOTER
-========================================================== */
-
-
-.footer {
-
-
-    background:#222;
-
 
-    color:white;
-
-
-    padding:40px 0;
-
-
-    text-align:center;
-
-
+.container-nav {
+  display: flex;
+  flex-direction: row; /* Força os elementos a ficarem em linha */
+  justify-content: flex-start; /* Alinha o menu no início (à esquerda) */
+  gap: 30px; /* Espaçamento horizontal entre os links */
+  padding: 12px 5%;
 }
-
-
 
-.footer h3 {
-
-
-    font-size:25px;
-
-
-    margin-bottom:15px;
-
-
+.nav-link {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre o emoji e o texto */
+  white-space: nowrap; /* Evita que o texto quebre em duas linhas */
 }
-
-
-
-.footer p {
-
-
-    color:#ccc;
-
-
-    margin:8px;
-
-
+/* Estilo base da tag de marca abaixo da foto */
+.badge-marca {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
-
-
-
-.footer hr {
-
-
-    border:
-
-    0;
-
-
-    height:1px;
-
 
-    background:#444;
-
-
-    margin:25px 0;
-
-
+/* Cores de fundo personalizadas das lojas */
+.shopee {
+  background-color: #ffebd7;
+  color: #ff5722;
 }
-
-
-
-/* Redes sociais */
-
 
-.social-links {
-
-
-    margin-top:20px;
-
-
+.amazon {
+  background-color: #111111;
+  color: #ff9900;
 }
-
-
-
-.social-links a {
-
 
-    display:inline-flex;
-
-
-    width:40px;
-
-
-    height:40px;
-
-
-    border-radius:50%;
-
-
-    align-items:center;
-
-
-    justify-content:center;
-
-
-    background:
-
-    var(--primary);
-
-
-    color:white;
-
-
-    margin:5px;
-
-
-    text-decoration:none;
-
-
-    transition:.3s;
-
-
+.mercadolivre {
+  background-color: #fff159;
+  color: #333333;
 }
-
 
-
-.social-links a:hover {
-
-
-    transform:
-
-    translateY(-5px);
-
-
+.tiktok {
+  background-color: #010101;
+  color: #ffffff;
 }
-
-
-

@@ -1,587 +1,224 @@
 /* ==========================================================
    LOJA PROMO BABY
    Desenvolvedor: Andrius Lopes
-
-   Arquivo:
-   script.js
-
-   Versão:
-   3.0
-
-   Projeto:
-   Comparador Inteligente de Ofertas
-
+   Arquivo: js/script.js
+   Versão: 3.0 (Integração HTML + CSS v3.0 + ViaCEP)
 ========================================================== */
 
+document.addEventListener('DOMContentLoaded', () => {
 
-/* ==========================================================
-   ELEMENTOS DO DOM
-========================================================== */
+    // ==========================================================
+    // 1. CONTADOR DO CARRINHO DE COMPRAS
+    // ==========================================================
+    let totalCarrinho = 0;
+    const badgeCart = document.querySelector('.badge-cart');
 
-const campoPesquisa =
-document.getElementById("pesquisa");
+    // Seleciona tanto os botões com a classe genérica quanto os de estilo Bootstrap do seu CSS
+    const botoesComprar = document.querySelectorAll('.btn-comprar, .product-card .btn-primary, .buy-btn');
 
-const cardsProdutos =
-document.querySelectorAll(".produto");
+    botoesComprar.forEach(botao => {
+        botao.addEventListener('click', (event) => {
+            event.preventDefault();
+            totalCarrinho++;
+            
+            if (badgeCart) {
+                badgeCart.textContent = totalCarrinho;
+                
+                // Animação simples de pulse no badge do carrinho
+                badgeCart.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    badgeCart.style.transform = 'scale(1)';
+                }, 200);
+            }
 
-const badgeCarrinho =
-document.querySelector(".badge-cart");
-
-const formulario =
-document.getElementById("formContato");
-
-const btnLogin =
-document.getElementById("btnLogin");
-
-const btnCadastrar =
-document.getElementById("btnCadastrar");
-
-const btnEntrar =
-document.getElementById("entrarSistema");
-
-
-/* ==========================================================
-   ESTADO DA APLICAÇÃO
-========================================================== */
-
-let carrinho =
-Number(localStorage.getItem("carrinho")) || 0;
-
-
-/* ==========================================================
-   UTILITÁRIOS
-========================================================== */
-
-function mostrarMensagem(texto){
-
-    alert(texto);
-
-}
-
-
-function salvarLocal(chave,valor){
-
-    localStorage.setItem(
-
-        chave,
-
-        JSON.stringify(valor)
-
-    );
-
-}
-
-
-function lerLocal(chave){
-
-    return JSON.parse(
-
-        localStorage.getItem(chave)
-
-    );
-
-}
-
-
-/* ==========================================================
-   PESQUISA DE PRODUTOS
-========================================================== */
-
-function pesquisarProdutos(){
-
-    if(!campoPesquisa) return;
-
-    const texto =
-    campoPesquisa.value
-    .toLowerCase()
-    .trim();
-
-    cardsProdutos.forEach(produto=>{
-
-        const nome =
-        produto.dataset.nome.toLowerCase();
-
-        const categoria =
-        produto.dataset.categoria.toLowerCase();
-
-        const loja =
-        produto.dataset.loja.toLowerCase();
-
-        const encontrado =
-
-            nome.includes(texto) ||
-
-            categoria.includes(texto) ||
-
-            loja.includes(texto);
-
-        produto.style.display =
-
-            encontrado
-
-            ? ""
-
-            : "none";
-
+            // Exibe mensagem de feedback rápido (opcional/pode remover se usar tela própria)
+            alert('Produto adicionado ao seu carrinho!');
+        });
     });
 
-}
+    // ==========================================================
+    // 2. TOGGLE DE FAVORITOS (CORAÇÃO DENTRO DOS CARDS E CABEÇALHO)
+    // ==========================================================
+    // Suporta tanto .wishlist-btn quanto .btn-favorite
+    const botoesFavorito = document.querySelectorAll('.wishlist-btn, .btn-favorite');
 
+    botoesFavorito.forEach(botao => {
+        botao.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            // Ativa/Desativa classe do CSS
+            botao.classList.toggle('ativo');
 
-if(campoPesquisa){
-
-    campoPesquisa.addEventListener(
-
-        "input",
-
-        pesquisarProdutos
-
-    );
-
-}
-
-
-/* ==========================================================
-   ATUALIZA BADGE DO CARRINHO
-========================================================== */
-
-function atualizarBadgeCarrinho(){
-
-    if(badgeCarrinho){
-
-        badgeCarrinho.textContent =
-        carrinho;
-
-    }
-
-}
-
-atualizarBadgeCarrinho();
-// =======================================
-// FAVORITOS ❤️
-// =======================================
-
-
-// Recupera favoritos salvos
-let favoritos = JSON.parse(
-    localStorage.getItem("favoritos")
-) || [];
-
-
-// Seleciona todos os botões favoritos
-const botoesFavoritos = document.querySelectorAll(".btn-favorito");
-
-
-// Evento de clique
-botoesFavoritos.forEach((botao) => {
-
-
-    const idProduto = botao.dataset.id;
-
-
-    // Verifica se já está salvo
-    if(favoritos.includes(idProduto)){
-
-        botao.classList.add("ativo");
-
-    }
-
-
-
-    botao.addEventListener("click",()=>{
-
-
-        if(favoritos.includes(idProduto)){
-
-
-            // Remove dos favoritos
-            favoritos = favoritos.filter(
-                id => id !== idProduto
-            );
-
-
-            botao.classList.remove("ativo");
-
-
-
-        }else{
-
-
-            // Adiciona favorito
-            favoritos.push(idProduto);
-
-
-            botao.classList.add("ativo");
-
-
-        }
-
-
-
-        // Salva no navegador
-        localStorage.setItem(
-            "favoritos",
-            JSON.stringify(favoritos)
-        );
-
-
-
+            const icone = botao.querySelector('i');
+            if (icone) {
+                if (icone.classList.contains('fa-regular')) {
+                    icone.classList.remove('fa-regular');
+                    icone.classList.add('fa-solid');
+                    icone.classList.add('text-danger');
+                } else {
+                    icone.classList.remove('fa-solid', 'text-danger');
+                    icone.classList.add('fa-regular');
+                }
+            }
+        });
     });
 
+    // ==========================================================
+    // 3. BARRA DE PESQUISA INTELIGENTE (FILTRO EM TEMPO REAL)
+    // ==========================================================
+    const inputPesquisa = document.getElementById('pesquisa');
+    const btnBuscar = document.getElementById('btnBuscar');
+    const produtos = document.querySelectorAll('.produto');
 
+    function executarBusca() {
+        if (!inputPesquisa) return;
 
-});
+        const termo = inputPesquisa.value.toLowerCase().trim();
 
-// =======================================
-// CARRINHO 🛒
-// =======================================
+        produtos.forEach(produto => {
+            // Busca dados do atributo data-* ou do texto visível do card
+            const nome = (produto.dataset.nome || produto.innerText || '').toLowerCase();
+            const categoria = (produto.dataset.categoria || '').toLowerCase();
+            const loja = (produto.dataset.loja || '').toLowerCase();
 
-
-
-// Recupera carrinho salvo
-let carrinho = JSON.parse(
-    localStorage.getItem("carrinho")
-) || [];
-
-
-
-
-// Atualiza contador do carrinho
-
-function atualizarCarrinho(){
-
-
-    const contador = document.querySelector(
-        ".badge-cart"
-    );
-
-
-    if(contador){
-
-
-        contador.textContent =
-        carrinho.length;
-
-
+            if (nome.includes(termo) || categoria.includes(termo) || loja.includes(termo)) {
+                produto.style.display = '';
+            } else {
+                produto.style.display = 'none';
+            }
+        });
     }
 
+    if (btnBuscar) {
+        btnBuscar.addEventListener('click', (e) => {
+            e.preventDefault();
+            executarBusca();
+        });
+    }
 
-}
+    if (inputPesquisa) {
+        inputPesquisa.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                executarBusca();
+            }
+        });
+    }
 
+    // ==========================================================
+    // 4. SCROLL SUAVE PARA BOTAO DE PROMOÇÕES E SAIBA MAIS
+    // ==========================================================
+    const btnPromo = document.getElementById('btnPromo');
+    const btnSaibaMais = document.getElementById('btnSaibaMais');
+    const secaoPromocoes = document.getElementById('promocoes');
+    const secaoContato = document.getElementById('contato');
 
+    if (btnPromo && secaoPromocoes) {
+        btnPromo.addEventListener('click', () => {
+            secaoPromocoes.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 
-// Executa ao carregar página
+    if (btnSaibaMais && secaoContato) {
+        btnSaibaMais.addEventListener('click', () => {
+            secaoContato.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 
-atualizarCarrinho();
+    // ==========================================================
+    // 5. INJEÇÃO DO FORMULÁRIO DE CONTATO COM API VIACEP
+    // ==========================================================
+    const formContato = document.getElementById('formContato');
 
+    if (formContato && formContato.children.length === 0) {
+        formContato.innerHTML = `
+            <div class="row g-3 text-start">
+                <div class="col-md-6">
+                    <label for="nome" class="form-label fw-bold">Nome Completo</label>
+                    <input type="text" class="form-control" id="nome" required placeholder="Digite seu nome">
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label fw-bold">E-mail</label>
+                    <input type="email" class="form-control" id="email" required placeholder="seu@email.com">
+                </div>
+                <div class="col-md-4">
+                    <label for="cep" class="form-label fw-bold">CEP</label>
+                    <input type="text" class="form-control" id="cep" maxlength="8" placeholder="Digite apenas números">
+                </div>
+                <div class="col-md-8">
+                    <label for="endereco" class="form-label fw-bold">Endereço (ViaCEP)</label>
+                    <input type="text" class="form-control" id="endereco" readonly placeholder="Preenchido automaticamente pelo CEP">
+                </div>
+                <div class="col-12">
+                    <label for="mensagem" class="form-label fw-bold">Mensagem</label>
+                    <textarea class="form-control" id="mensagem" rows="3" required placeholder="Como podemos te ajudar?"></textarea>
+                </div>
+                <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-warning btn-orange text-white fw-bold px-5 py-2 rounded-pill">
+                        <i class="fa-solid fa-paper-plane me-2"></i>Enviar Mensagem
+                    </button>
+                </div>
+            </div>
+            <div id="feedbackContato" class="mt-3"></div>
+        `;
+    }
 
+    // Requisição Fetch da API ViaCEP
+    const inputCep = document.getElementById('cep');
+    const inputEndereco = document.getElementById('endereco');
 
+    if (inputCep && inputEndereco) {
+        inputCep.addEventListener('blur', async () => {
+            const cepLimpo = inputCep.value.replace(/\D/g, ''); // Garante só números
 
+            if (cepLimpo.length === 8) {
+                inputEndereco.value = 'Buscando endereço...';
+                
+                try {
+                    const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+                    const data = await response.json();
 
+                    if (data.erro) {
+                        inputEndereco.value = 'CEP não encontrado.';
+                    } else {
+                        inputEndereco.value = `${data.logradouro}, ${data.bairro} - ${data.localidade}/${data.uf}`;
+                    }
+                } catch (error) {
+                    inputEndereco.value = 'Erro ao consultar o CEP.';
+                }
+            } else if (cepLimpo.length > 0) {
+                inputEndereco.value = 'CEP inválido (deve conter 8 dígitos).';
+            }
+        });
+    }
 
-// =======================================
-// ADICIONAR PRODUTO AO CARRINHO
-// =======================================
+    // Submissão do Formulário de Contato com Agradecimento
+    if (formContato) {
+        formContato.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const feedback = document.getElementById('feedbackContato');
+            const nomeUser = document.getElementById('nome').value;
 
+            if (feedback) {
+                feedback.className = 'alert alert-success mt-3 shadow-sm';
+                feedback.innerHTML = `<strong>Obrigado, ${nomeUser}!</strong> Sua mensagem foi enviada com sucesso. Em breve retornaremos o contato.`;
+            }
 
-const botoesComprar =
-document.querySelectorAll(".btn-comprar");
+            formContato.reset();
+        });
+    }
 
+    // ==========================================================
+    // 6. GESTÃO DO MODAL DE LOGIN
+    // ==========================================================
+    const btnLogin = document.getElementById('btnLogin');
+    const modalElement = document.getElementById('loginModal');
 
-
-
-botoesComprar.forEach((botao)=>{
-
-
-    botao.addEventListener("click",()=>{
-
-
-        const produto =
-        botao.closest(".produto");
-
-
-
-        const item = {
-
-
-            id:
-            produto.dataset.id,
-
-
-            nome:
-            produto.querySelector(".nome-produto").textContent,
-
-
-           preco:
-produto.querySelector(".preco").textContent,
-
-
-valor:
-Number(
-produto.querySelector(".preco")
-.dataset.valor
-),
-
-            quantidade:1
-
-
-        };
-
-
-
-        carrinho.push(item);
-
-
-
-        salvarCarrinho();
-
-
-
-        atualizarCarrinho();
-
-
-
-        alert(
-            "Produto adicionado ao carrinho!"
-        );
-
-
-
-    });
-
-
-
+    if (btnLogin && modalElement) {
+        btnLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Utiliza a API do Bootstrap 5 para abrir o modal
+            const modalInstance = new bootstrap.Modal(modalElement);
+            modalInstance.show();
+        });
+    }
 });
-
-
-
-
-
-// =======================================
-// SALVAR CARRINHO
-// =======================================
-
-
-function salvarCarrinho(){
-
-
-    localStorage.setItem(
-
-        "carrinho",
-
-        JSON.stringify(carrinho)
-
-    );
-
-
-}
-
-
-
-
-
-
-// =======================================
-// REMOVER PRODUTO
-// ESTRUTURA PREPARADA
-// =======================================
-
-
-function removerProduto(id){
-
-
-    carrinho =
-    carrinho.filter(
-        produto =>
-        produto.id !== id
-    );
-
-
-    salvarCarrinho();
-
-
-    atualizarCarrinho();
-
-
-
-}
-
-
-
-
-console.log(
-"Loja Promo Baby carregada com sucesso!"
-);
-// =======================================
-// PÁGINA DO CARRINHO
-// =======================================
-
-
-const listaCarrinho =
-document.querySelector("#listaCarrinho");
-
-
-
-const totalCompra =
-document.querySelector("#totalCompra");
-
-
-
-
-
-function carregarCarrinho(){
-
-
-if(!listaCarrinho) return;
-
-
-
-listaCarrinho.innerHTML = "";
-
-
-
-let total = 0;
-
-
-
-carrinho.forEach((produto,index)=>{
-
-
-
-total +=
-produto.valor * produto.quantidade;
-
-
-
-
-listaCarrinho.innerHTML += `
-
-
-<div class="item-carrinho">
-
-
-<h3>
-${produto.nome}
-</h3>
-
-
-<p>
-Preço: ${produto.preco}
-</p>
-
-
-
-<button onclick="diminuirQuantidade(${index})">
-➖
-</button>
-
-
-<span>
-${produto.quantidade}
-</span>
-
-
-<button onclick="aumentarQuantidade(${index})">
-➕
-</button>
-
-
-
-<button onclick="removerProdutoCarrinho(${index})">
-
-🗑️ Remover
-
-</button>
-
-
-
-</div>
-
-
-
-`;
-
-
-
-});
-
-
-
-
-totalCompra.textContent =
-"R$ " + total.toFixed(2);
-
-
-
-}
-
-
-
-
-// aumentar quantidade
-
-function aumentarQuantidade(index){
-
-
-carrinho[index].quantidade++;
-
-
-salvarCarrinho();
-
-
-carregarCarrinho();
-
-
-}
-
-
-
-function diminuirQuantidade(index){
-
-
-
-if(carrinho[index].quantidade > 1){
-
-
-carrinho[index].quantidade--;
-
-
-}else{
-
-
-carrinho.splice(index,1);
-
-
-}
-
-
-
-salvarCarrinho();
-
-
-carregarCarrinho();
-
-
-}
-
-
-
-
-function removerProdutoCarrinho(index){
-
-
-carrinho.splice(index,1);
-
-
-salvarCarrinho();
-
-
-carregarCarrinho();
-
-
-}
-
-
-
-
-carregarCarrinho();
