@@ -2,223 +2,587 @@
    LOJA PROMO BABY
    Desenvolvedor: Andrius Lopes
    Arquivo: js/script.js
-   Versão: 3.0 (Integração HTML + CSS v3.0 + ViaCEP)
+   Versão: 3.1
 ========================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     // ==========================================================
-    // 1. CONTADOR DO CARRINHO DE COMPRAS
+    // 1. CONTADOR DO CARRINHO
     // ==========================================================
-    let totalCarrinho = 0;
-    const badgeCart = document.querySelector('.badge-cart');
 
-    // Seleciona tanto os botões com a classe genérica quanto os de estilo Bootstrap do seu CSS
-    const botoesComprar = document.querySelectorAll('.btn-comprar, .product-card .btn-primary, .buy-btn');
+    let totalCarrinho = Number(localStorage.getItem("carrinho")) || 0;
+
+    const badgeCart = document.querySelector(".badge-cart");
+
+    if (badgeCart) {
+        badgeCart.textContent = totalCarrinho;
+    }
+
+    const botoesComprar = document.querySelectorAll(
+        ".btn-comprar, .product-card .btn-primary, .buy-btn"
+    );
 
     botoesComprar.forEach(botao => {
-        botao.addEventListener('click', (event) => {
+
+        botao.addEventListener("click", (event) => {
+
             event.preventDefault();
+
             totalCarrinho++;
-            
+
+            localStorage.setItem("carrinho", totalCarrinho);
+
             if (badgeCart) {
+
                 badgeCart.textContent = totalCarrinho;
-                
-                // Animação simples de pulse no badge do carrinho
-                badgeCart.style.transform = 'scale(1.2)';
+
+                badgeCart.style.transform = "scale(1.2)";
+
                 setTimeout(() => {
-                    badgeCart.style.transform = 'scale(1)';
+
+                    badgeCart.style.transform = "scale(1)";
+
                 }, 200);
+
             }
 
-            // Exibe mensagem de feedback rápido (opcional/pode remover se usar tela própria)
-            alert('Produto adicionado ao seu carrinho!');
+            alert("Produto adicionado ao carrinho!");
+
         });
+
     });
 
-    // ==========================================================
-    // 2. TOGGLE DE FAVORITOS (CORAÇÃO DENTRO DOS CARDS E CABEÇALHO)
-    // ==========================================================
-    // Suporta tanto .wishlist-btn quanto .btn-favorite
-    const botoesFavorito = document.querySelectorAll('.wishlist-btn, .btn-favorite');
 
-    botoesFavorito.forEach(botao => {
-        botao.addEventListener('click', (event) => {
-            event.preventDefault();
-            
-            // Ativa/Desativa classe do CSS
-            botao.classList.toggle('ativo');
+    // ==========================================================
+    // 2. FAVORITOS
+    // ==========================================================
 
-            const icone = botao.querySelector('i');
+    const botoesFavorito = document.querySelectorAll(
+        ".wishlist-btn, .btn-favorite"
+    );
+
+    botoesFavorito.forEach((botao, indice) => {
+
+        const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+        if (favoritos.includes(indice)) {
+
+            botao.classList.add("ativo");
+
+            const icone = botao.querySelector("i");
+
             if (icone) {
-                if (icone.classList.contains('fa-regular')) {
-                    icone.classList.remove('fa-regular');
-                    icone.classList.add('fa-solid');
-                    icone.classList.add('text-danger');
-                } else {
-                    icone.classList.remove('fa-solid', 'text-danger');
-                    icone.classList.add('fa-regular');
-                }
+
+                icone.classList.remove("fa-regular");
+
+                icone.classList.add("fa-solid");
+
+                icone.classList.add("text-danger");
+
             }
+
+        }
+
+        botao.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            botao.classList.toggle("ativo");
+
+            const icone = botao.querySelector("i");
+
+            if (icone) {
+
+                if (icone.classList.contains("fa-regular")) {
+
+                    icone.classList.remove("fa-regular");
+
+                    icone.classList.add("fa-solid");
+
+                    icone.classList.add("text-danger");
+
+                } else {
+
+                    icone.classList.remove("fa-solid");
+
+                    icone.classList.remove("text-danger");
+
+                    icone.classList.add("fa-regular");
+
+                }
+
+            }
+
+            let listaFavoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+            if (listaFavoritos.includes(indice)) {
+
+                listaFavoritos = listaFavoritos.filter(item => item !== indice);
+
+            } else {
+
+                listaFavoritos.push(indice);
+
+            }
+
+            localStorage.setItem(
+                "favoritos",
+                JSON.stringify(listaFavoritos)
+            );
+
         });
+
     });
 
     // ==========================================================
-    // 3. BARRA DE PESQUISA INTELIGENTE (FILTRO EM TEMPO REAL)
+    // A PARTE 2 COMEÇA AQUI
     // ==========================================================
-    const inputPesquisa = document.getElementById('pesquisa');
-    const btnBuscar = document.getElementById('btnBuscar');
-    const produtos = document.querySelectorAll('.produto');
+    // ==========================================================
+    // 3. BARRA DE PESQUISA
+    // ==========================================================
+
+    const inputPesquisa = document.getElementById("inputBusca");
+    const btnBuscar = document.getElementById("btnBuscar");
+    const produtos = document.querySelectorAll(".produto");
 
     function executarBusca() {
+
         if (!inputPesquisa) return;
 
         const termo = inputPesquisa.value.toLowerCase().trim();
 
-        produtos.forEach(produto => {
-            // Busca dados do atributo data-* ou do texto visível do card
-            const nome = (produto.dataset.nome || produto.innerText || '').toLowerCase();
-            const categoria = (produto.dataset.categoria || '').toLowerCase();
-            const loja = (produto.dataset.loja || '').toLowerCase();
+        let encontrados = 0;
 
-            if (nome.includes(termo) || categoria.includes(termo) || loja.includes(termo)) {
-                produto.style.display = '';
-            } else {
-                produto.style.display = 'none';
+        produtos.forEach(produto => {
+
+            const nome = (produto.dataset.nome || "").toLowerCase();
+
+            const categoria = (produto.dataset.categoria || "").toLowerCase();
+
+            const loja = (produto.dataset.loja || "").toLowerCase();
+
+            if (
+
+                termo === "" ||
+
+                nome.includes(termo) ||
+
+                categoria.includes(termo) ||
+
+                loja.includes(termo)
+
+            ) {
+
+                produto.style.display = "";
+
+                encontrados++;
+
             }
+
+            else {
+
+                produto.style.display = "none";
+
+            }
+
         });
+
+        let mensagem = document.getElementById("mensagemBusca");
+
+        if (!mensagem) {
+
+            mensagem = document.createElement("div");
+
+            mensagem.id = "mensagemBusca";
+
+            mensagem.className = "text-center fw-bold mt-4";
+
+            const secao = document.getElementById("resultadoBusca");
+
+            if (secao) {
+
+                secao.appendChild(mensagem);
+
+            }
+
+        }
+
+        if (encontrados === 0 && termo !== "") {
+
+            mensagem.innerHTML = "❌ Nenhum produto encontrado.";
+
+        }
+
+        else {
+
+            mensagem.innerHTML = "";
+
+        }
+
     }
+
 
     if (btnBuscar) {
-        btnBuscar.addEventListener('click', (e) => {
+
+        btnBuscar.addEventListener("click", function (e) {
+
             e.preventDefault();
+
             executarBusca();
+
         });
+
     }
+
 
     if (inputPesquisa) {
-        inputPesquisa.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') {
+
+        inputPesquisa.addEventListener("keyup", executarBusca);
+
+        inputPesquisa.addEventListener("keypress", function (e) {
+
+            if (e.key === "Enter") {
+
+                e.preventDefault();
+
                 executarBusca();
+
             }
+
         });
+
     }
 
+
+
     // ==========================================================
-    // 4. SCROLL SUAVE PARA BOTAO DE PROMOÇÕES E SAIBA MAIS
+    // 4. BOTÕES DA HERO
     // ==========================================================
-    const btnPromo = document.getElementById('btnPromo');
-    const btnSaibaMais = document.getElementById('btnSaibaMais');
-    const secaoPromocoes = document.getElementById('promocoes');
-    const secaoContato = document.getElementById('contato');
+
+    const btnPromo = document.getElementById("btnPromo");
+
+    const btnSaibaMais = document.getElementById("btnSaibaMais");
+
+    const secaoPromocoes = document.getElementById("promocoes");
+
+    const secaoContato = document.getElementById("contato");
+
 
     if (btnPromo && secaoPromocoes) {
-        btnPromo.addEventListener('click', () => {
-            secaoPromocoes.scrollIntoView({ behavior: 'smooth' });
+
+        btnPromo.addEventListener("click", function () {
+
+            secaoPromocoes.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
         });
+
     }
+
 
     if (btnSaibaMais && secaoContato) {
-        btnSaibaMais.addEventListener('click', () => {
-            secaoContato.scrollIntoView({ behavior: 'smooth' });
+
+        btnSaibaMais.addEventListener("click", function () {
+
+            secaoContato.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
         });
+
     }
 
+
+
     // ==========================================================
-    // 5. INJEÇÃO DO FORMULÁRIO DE CONTATO COM API VIACEP
+    // A PARTE 3 COMEÇA AQUI
     // ==========================================================
-    const formContato = document.getElementById('formContato');
+        // ==========================================================
+    // 5. FORMULÁRIO DE CONTATO
+    // ==========================================================
+
+    const formContato = document.getElementById("formContato");
 
     if (formContato && formContato.children.length === 0) {
+
         formContato.innerHTML = `
+
             <div class="row g-3 text-start">
+
                 <div class="col-md-6">
-                    <label for="nome" class="form-label fw-bold">Nome Completo</label>
-                    <input type="text" class="form-control" id="nome" required placeholder="Digite seu nome">
+
+                    <label class="form-label fw-bold">
+                        Nome Completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        class="form-control"
+                        placeholder="Digite seu nome"
+                        required>
+
                 </div>
+
                 <div class="col-md-6">
-                    <label for="email" class="form-label fw-bold">E-mail</label>
-                    <input type="email" class="form-control" id="email" required placeholder="seu@email.com">
+
+                    <label class="form-label fw-bold">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="Digite seu e-mail"
+                        required>
+
                 </div>
+
                 <div class="col-md-4">
-                    <label for="cep" class="form-label fw-bold">CEP</label>
-                    <input type="text" class="form-control" id="cep" maxlength="8" placeholder="Digite apenas números">
+
+                    <label class="form-label fw-bold">
+                        CEP
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cep"
+                        maxlength="8"
+                        class="form-control"
+                        placeholder="Somente números">
+
                 </div>
+
                 <div class="col-md-8">
-                    <label for="endereco" class="form-label fw-bold">Endereço (ViaCEP)</label>
-                    <input type="text" class="form-control" id="endereco" readonly placeholder="Preenchido automaticamente pelo CEP">
+
+                    <label class="form-label fw-bold">
+                        Endereço
+                    </label>
+
+                    <input
+                        type="text"
+                        id="endereco"
+                        class="form-control"
+                        readonly>
+
                 </div>
+
                 <div class="col-12">
-                    <label for="mensagem" class="form-label fw-bold">Mensagem</label>
-                    <textarea class="form-control" id="mensagem" rows="3" required placeholder="Como podemos te ajudar?"></textarea>
+
+                    <label class="form-label fw-bold">
+
+                        Mensagem
+
+                    </label>
+
+                    <textarea
+                        id="mensagem"
+                        rows="4"
+                        class="form-control"
+                        required></textarea>
+
                 </div>
-                <div class="col-12 text-center mt-4">
-                    <button type="submit" class="btn btn-warning btn-orange text-white fw-bold px-5 py-2 rounded-pill">
-                        <i class="fa-solid fa-paper-plane me-2"></i>Enviar Mensagem
+
+                <div class="col-12 text-center">
+
+                    <button
+                        type="submit"
+                        class="btn btn-warning text-white rounded-pill px-5">
+
+                        <i class="fa-solid fa-paper-plane me-2"></i>
+
+                        Enviar Mensagem
+
                     </button>
+
                 </div>
+
             </div>
+
             <div id="feedbackContato" class="mt-3"></div>
+
         `;
+
     }
 
-    // Requisição Fetch da API ViaCEP
-    const inputCep = document.getElementById('cep');
-    const inputEndereco = document.getElementById('endereco');
+
+
+    // ==========================================================
+    // 6. CONSULTA CEP (VIACEP)
+    // ==========================================================
+
+    const inputCep = document.getElementById("cep");
+
+    const inputEndereco = document.getElementById("endereco");
 
     if (inputCep && inputEndereco) {
-        inputCep.addEventListener('blur', async () => {
-            const cepLimpo = inputCep.value.replace(/\D/g, ''); // Garante só números
 
-            if (cepLimpo.length === 8) {
-                inputEndereco.value = 'Buscando endereço...';
-                
-                try {
-                    const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
-                    const data = await response.json();
+        inputCep.addEventListener("blur", async () => {
 
-                    if (data.erro) {
-                        inputEndereco.value = 'CEP não encontrado.';
-                    } else {
-                        inputEndereco.value = `${data.logradouro}, ${data.bairro} - ${data.localidade}/${data.uf}`;
-                    }
-                } catch (error) {
-                    inputEndereco.value = 'Erro ao consultar o CEP.';
-                }
-            } else if (cepLimpo.length > 0) {
-                inputEndereco.value = 'CEP inválido (deve conter 8 dígitos).';
+            const cep = inputCep.value.replace(/\D/g, "");
+
+            if (cep.length !== 8) {
+
+                inputEndereco.value = "";
+
+                return;
+
             }
+
+            inputEndereco.value = "Buscando endereço...";
+
+            try {
+
+                const resposta = await fetch(
+
+                    `https://viacep.com.br/ws/${cep}/json/`
+
+                );
+
+                const dados = await resposta.json();
+
+                if (dados.erro) {
+
+                    inputEndereco.value = "CEP não encontrado.";
+
+                }
+
+                else {
+
+                    inputEndereco.value =
+                        `${dados.logradouro}, ${dados.bairro} - ${dados.localidade}/${dados.uf}`;
+
+                }
+
+            }
+
+            catch {
+
+                inputEndereco.value =
+
+                    "Erro ao consultar o CEP.";
+
+            }
+
         });
+
     }
 
-    // Submissão do Formulário de Contato com Agradecimento
-    if (formContato) {
-        formContato.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const feedback = document.getElementById('feedbackContato');
-            const nomeUser = document.getElementById('nome').value;
 
-            if (feedback) {
-                feedback.className = 'alert alert-success mt-3 shadow-sm';
-                feedback.innerHTML = `<strong>Obrigado, ${nomeUser}!</strong> Sua mensagem foi enviada com sucesso. Em breve retornaremos o contato.`;
-            }
+
+    // ==========================================================
+    // 7. ENVIO DO FORMULÁRIO
+    // ==========================================================
+
+    if (formContato) {
+
+        formContato.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const feedback = document.getElementById("feedbackContato");
+
+            const nome = document.getElementById("nome").value;
+
+            feedback.className =
+
+                "alert alert-success mt-3";
+
+            feedback.innerHTML =
+
+                `<strong>Obrigado, ${nome}!</strong>
+                Sua mensagem foi enviada com sucesso.`;
 
             formContato.reset();
+
+            if (inputEndereco) {
+
+                inputEndereco.value = "";
+
+            }
+
         });
+
     }
 
-    // ==========================================================
-    // 6. GESTÃO DO MODAL DE LOGIN
-    // ==========================================================
-    const btnLogin = document.getElementById('btnLogin');
-    const modalElement = document.getElementById('loginModal');
 
-    if (btnLogin && modalElement) {
-        btnLogin.addEventListener('click', (e) => {
+
+    // ==========================================================
+    // A PARTE 4 COMEÇA AQUI
+    // ==========================================================
+        // ==========================================================
+    // 8. LOGIN DO USUÁRIO
+    // ==========================================================
+
+    const btnLogin = document.getElementById("btnLogin");
+
+    if (btnLogin) {
+
+        btnLogin.addEventListener("click", function (e) {
+
             e.preventDefault();
-            // Utiliza a API do Bootstrap 5 para abrir o modal
-            const modalInstance = new bootstrap.Modal(modalElement);
-            modalInstance.show();
+
+            window.location.href = "login.html";
+
         });
+
     }
+
+
+    // ==========================================================
+    // 9. INICIALIZAÇÃO DO CARRINHO
+    // ==========================================================
+
+    if (badgeCart) {
+
+        badgeCart.textContent = totalCarrinho;
+
+    }
+
+
+    // ==========================================================
+    // 10. LIMPEZA DA BUSCA AO RECARREGAR
+    // ==========================================================
+
+    if (inputPesquisa) {
+
+        inputPesquisa.value = "";
+
+    }
+
+    produtos.forEach(produto => {
+
+        produto.style.display = "";
+
+    });
+
+
+    // ==========================================================
+    // 11. VERIFICAÇÃO DOS BOTÕES
+    // ==========================================================
+
+    console.log("====================================");
+
+    console.log("LOJA PROMO BABY");
+
+    console.log("Versão 3.1 carregada.");
+
+    console.log("Carrinho:", totalCarrinho);
+
+    console.log("Produtos encontrados:", produtos.length);
+
+    console.log("====================================");
+
+
+    // ==========================================================
+    // FIM DO DOMContentLoaded
+    // ==========================================================
+
 });
