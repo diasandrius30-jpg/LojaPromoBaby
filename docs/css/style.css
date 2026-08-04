@@ -273,106 +273,314 @@ body {
     }
 }
 /* 1. TOPO (Header): Alinhamento e Distribuição */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 5%;
-  background-color: #ffffff;
-  font-family: sans-serif;
+/* ===========================
+   HEADER
+=========================== */
+
+header{
+    width:100%;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 50px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:999;
 }
 
-.logo-container {
-  display: flex;
-  flex-direction: column;
+.logo-container h1{
+    font-size:42px;
+    font-weight:800;
+    margin:0;
+    line-height:1;
 }
 
+.logo-container p{
+    margin-top:8px;
+    color:#666;
+    font-size:15px;
+}
+
+.cor-azul{
+    color:#0046d5;
+}
+
+.cor-laranja{
+    color:#ff6b00;
+}
 /* Barra de Busca */
-.busca-container {
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  max-width: 500px;
-  margin: 0 20px;
+.busca-container{
+
+    width:520px;
+
+    display:flex;
+
+    align-items:center;
+
 }
 
-.busca-container input {
-  width: 100%;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
-  outline: none;
+.busca-container input{
+
+    flex:1;
+
+    height:48px;
+
+    border:2px solid #ececec;
+
+    border-right:none;
+
+    border-radius:12px 0 0 12px;
+
+    padding:0 18px;
+
+    font-size:15px;
+
+    transition:.3s;
+
 }
 
-.busca-container button {
-  background-color: #ff9100; /* Laranja idêntico ao botão Buscar */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
-  font-weight: bold;
+.busca-container input:focus{
+
+    outline:none;
+
+    border-color:#0046d5;
+
 }
 
+.busca-container button{
+
+    width:120px;
+
+    height:48px;
+
+    background:#ff6b00;
+
+    color:white;
+
+    border:none;
+
+    border-radius:0 12px 12px 0;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.busca-container button:hover{
+
+    background:#ef6100;
+
+}
 /* Ícones da Direita (Favoritos, Carrinho, Entrar) */
-.header-actions {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
 }
 
+.action-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.action-item i{
+
+    font-size:28px;
+
+    margin-bottom:5px;
+
+}
+
+.action-item:hover{
+
+    color:#0046d5;
+
+    transform:translateY(-2px);
+
+}
 /* 2. MENU DE NAVEGAÇÃO: Corrigindo o sumiço dos links */
-nav {
-  background-color: #0056ff; /* Azul royal do menu */
-  display: flex;
-  gap: 25px;
-  padding: 12px 5%;
+
+.menu{
+
+    background:#0046d5;
+
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
 }
 
-nav a {
-  color: #ffffff !important; /* Força o texto a ficar branco */
-  text-decoration: none;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Espaço para os ícones */
+.container-nav{
+
+    width:100%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    display:flex;
+
+    gap:40px;
+
 }
 
+.container-nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    position:relative;
+
+    padding:18px 0;
+
+}
+
+.container-nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:0;
+
+    height:3px;
+
+    background:#ffb700;
+
+    transition:.3s;
+
+}
+
+.container-nav a:hover::after,
+
+.container-nav .active::after{
+
+    width:100%;
+
+}
+
+.container-nav a:hover{
+
+    color:#fff;
+
+}
 /* 3. BANNER PRINCIPAL (Hero Section) */
-.hero-banner {
-  background: linear-gradient(135deg, #003699 0%, #002266 100%); /* Gradiente azul escuro */
-  color: #ffffff;
-  padding: 60px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
+.hero-section{
+
+    background:linear-gradient(135deg,#0046d5 0%,#002e93 70%,#ff6b00 100%);
+
+    padding:70px 0;
+
 }
 
-.hero-content {
-  max-width: 50%;
+.hero-content h1{
+
+    font-size:58px;
+
+    font-weight:800;
+
+    line-height:1.15;
+
+    color:white;
+
 }
 
+.hero-content p{
+
+    font-size:22px;
+
+    color:white;
+
+    margin-top:25px;
+
+}
+
+.hero-image{
+
+    text-align:center;
+
+}
+
+.hero-image img{
+
+    width:100%;
+
+    max-width:700px;
+
+    transition:.4s;
+
+}
+
+.hero-image img:hover{
+
+    transform:scale(1.03);
+
+}
 /* Botões do Banner */
-.btn-verde {
-  background-color: #00b33c;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
+
+#btnPromo{
+
+    background:#18b53a;
+
+    border:none;
+
+    padding:16px 40px;
+
+    border-radius:35px;
+
+    font-weight:700;
+
+    font-size:18px;
+
 }
 
-.btn-saiba-mais {
-  background-color: #ffffff;
-  color: #003699;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-weight: bold;
-  border: none;
-  margin-left: 15px;
-  cursor: pointer;
+#btnPromo:hover{
+
+    background:#14952f;
+
+}
+
+#btnSaibaMais{
+
+    padding:16px 40px;
+
+    border-radius:35px;
+
+    font-weight:700px;
+
 }
 /* --- Cores do Título da Logo --- */
 .logo-container h1 {
@@ -427,12 +635,12 @@ nav a {
 /* Cores de fundo personalizadas das lojas */
 .shopee {
   background-color: #ffebd7;
-  color: #ff5722;
+  color: #ff2222;
 }
 
 .amazon {
   background-color: #111111;
-  color: #ff9900;
+  color: #0080ff;
 }
 
 .mercadolivre {

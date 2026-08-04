@@ -8,7 +8,7 @@
     "precoAntigo": 899.90,
     "desconto": 35,
     "avaliacao": 4.8,
-    "imagem": "imagens/produtos/smartwatch.webp"
+    "imagem": "imagens/produtos/smartwatch-ultra.webp"
   },
   {
     "id": 2,
@@ -19,17 +19,72 @@
     "precoAntigo": 349.90,
     "desconto": 28,
     "avaliacao": 4.6,
-    "imagem": "imagens/produtos/jbl.webp"
+    "imagem": "imagens/produtos/fone-jbl.webp"
   },
   {
     "id": 3,
-    "nome": "Notebook Gamer",
-    "categoria": "Notebook",
+    "nome": "Baba Eletrônica",
+    "categoria": "Baba",
     "loja": "Mercado Livre",
     "preco": 3999.90,
     "precoAntigo": 4999.90,
     "desconto": 20,
     "avaliacao": 4.9,
-    "imagem": "imagens/produtos/notebook.webp"
+    "imagem": "imagens/produtos/baba-eletronica.webp"
+  },
+  {
+    "id": 4,
+    "nome": "almofada de amamentação",
+    "categoria": "Baba",
+    "loja": "Mercado Livre",
+    "preco": 3999.90,
+    "precoAntigo": 4999.90,
+    "desconto": 20,
+    "avaliacao": 4.9,
+    "imagem": "imagens/produtos/almofada.webp"
+  },
+  {
+    "id": 5,
+    "nome": "Mordedor de Silicone",
+    "categoria": "Mordedor",
+    "loja": "Amazon",
+    "preco": 29.90,
+    "precoAntigo": 49.90,
+    "desconto": 40,
+    "avaliacao": 4.7,
+    "imagem": "imagens/produtos/mordedor infantil.webp"
+  },
+  {
+    "id": 6,
+    "nome": "bolsa de maternidade",
+    "categoria": "Bolsa",
+    "loja": "Shopee",
+    "preco": 399.90,
+    "precoAntigo": 499.90,
+    "desconto": 20,
+    "avaliacao": 4.5,
+    "imagem": "imagens/produtos/bolsa.webp"
+  },
+  {
+    "id": 7,
+    "nome": "copo antivazamento",
+    "categoria": "Copo",
+    "loja": "Amazon",
+    "preco": 899.90,
+    "precoAntigo": 1199.90,
+    "desconto": 25,
+    "avaliacao": 4.8,
+    "imagem": "imagens/produtos/copo.webp"
+  },
+  {
+    "id": 8,
+    "nome": "bodies de algodão",
+    "categoria": "Bodies",
+    "loja": "Mercado Livre",
+    "preco": 199.90,
+    "precoAntigo": 299.90,
+    "desconto": 33,
+    "avaliacao": 4.6,
+    "imagem": "imagens/produtos/bodies.webp"
   }
 ]

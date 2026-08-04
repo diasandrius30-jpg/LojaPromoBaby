@@ -29,11 +29,6 @@
     <link rel="stylesheet"
           href="css/style.css">
 
-          <link rel="stylesheet" 
-
-href="css/estilo.css">
-
-
 </head>
 
 <body>
@@ -42,6 +37,7 @@ href="css/estilo.css">
 <!-- ==========================================================
      CABEÇALHO
 ========================================================== -->
+
 <header>
   <div class="logo-container">
     <!-- Título com cores separadas por tags span -->
@@ -50,24 +46,50 @@ href="css/estilo.css">
   </div>
 
   <!-- Pesquisa -->
-<!-- Procure a sua busca-container e deixe os elementos com esses IDs: -->
+<!-- Procure a sua busca-container e deixe os elementos
+  com esses IDs: -->
+
 <div class="busca-container">
-  <input type="text" id="inputBusca" placeholder="Pesquise produtos, categorias ou lojas...">
-  <button id="btnBuscar">Buscar</button>
+
+  <input 
+  type="text" 
+  id="inputBusca" 
+  placeholder="Pesquise produtos, categorias ou lojas...">
+
+  <button id="btnBuscar"
+  
+  >Buscar
+
+</button>
+
 </div>
 
   
   <!-- Ações -->
   <div class="header-actions">
-    <div class="action-item"><span>❤️</span> Favoritos</div>
-    <div class="action-item"><span>🛒</span> Carrinho</div>
-    <div class="action-item"><span>👤</span> Entrar</div>
+
+<div class="action-item" id="btnFavoritos">
+❤️ Favoritos
+</div>
+
+<div class="action-item" id="btnCarrinho">
+🛒 Carrinho
+</div>
+
+<a href="login.html" class="action-item" id="btnEntrar">
+    <span>👤</span> Entrar
+</a>
+
   </div>
+
 </header>
 
 <!-- Menu unificado e alinhado lado a lado -->
+
 <nav class="menu py-2 shadow-sm">
+
   <div class="container-nav">
+
     <a href="#" class="nav-link active">🏠 Início</a>
     <a href="#" class="nav-link">🏷️ Produtos</a>
     <a href="#" class="nav-link">📂 Categorias</a>
@@ -83,11 +105,10 @@ href="css/estilo.css">
      HERO
 ========================================================== -->
 
-<section class="hero-section text-white position-relative overflow-hidden py-5">
-
+<section class="hero-section">
     <div class="container">
 
-        <div class="row align-items-center gy-5">
+        <div class="row align-items-center">
 
             <!-- TEXTO -->
 
@@ -159,42 +180,13 @@ href="css/estilo.css">
 
                 </div>
 
-                <div class="marketplaces-row d-flex flex-wrap gap-2">
-
-                    <span class="badge-market bg-white text-dark py-2 px-3 rounded shadow-sm">
-
-                        Shopee
-
-                    </span>
-
-                    <span class="badge-market bg-white text-dark py-2 px-3 rounded shadow-sm">
-
-                        Amazon
-
-                    </span>
-
-                    <span class="badge-market bg-white text-dark py-2 px-3 rounded shadow-sm">
-
-                        Mercado Livre
-
-                    </span>
-
-                    <span class="badge-market bg-white text-dark py-2 px-3 rounded shadow-sm">
-
-                        TikTok Shop
-
-                    </span>
-
-                </div>
-
-            </div>
-
             <!-- IMAGEM -->
-  <div class="col-lg-6 hero-image text-center">
-    <div class="marketplaces-row d-flex flex-wrap gap-2">
+  <div class="col-lg-6 hero-image texto-center">
 
     <span class="badge-market btn-shopee py-2 px-3 rounded shadow-smfw-semibold">
         Shopee
+        
+    <div class="marketplaces-row d-flex flex-wrap gap-2"></div>
     </span>
 
     <span class="badge-market btn-amazon py-2 px-3 rounded shadow-sm fw-bold">
@@ -212,8 +204,7 @@ href="css/estilo.css">
 </div>
 
 
-                <img
-                    src="imagens/Marketplace.png"
+                <img src="imagens/Marketplace.png"
                     alt="Comparador Inteligente de Ofertas"
                     class="img-fluid"
                     loading="lazy">
@@ -254,14 +245,17 @@ href="css/estilo.css">
 
         </div>
 
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+         <div id="listaProdutos" class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+
+        </div>
 
           <!-- Card  - Exemplo Shopee -->
 
-<div class="col produto"
-     data-nome="Mordedor de Silicone"
-     data-categoria="Brinquedos"
-     data-loja="Shopee">
+      <div class="col produto"
+data-id="101"
+data-nome="smartwatch-ultra.webp"
+data-categoria="smartwatch"
+data-loja="Amazon">    
 
     <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
 
@@ -274,9 +268,9 @@ href="css/estilo.css">
         </button>
 
         <div class="text-center py-3 bg-light rounded mb-2">
-            <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6"
+            <img src="imagens/produtos/smartwatch-ultra.webp"
                  class="img-fluid"
-                 alt="Mordedor de Silicone">
+                 alt="Smartwatch Ultra">
         </div>
 
         <div class="card-body p-1 d-flex flex-column">
@@ -286,7 +280,7 @@ href="css/estilo.css">
             </span>
 
             <h3 class="fs-6 fw-bold text-dark">
-                Mordedor de Silicone
+                Smartwatch Ultra
             </h3>
 
             <div class="text-warning mb-2">
@@ -314,7 +308,8 @@ href="css/estilo.css">
 
 <!-- Card 2 - Exemplo Amazon -->
 
-<div class="col produto"
+<div class=" col produto"
+     data-id="102"
      data-nome="Copo Antivazamento"
      data-categoria="Alimentação"
      data-loja="Amazon">
@@ -330,9 +325,9 @@ href="css/estilo.css">
         </button>
 
         <div class="text-center py-3 bg-light rounded mb-2">
-            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"
+            <img src="imagens/produtos/copo.webp"
                  class="img-fluid"
-                 alt="Copo Antivazamento">
+                 alt="Copo">
         </div>
 
         <div class="card-body p-1 d-flex flex-column">
@@ -370,6 +365,7 @@ href="css/estilo.css">
 
 <!-- Card 3 - Exemplo Mercado Livre -->
 <div class="col produto"
+     data-id="103"
      data-nome="Bolsa Maternidade"
      data-categoria="Acessórios"
      data-loja="Mercado Livre">
@@ -385,7 +381,7 @@ href="css/estilo.css">
         </button>
 
         <div class="text-center py-3 bg-light rounded mb-2">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+            <img src="imagens/produtos/bolsa.webp"
                  class="img-fluid"
                  alt="Bolsa Maternidade">
         </div>
@@ -426,7 +422,8 @@ href="css/estilo.css">
 
 <!-- Card 4 - Exemplo TikTok Shop -->
 
-<div class="col produto"
+<div class=" col produto"
+     data-id="104"
      data-nome="Babá Eletrônica"
      data-categoria="Eletrônicos"
      data-loja="TikTok Shop">
@@ -442,7 +439,7 @@ href="css/estilo.css">
         </button>
 
         <div class="text-center py-3 bg-light rounded mb-2">
-            <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b"
+            <img src="imagens/produtos/baba-eletronica.webp"
                  class="img-fluid"
                  alt="Babá Eletrônica">
         </div>
@@ -482,7 +479,8 @@ href="css/estilo.css">
 
 <!-- Card 5 - Exemplo Shopee -->
 
-<div class="col produto"
+<div class=" col produto"
+     data-id="105"
      data-nome="Kit Bodies Infantil"
      data-categoria="Roupas"
      data-loja="Shopee">
@@ -498,7 +496,7 @@ href="css/estilo.css">
         </button>
 
         <div class="text-center py-3 bg-light rounded mb-2">
-            <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea"
+            <img src="imagens/produtos/Kit-Bodies-Infantil.webp"
                  class="img-fluid"
                  alt="Kit Bodies Infantil">
         </div>
@@ -540,7 +538,8 @@ href="css/estilo.css">
 
 <!-- Card 6 - Exemplo Amazon -->
 
-<div class="col produto"
+<div class=" col produto"
+     data-id="106"
      data-nome="Almofada de Amamentação"
      data-categoria="Maternidade"
      data-loja="Amazon">
@@ -556,7 +555,7 @@ href="css/estilo.css">
         </button>
 
         <div class="text-center py-3 bg-light rounded mb-2">
-            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+            <img src="imagens/produtos/almofada-amamentação.webp"
                  class="img-fluid"
                  alt="Almofada de Amamentação">
         </div>
@@ -596,8 +595,9 @@ href="css/estilo.css">
             <!-- PRODUTO 7 -->
 
                <div class="col produto"
-     data-nome="Smartwatch Ultra 8"
-     data-categoria="smartwatch"
+     data-id="107"
+     data-nome="fone bluetooth.Jbl"
+     data-categoria="fone"
      data-loja="Shopee">
 
                 <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
@@ -617,9 +617,9 @@ href="css/estilo.css">
                     <div class="text-center py-3 bg-light rounded mb-2">
 
                         <img
-                            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+                            src="imagens/produtos/fone-bluetooth-jbl.webp"
                             class="img-fluid"
-                            alt="Smartwatch Ultra">
+                            alt="fone bluetooth.jbl">
 
         </div>
 
@@ -633,14 +633,14 @@ href="css/estilo.css">
 
                         <h3 class="fs-6 fw-bold text-dark">
 
-                            Smartwatch Ultra 8
+                            Fone Bluetooth JBL
 
                         </h3>
 
                         <div class="text-warning mb-2">
 
                             ⭐⭐⭐⭐⭐
-                            <span class="text-muted">(4.8)</span>
+                            <span class="text-muted">(4.6)</span>
 
         </div>
 
@@ -673,8 +673,9 @@ href="css/estilo.css">
             <!-- PRODUTO 8 -->
 
             <div class="col produto"
-     data-nome="Fone Bluetooth JBL"
-     data-categoria="fone"
+     data-id="108"
+     data-nome="mordedor-silicone"
+     data-categoria="mordedor"
      data-loja="Amazon">
 
                 <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
@@ -694,9 +695,9 @@ href="css/estilo.css">
                     <div class="text-center py-3 bg-light rounded mb-2">
 
                         <img
-                            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+                            src="imagens/produtos/mordedor-silicone.webp"
                             class="img-fluid"
-                            alt="Fone Bluetooth">
+                            alt="Mordedor de Silicone">
 
                     </div>
 
@@ -710,7 +711,7 @@ href="css/estilo.css">
 
                         <h3 class="fs-6 fw-bold text-dark">
 
-                            Fone Bluetooth JBL
+                            Mordedor de Silicone
 
                         </h3>
 
@@ -833,14 +834,16 @@ href="css/estilo.css">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
+
 <script src="js/script.js"></script>
+
+<script src="js/produtos.js"></script>
 
 <!-- ==========================================================
      MODAL LOGIN
 ========================================================== -->
 
-<!-- Modal Login -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+
 
     ...
 
