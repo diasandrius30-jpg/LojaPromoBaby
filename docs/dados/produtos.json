@@ -1,33 +1,33 @@
 [
   {
     "id": 1,
-    "nome": "Smartwatch Ultra 8",
+    "nome": "Smartwatch-Ultra",
     "categoria": "Smartwatch",
     "loja": "Shopee",
     "preco": 579.90,
     "precoAntigo": 899.90,
     "desconto": 35,
     "avaliacao": 4.8,
-    "imagem": "imagens/produtos/smartwatch-ultra.webp"
+    "imagem": "imagens/produtos/Smartwatch-Ultra.webp"
   },
   {
     "id": 2,
-    "nome": "Fone Bluetooth JBL",
+    "nome": "Fone-Bluetooth",
     "categoria": "Fone",
     "loja": "Amazon",
     "preco": 249.90,
     "precoAntigo": 349.90,
     "desconto": 28,
     "avaliacao": 4.6,
-    "imagem": "imagens/produtos/fone-jbl.webp"
+    "imagem": "imagens/produtos/Fone-Bluetooth.webp"
   },
   {
     "id": 3,
     "nome": "Baba Eletrônica",
     "categoria": "Baba",
     "loja": "Mercado Livre",
-    "preco": 3999.90,
-    "precoAntigo": 4999.90,
+    "preco": 399.90,
+    "precoAntigo": 499.90,
     "desconto": 20,
     "avaliacao": 4.9,
     "imagem": "imagens/produtos/baba-eletronica.webp"
@@ -37,8 +37,8 @@
     "nome": "almofada de amamentação",
     "categoria": "Baba",
     "loja": "Mercado Livre",
-    "preco": 3999.90,
-    "precoAntigo": 4999.90,
+    "preco": 39.90,
+    "precoAntigo": 49.90,
     "desconto": 20,
     "avaliacao": 4.9,
     "imagem": "imagens/produtos/almofada.webp"
@@ -52,7 +52,7 @@
     "precoAntigo": 49.90,
     "desconto": 40,
     "avaliacao": 4.7,
-    "imagem": "imagens/produtos/mordedor infantil.webp"
+    "imagem": "imagens/produtos/mordedor-silicone.webp"
   },
   {
     "id": 6,
@@ -70,8 +70,8 @@
     "nome": "copo antivazamento",
     "categoria": "Copo",
     "loja": "Amazon",
-    "preco": 899.90,
-    "precoAntigo": 1199.90,
+    "preco": 89.90,
+    "precoAntigo": 119.90,
     "desconto": 25,
     "avaliacao": 4.8,
     "imagem": "imagens/produtos/copo.webp"

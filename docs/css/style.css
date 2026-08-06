@@ -50,8 +50,6 @@ body {
 
 /* Ícones de Ação no Topo */
 
-
-
 .header-icon-link {
     transition: transform 0.2s ease, color 0.2s ease;
     display: inline-block;
@@ -106,6 +104,14 @@ body {
 .text-light-opacity {
     color: rgba(255, 255, 255, 0.85);
 }
+.text-decoration-line-through{
+    font-size:14px;
+}
+
+.text-success{
+    font-size:24px !important;
+    font-weight:800 !important;
+}
 
 /* Botão de Promoções (Verde) */
 .btn-success-custom {
@@ -119,6 +125,17 @@ body {
     background-color: var(--green-hover);
     color: #ffffff;
     transform: translateY(-1px);
+}
+.btn-favorite{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#fff !important;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.btn-favorite:hover{
+    color:#ff3b3b !important;
 }
 
 /* Tags das Lojas Parceiras */
@@ -152,6 +169,19 @@ body {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
 }
+.product-card{
+    border:none !important;
+    border-radius:18px !important;
+    overflow:hidden;
+    transition:.3s;
+    background:#fff;
+    min-height:470px;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 30px rgba(0,0,0,.15)!important;
+}
 
 /* Botão de Favoritar Interno do Card */
 .wishlist-btn {
@@ -171,7 +201,16 @@ body {
     font-size: 0.7rem;
     font-weight: 600;
 }
+.btn-comprar{
+    border-radius:30px !important;
+    padding:12px;
+    font-weight:700;
+    transition:.3s;
+}
 
+.btn-comprar:hover{
+    transform:scale(1.03);
+}
 /* Botão de Compra no Card */
 .product-card .buy-btn,
 .product-card .btn-primary {
@@ -206,6 +245,314 @@ body {
         width: 100%;
         justify-content: center;
     }
+}
+/* ==========================================
+   NOTEBOOK
+========================================== */
+
+@media (max-width:1200px){
+
+header{
+
+padding:15px 30px;
+
+}
+
+.logo-container h1{
+
+font-size:34px;
+
+}
+
+.busca-container{
+
+max-width:420px;
+
+}
+
+.hero-content h1{
+
+font-size:46px;
+
+}
+
+.hero-image img{
+
+max-width:520px;
+
+}
+
+}
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:992px){
+
+header{
+
+flex-direction:column;
+
+gap:20px;
+
+padding:25px;
+
+}
+
+.logo-container{
+
+text-align:center;
+
+}
+
+.busca-container{
+
+width:100%;
+
+max-width:700px;
+
+margin:0;
+
+}
+
+.header-actions{
+
+justify-content:center;
+
+width:100%;
+
+}
+
+.container-nav{
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+padding:15px;
+
+}
+
+.hero-section{
+
+text-align:center;
+
+padding:60px 20px;
+
+}
+
+.hero-content{
+
+margin-bottom:40px;
+
+}
+
+.hero-content h1{
+
+font-size:38px;
+
+}
+
+.hero-content p{
+
+font-size:18px;
+
+}
+
+.hero-image img{
+
+max-width:450px;
+
+}
+
+.product-card{
+
+min-height:auto;
+
+}
+
+}
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width:768px){
+
+header{
+
+padding:20px 15px;
+
+}
+
+.logo-container h1{
+
+font-size:28px;
+
+}
+
+.logo-container p{
+
+font-size:13px;
+
+}
+
+.busca-container{
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+.busca-container input{
+
+width:100%;
+
+border-radius:10px;
+
+}
+
+.busca-container button{
+
+width:100%;
+
+border-radius:10px;
+
+}
+
+.header-actions{
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+.action-item{
+
+font-size:13px;
+
+}
+
+.action-item i{
+
+font-size:22px;
+
+}
+
+.container-nav{
+
+flex-direction:column;
+
+align-items:center;
+
+gap:8px;
+
+}
+
+.container-nav a{
+
+padding:10px;
+
+}
+
+.hero-section{
+
+padding:40px 20px;
+
+}
+
+.hero-content h1{
+
+font-size:30px;
+
+}
+
+.hero-content p{
+
+font-size:16px;
+
+}
+
+.hero-image img{
+
+max-width:320px;
+
+}
+
+#btnPromo,
+
+#btnSaibaMais{
+
+width:100%;
+
+margin-bottom:12px;
+
+}
+
+.card{
+
+margin:auto;
+
+max-width:340px;
+
+}
+
+footer{
+
+text-align:center;
+
+padding:40px 20px;
+
+}
+
+}
+/* ==========================================
+   CELULARES PEQUENOS
+========================================== */
+
+@media (max-width:480px){
+
+.logo-container h1{
+
+font-size:24px;
+
+}
+
+.hero-content h1{
+
+font-size:26px;
+
+}
+
+.hero-content p{
+
+font-size:15px;
+
+}
+
+.hero-image img{
+
+max-width:250px;
+
+}
+
+.container-nav{
+
+font-size:14px;
+
+}
+
+.product-card{
+
+max-width:300px;
+
+margin:auto;
+
+}
+
 }
 /* ==========================================================
    ESTILOS EXCLUSIVOS DA TELA DE LOGIN PREMIUM
@@ -651,4 +998,25 @@ header{
 .tiktok {
   background-color: #010101;
   color: #ffffff;
+}
+/* Área da imagem do produto */
+.product-card .bg-light{
+    height:220px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+/* Imagem */
+.product-card img{
+    max-width:90%;
+    max-height:180px;
+    object-fit:contain;
+    transition:.35s;
+}
+
+.product-card:hover img{
+    transform:scale(1.05);
 }
