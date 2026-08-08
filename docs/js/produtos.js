@@ -1,4 +1,3 @@
-```javascript
 /* ==========================================================
    LOJA PROMO BABY
    Arquivo: js/produtos.js
