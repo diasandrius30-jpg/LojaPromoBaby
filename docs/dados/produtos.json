@@ -8,7 +8,7 @@
     "precoAntigo": 899.90,
     "desconto": 35,
     "avaliacao": 4.8,
-    "imagem": "imagens/produtos/Smartwatch-Ultra.webp"
+    "imagem": "imagens/produtos/smartwatch-ultra.webp"
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "precoAntigo": 349.90,
     "desconto": 28,
     "avaliacao": 4.6,
-    "imagem": "imagens/produtos/Fone-Bluetooth.webp"
+    "imagem": "imagens/produtos/fone-bluetooth.webp"
   },
   {
     "id": 3,

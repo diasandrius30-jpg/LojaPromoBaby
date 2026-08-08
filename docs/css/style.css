@@ -1,663 +1,115 @@
 /* ==========================================================
    LOJA PROMO BABY
    Desenvolvedor: Andrius Lopes
-   Arquivo: style.css
-   Versão: 3.0 (Alinhado com Bootstrap 5 e JS)
+   style.css
+   Versão 4.0
 ========================================================== */
 
-/* 1. VARIÁVEIS DE AMBIENTE E CORES GLOBAIS
-========================================================== */
-:root {
-    --blue-primary: #0046c7;
-    --blue-dark: #002c80;
-    --orange-accent: #ff6a00;
-    --orange-hover: #e05d00;
-    --yellow-accent: #ffb700;
-    --green-btn: #00cc44;
-    --green-hover: #00aa38;
-    --text-dark: #212529;
-    --bg-light: #f8f9fa;
-}
-
-/* 2. REGRAS GLOBAIS
-========================================================== */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-}
-
-/* 3. TOPO E CABEÇALHO (HEADER)
-========================================================== */
-.search-box .form-control:focus {
-    border-color: var(--blue-primary);
-    box-shadow: 0 0 0 0.25rem rgba(0, 70, 199, 0.15);
-}
-
-/* Customização do Botão de Busca */
-.btn-orange {
-    background-color: var(--orange-accent);
-    border-color: var(--orange-accent);
-    transition: all 0.2s ease-in-out;
-}
-
-.btn-orange:hover, 
-.btn-orange:focus {
-    background-color: var(--orange-hover);
-    border-color: var(--orange-hover);
-    color: #ffffff !important;
-}
-
-/* Ícones de Ação no Topo */
-
-.header-icon-link {
-    transition: transform 0.2s ease, color 0.2s ease;
-    display: inline-block;
-}
-
-.header-icon-link:hover {
-    color: var(--blue-primary) !important;
-    transform: translateY(-2px);
-}
-
-/* 4. MENU DE NAVEGAÇÃO HORIZONTAL
-========================================================== */
-.bg-primary-blue {
-    background-color: var(--blue-primary) !important;
-}
-
-.nav-link-custom {
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: all 0.2s ease-in-out;
-    display: inline-flex;
-    align-items: center;
-}
-
-.nav-link-custom:hover, 
-.nav-link-custom.active {
-    color: #ffffff !important;
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* 5. SEÇÃO HERO (BANNER PRINCIPAL COM GRADIENTE)
-========================================================== */
-.hero-section {
-    /* Gradiente diagonal idêntico ao da imagem de referência */
-    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 60%, var(--orange-accent) 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.bg-orange {
-    background-color: var(--orange-accent) !important;
-}
-
-.hero-title {
-    letter-spacing: -0.5px;
-    line-height: 1.2;
-}
-
-.text-light-opacity {
-    color: rgba(255, 255, 255, 0.85);
-}
-.text-decoration-line-through{
-    font-size:14px;
-}
-
-.text-success{
-    font-size:24px !important;
-    font-weight:800 !important;
-}
-
-/* Botão de Promoções (Verde) */
-.btn-success-custom {
-    background-color: var(--green-btn);
-    color: #ffffff;
-    border: none;
-    transition: all 0.2s ease-in-out;
-}
-
-.btn-success-custom:hover {
-    background-color: var(--green-hover);
-    color: #ffffff;
-    transform: translateY(-1px);
-}
-.btn-favorite{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:#fff !important;
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
-}
-
-.btn-favorite:hover{
-    color:#ff3b3b !important;
-}
-
-/* Tags das Lojas Parceiras */
-.partner-tags .badge {
-    font-weight: 600;
-    font-size: 0.8rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    text-transform: capitalize;
-}
-
-.hero-image-placeholder {
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 2px dashed rgba(255, 255, 255, 0.2);
-    min-height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
-}
-
-/* 6. VITRINE E CARDS DE PRODUTOS
-========================================================== */
-.product-card {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    background-color: #ffffff;
-    border-radius: 12px !important; /* Cantos arredondados do layout original */
-}
-
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
-}
-.product-card{
-    border:none !important;
-    border-radius:18px !important;
-    overflow:hidden;
-    transition:.3s;
-    background:#fff;
-    min-height:470px;
-}
-
-.product-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 12px 30px rgba(0,0,0,.15)!important;
-}
-
-/* Botão de Favoritar Interno do Card */
-.wishlist-btn {
-    color: #6c757d;
-    transition: color 0.2s ease, transform 0.2s ease;
-    z-index: 10;
-}
-
-.wishlist-btn:hover,
-.wishlist-btn.ativo {
-    color: #dc3545 !important; /* Cor vermelha do Bootstrap para o coração ativo */
-    transform: scale(1.1);
-}
-
-/* Badges específicas dos canais de vendas nos cards */
-.font-size-xs {
-    font-size: 0.7rem;
-    font-weight: 600;
-}
-.btn-comprar{
-    border-radius:30px !important;
-    padding:12px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.btn-comprar:hover{
-    transform:scale(1.03);
-}
-/* Botão de Compra no Card */
-.product-card .buy-btn,
-.product-card .btn-primary {
-    background-color: var(--blue-primary);
-    border: none;
-    transition: background-color 0.2s ease;
-}
-
-.product-card .buy-btn:hover,
-.product-card .btn-primary:hover {
-    background-color: var(--blue-dark);
-}
-
-/* 7. PÁGINA / ÁREA DO CARRINHO (INTEGRAÇÃO COM O JS)
-========================================================== */
-.item-carrinho {
-    transition: background-color 0.2s ease;
-}
-
-.item-carrinho:hover {
-    background-color: rgba(0, 0, 0, 0.01);
-}
-
-/* 8. RESPONSIVIDADE (MEDIA QUERIES)
-========================================================== */
-@media (max-width: 991.98px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .nav-link-custom {
-        width: 100%;
-        justify-content: center;
-    }
-}
-/* ==========================================
-   NOTEBOOK
-========================================== */
-
-@media (max-width:1200px){
-
-header{
-
-padding:15px 30px;
-
-}
-
-.logo-container h1{
-
-font-size:34px;
-
-}
-
-.busca-container{
-
-max-width:420px;
-
-}
-
-.hero-content h1{
-
-font-size:46px;
-
-}
-
-.hero-image img{
-
-max-width:520px;
-
-}
-
-}
-/* ==========================================
-   TABLET
-========================================== */
-
-@media (max-width:992px){
-
-header{
-
-flex-direction:column;
-
-gap:20px;
-
-padding:25px;
-
-}
-
-.logo-container{
-
-text-align:center;
-
-}
-
-.busca-container{
-
-width:100%;
-
-max-width:700px;
-
-margin:0;
-
-}
-
-.header-actions{
-
-justify-content:center;
-
-width:100%;
-
-}
-
-.container-nav{
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-gap:20px;
-
-padding:15px;
-
-}
-
-.hero-section{
-
-text-align:center;
-
-padding:60px 20px;
-
-}
-
-.hero-content{
-
-margin-bottom:40px;
-
-}
-
-.hero-content h1{
-
-font-size:38px;
-
-}
-
-.hero-content p{
-
-font-size:18px;
-
-}
-
-.hero-image img{
-
-max-width:450px;
-
-}
-
-.product-card{
-
-min-height:auto;
-
-}
-
-}
-/* ==========================================
-   CELULAR
-========================================== */
-
-@media (max-width:768px){
-
-header{
-
-padding:20px 15px;
-
-}
-
-.logo-container h1{
-
-font-size:28px;
-
-}
-
-.logo-container p{
-
-font-size:13px;
-
-}
-
-.busca-container{
-
-flex-direction:column;
-
-gap:10px;
-
-}
-
-.busca-container input{
-
-width:100%;
-
-border-radius:10px;
-
-}
-
-.busca-container button{
-
-width:100%;
-
-border-radius:10px;
-
-}
-
-.header-actions{
-
-gap:25px;
-
-flex-wrap:wrap;
-
-}
-
-.action-item{
-
-font-size:13px;
-
-}
-
-.action-item i{
-
-font-size:22px;
-
-}
-
-.container-nav{
-
-flex-direction:column;
-
-align-items:center;
-
-gap:8px;
-
-}
-
-.container-nav a{
-
-padding:10px;
-
-}
-
-.hero-section{
-
-padding:40px 20px;
-
-}
-
-.hero-content h1{
-
-font-size:30px;
-
-}
-
-.hero-content p{
-
-font-size:16px;
-
-}
-
-.hero-image img{
-
-max-width:320px;
-
-}
-
-#btnPromo,
-
-#btnSaibaMais{
-
-width:100%;
-
-margin-bottom:12px;
-
-}
-
-.card{
-
-margin:auto;
-
-max-width:340px;
-
-}
-
-footer{
-
-text-align:center;
-
-padding:40px 20px;
-
-}
-
-}
-/* ==========================================
-   CELULARES PEQUENOS
-========================================== */
-
-@media (max-width:480px){
-
-.logo-container h1{
-
-font-size:24px;
-
-}
-
-.hero-content h1{
-
-font-size:26px;
-
-}
-
-.hero-content p{
-
-font-size:15px;
-
-}
-
-.hero-image img{
-
-max-width:250px;
-
-}
-
-.container-nav{
-
-font-size:14px;
-
-}
-
-.product-card{
-
-max-width:300px;
-
-margin:auto;
-
-}
-
-}
 /* ==========================================================
-   ESTILOS EXCLUSIVOS DA TELA DE LOGIN PREMIUM
+   VARIÁVEIS
 ========================================================== */
 
-/* Define o mockup como background cobrindo 100% da tela */
-.login-page-bg {
-    background: url('../img/nova-composicao-banner.png') no-repeat center right;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    background-color: #0243be; /* Fallback caso a imagem demore a carregar */
+:root{
+
+    --blue-primary:#0046c7;
+    --blue-dark:#002c80;
+
+    --orange-accent:#ff6a00;
+    --orange-hover:#e05d00;
+
+    --yellow-accent:#ffb700;
+
+    --green-btn:#00cc44;
+    --green-hover:#00aa38;
+
+    --text-dark:#212529;
+
+    --bg-light:#f8f9fa;
+
 }
 
-/* Camada escura de proteção opcional para telas mobile lerem melhor o form */
-.login-page-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(2,67,190,0.85) 0%, rgba(2,67,190,0.4) 50%, rgba(255,93,2,0.3) 100%);
-    z-index: 1;
+/* ==========================================================
+   BODY
+========================================================== */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:var(--bg-light);
+    color:var(--text-dark);
+
 }
 
-/* Customização dos inputs transparentes do formulário */
-.login-input {
-    color: #ffffff !important;
-    border-radius: 0 6px 6px 0 !important;
-}
-.login-input:focus {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border-color: #ff5e03 !important;
-    box-shadow: none !important;
-}
-
-.input-group-text {
-    border-radius: 6px 0 0 6px !important;
-}
-
-/* Botões laranjas idênticos aos da imagem */
-.btn-orange-main {
-    background-color: #ff5e03 !important;
-    color: #ffffff !important;
-    border: none !important;
-    transition: background-color 0.2s ease-in-out;
-}
-.btn-orange-main:hover {
-    background-color: #e04f00 !important;
-}
-
-.hover-underline:hover {
-    text-decoration: underline !important;
-}
-
-/* Responsividade para o plano de fundo em telas pequenas */
-@media (max-width: 767.98px) {
-    .login-page-bg {
-        background-position: center center;
-    }
-    .dynamic-login-box {
-        background-color: rgba(2, 67, 190, 0.95);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-}
-/* 1. TOPO (Header): Alinhamento e Distribuição */
-/* ===========================
+/* ==========================================================
    HEADER
-=========================== */
+========================================================== */
 
 header{
+
     width:100%;
-    background:#fff;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     padding:18px 50px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+    background:#fff;
+
     position:sticky;
+
     top:0;
+
     z-index:999;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+
 }
 
+/* ==========================================================
+   LOGO
+========================================================== */
+
 .logo-container h1{
+
     font-size:42px;
+
     font-weight:800;
+
     margin:0;
+
     line-height:1;
+
 }
 
 .logo-container p{
+
     margin-top:8px;
+
     color:#666;
+
     font-size:15px;
+
 }
 
 .cor-azul{
+
     color:#0046d5;
+
 }
 
 .cor-laranja{
+
     color:#ff6b00;
+
 }
-/* Barra de Busca */
+
+/* ==========================================================
+   BARRA DE PESQUISA
+========================================================== */
+
 .busca-container{
 
     width:520px;
@@ -702,11 +154,11 @@ header{
 
     height:48px;
 
+    border:none;
+
     background:#ff6b00;
 
-    color:white;
-
-    border:none;
+    color:#fff;
 
     border-radius:0 12px 12px 0;
 
@@ -721,14 +173,18 @@ header{
     background:#ef6100;
 
 }
-/* Ícones da Direita (Favoritos, Carrinho, Entrar) */
+
+/* ==========================================================
+   AÇÕES DO HEADER
+========================================================== */
+
 .header-actions{
 
     display:flex;
 
-    align-items:center;
-
     gap:35px;
+
+    align-items:center;
 
 }
 
@@ -752,14 +208,6 @@ header{
 
 }
 
-.action-item i{
-
-    font-size:28px;
-
-    margin-bottom:5px;
-
-}
-
 .action-item:hover{
 
     color:#0046d5;
@@ -767,11 +215,16 @@ header{
     transform:translateY(-2px);
 
 }
-/* 2. MENU DE NAVEGAÇÃO: Corrigindo o sumiço dos links */
+
+/* ==========================================================
+   MENU
+========================================================== */
 
 .menu{
 
-    background:#0046d5;
+    background:#015eff;
+
+    width:100%;
 
     height:58px;
 
@@ -791,35 +244,39 @@ header{
 
     display:flex;
 
-    gap:40px;
+    gap:30px;
+
+    padding:0 5%;
 
 }
 
-.container-nav a{
+.nav-link{
 
-    color:white;
+    color:#fff !important;
 
     text-decoration:none;
 
-    font-size:17px;
-
     font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
 
     position:relative;
 
-    padding:18px 0;
-
 }
 
-.container-nav a::after{
+.nav-link::after{
 
     content:"";
 
     position:absolute;
 
-    bottom:0;
-
     left:0;
+
+    bottom:-18px;
 
     width:0;
 
@@ -831,23 +288,26 @@ header{
 
 }
 
-.container-nav a:hover::after,
+.nav-link:hover::after,
 
-.container-nav .active::after{
+.nav-link.active::after{
 
     width:100%;
 
 }
 
-.container-nav a:hover{
+/* ==========================================================
+   HERO
+========================================================== */
 
-    color:#fff;
-
-}
-/* 3. BANNER PRINCIPAL (Hero Section) */
 .hero-section{
 
-    background:linear-gradient(135deg,#0046d5 0%,#002e93 70%,#ff6b00 100%);
+    background:linear-gradient(
+        135deg,
+        #0046d5 0%,
+        #002e93 70%,
+        #ff6b00 100%
+    );
 
     padding:70px 0;
 
@@ -861,15 +321,11 @@ header{
 
     line-height:1.15;
 
-    color:white;
-
 }
 
 .hero-content p{
 
     font-size:22px;
-
-    color:white;
 
     margin-top:25px;
 
@@ -887,7 +343,7 @@ header{
 
     max-width:700px;
 
-    transition:.4s;
+    transition:.35s;
 
 }
 
@@ -896,7 +352,10 @@ header{
     transform:scale(1.03);
 
 }
-/* Botões do Banner */
+
+/* ==========================================================
+   BOTÕES HERO
+========================================================== */
 
 #btnPromo{
 
@@ -904,13 +363,11 @@ header{
 
     border:none;
 
-    padding:16px 40px;
-
     border-radius:35px;
 
-    font-weight:700;
+    padding:16px 40px;
 
-    font-size:18px;
+    font-weight:700;
 
 }
 
@@ -922,101 +379,635 @@ header{
 
 #btnSaibaMais{
 
-    padding:16px 40px;
-
     border-radius:35px;
 
-    font-weight:700px;
+    padding:16px 40px;
+
+    font-weight:700;
 
 }
-/* --- Cores do Título da Logo --- */
-.logo-container h1 {
-  font-size: 32px; /* Aumentado para dar destaque igual ao modelo */
-  font-weight: 800;
-  margin-bottom: 5px;
-}
+/* ==========================================================
+   PRODUTOS
+========================================================== */
 
-.cor-azul {
-  color: #003fa4; /* Azul escuro principal */
-}
+.product-card{
 
-.cor-laranja {
-  color: #ffae00; /* Laranja promocional */
-}
+    background:#fff;
 
+    border:none !important;
 
-/* --- Alinhamento Lado a Lado do Menu --- */
-.menu {
-  background-color: #015eff; /* Azul royal do fundo */
-  width: 100%;
-}
+    border-radius:18px !important;
 
-.container-nav {
-  display: flex;
-  flex-direction: row; /* Força os elementos a ficarem em linha */
-  justify-content: flex-start; /* Alinha o menu no início (à esquerda) */
-  gap: 30px; /* Espaçamento horizontal entre os links */
-  padding: 12px 5%;
-}
-
-.nav-link {
-  color: #ffffff !important;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Espaço entre o emoji e o texto */
-  white-space: nowrap; /* Evita que o texto quebre em duas linhas */
-}
-/* Estilo base da tag de marca abaixo da foto */
-.badge-marca {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-/* Cores de fundo personalizadas das lojas */
-.shopee {
-  background-color: #ffebd7;
-  color: #ff2222;
-}
-
-.amazon {
-  background-color: #111111;
-  color: #0080ff;
-}
-
-.mercadolivre {
-  background-color: #fff159;
-  color: #333333;
-}
-
-.tiktok {
-  background-color: #010101;
-  color: #ffffff;
-}
-/* Área da imagem do produto */
-.product-card .bg-light{
-    height:220px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
     overflow:hidden;
-    border-radius:12px;
+
+    min-height:470px;
+
+    transition:.35s;
+
 }
 
-/* Imagem */
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.15)!important;
+
+}
+
+/* ==========================================================
+   IMAGEM DO PRODUTO
+========================================================== */
+
+.product-card .bg-light{
+
+    height:220px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f8f9fa !important;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
 .product-card img{
+
     max-width:90%;
+
     max-height:180px;
+
     object-fit:contain;
+
     transition:.35s;
+
 }
 
 .product-card:hover img{
-    transform:scale(1.05);
+
+    transform:scale(1.08);
+
+}
+
+/* ==========================================================
+   FAVORITOS
+========================================================== */
+
+.btn-favorite{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#fff !important;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:none;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+
+    transition:.25s;
+
+}
+
+.btn-favorite:hover{
+
+    color:#ff3b3b !important;
+
+}
+
+.wishlist-btn{
+
+    color:#6c757d;
+
+    transition:.25s;
+
+}
+
+.wishlist-btn:hover,
+
+.wishlist-btn.ativo{
+
+    color:#dc3545 !important;
+
+    transform:scale(1.1);
+
+}
+
+/* ==========================================================
+   BADGES
+========================================================== */
+
+.badge-marca{
+
+    display:inline-block;
+
+    padding:3px 10px;
+
+    border-radius:12px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.shopee{
+
+    background:#ffebd7;
+
+    color:#ff2222;
+
+}
+
+.amazon{
+
+    background:#111;
+
+    color:#0080ff;
+
+}
+
+.mercadolivre{
+
+    background:#fff159;
+
+    color:#333;
+
+}
+
+.tiktok{
+
+    background:#010101;
+
+    color:#fff;
+
+}
+
+/* ==========================================================
+   TEXTO DOS CARDS
+========================================================== */
+
+.product-card h3{
+
+    font-size:16px;
+
+    font-weight:700;
+
+    min-height:45px;
+
+}
+
+.product-card .text-decoration-line-through{
+
+    font-size:14px;
+
+}
+
+.product-card .text-success{
+
+    font-size:24px !important;
+
+    font-weight:800 !important;
+
+}
+
+/* ==========================================================
+   BOTÃO COMPRAR
+========================================================== */
+
+.btn-comprar {
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: #004dcc;
+    transform: scale(1.05);
+}
+.product-card .btn-primary{
+
+    background:var(--blue-primary);
+
+    border:none;
+
+}
+
+.product-card .btn-primary:hover{
+
+    background:var(--blue-dark);
+
+}
+.btn-comprar {
+    background-color: #0066ff;
+    border-color: #0066ff;
+}
+
+.btn-comprar:hover {
+    background-color: #004dcc;
+    border-color: #004dcc;
+}
+/* ==========================================================
+   FORMULÁRIO DE CONTATO
+========================================================== */
+
+.contato{
+
+    padding:70px 0;
+
+    background:#fff;
+
+}
+
+.contato h2{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.contato p{
+
+    color:#666;
+
+    margin-bottom:30px;
+
+}
+
+.contato .form-control{
+
+    border-radius:10px;
+
+    min-height:48px;
+
+    border:2px solid #ececec;
+
+    transition:.3s;
+
+}
+
+.contato textarea.form-control{
+
+    min-height:140px;
+
+    resize:vertical;
+
+}
+
+.contato .form-control:focus{
+
+    border-color:var(--blue-primary);
+
+    box-shadow:none;
+
+}
+
+/* ==========================================================
+   BOTÕES
+========================================================== */
+
+.btn-orange{
+
+    background:var(--orange-accent);
+
+    border:none;
+
+    color:#fff;
+
+    transition:.3s;
+
+}
+
+.btn-orange:hover{
+
+    background:var(--orange-hover);
+
+    color:#fff;
+
+}
+
+.btn-success-custom{
+
+    background:var(--green-btn);
+
+    color:#fff;
+
+    border:none;
+
+}
+
+.btn-success-custom:hover{
+
+    background:var(--green-hover);
+
+    color:#fff;
+
+}
+
+/* ==========================================================
+   CARRINHO
+========================================================== */
+
+.item-carrinho{
+
+    transition:.25s;
+
+}
+
+.item-carrinho:hover{
+
+    background:rgba(0,0,0,.02);
+
+}
+
+/* ==========================================================
+   RODAPÉ
+========================================================== */
+
+.footer{
+
+    background:#002e93;
+
+    color:#fff;
+
+    padding:50px 0;
+
+    text-align:center;
+
+}
+
+.footer h3{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.footer p{
+
+    margin:8px 0;
+
+    color:rgba(255,255,255,.9);
+
+}
+
+.footer hr{
+
+    border-color:rgba(255,255,255,.2);
+
+    margin:25px auto;
+
+}
+
+/* ==========================================================
+   LOGIN
+========================================================== */
+
+.login-page-bg{
+
+    background:url('../img/nova-composicao-banner.png')
+    no-repeat center right;
+
+    background-size:cover;
+
+    background-attachment:fixed;
+
+    background-color:#0243be;
+
+    position:relative;
+
+}
+
+.login-page-bg::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        rgba(2,67,190,.85),
+
+        rgba(2,67,190,.40),
+
+        rgba(255,93,2,.30)
+
+    );
+
+}
+
+.login-input{
+
+    color:#fff !important;
+
+    border-radius:0 6px 6px 0 !important;
+
+}
+
+.login-input:focus{
+
+    background:rgba(255,255,255,.10)!important;
+
+    border-color:#ff5e03!important;
+
+    box-shadow:none!important;
+
+}
+
+.input-group-text{
+
+    border-radius:6px 0 0 6px!important;
+
+}
+
+.btn-orange-main{
+
+    background:#ff5e03!important;
+
+    color:#fff!important;
+
+    border:none!important;
+
+    transition:.3s;
+
+}
+
+.btn-orange-main:hover{
+
+    background:#e04f00!important;
+
+}
+
+.hover-underline:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ==========================================================
+   CLASSES AUXILIARES
+========================================================== */
+
+.hero-title{
+
+    line-height:1.2;
+
+    letter-spacing:-.5px;
+
+}
+
+.text-light-opacity{
+
+    color:rgba(255,255,255,.85);
+
+}
+
+.bg-orange{
+
+    background:var(--orange-accent)!important;
+
+}
+
+.font-size-xs{
+
+    font-size:.70rem;
+
+    font-weight:600;
+
+}
+/*================================================================
+   icones
+================================================================*/
+.loja {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+
+.shopee {
+    color: #ee4d2d;
+    background: #fff0ec;
+}
+
+
+.mercado-livre {
+    color: #3483fa;
+    background: #eef5ff;
+}
+
+
+.amazon {
+    color: #111;
+    background: #f3f3f3;
+}
+
+
+.tiktok {
+    color: #000;
+    background: #eeeeee;
+}
+.loja {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+    margin-bottom:10px;
+
+}
+
+
+.loja img {
+
+    width:28px;
+
+    height:28px;
+
+    object-fit:contain;
+
+}
+/*=======================================================================
+/* ======== LOGO DAS LOJAS ======== */
+
+.loja{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+    font-size:14px;
+}
+
+.loja img{
+    width:26px;
+    height:26px;
+    object-fit:contain;
+}
+
+.shopee{
+    color:#ee4d2d;
+}
+
+.mercado-livre{
+    color:#3483fa;
+}
+
+.amazon{
+    color:#111;
+}
+
+.tiktok{
+    color:#000;
+}
+
+/* ======== BOTÃO ======== */
+
+.btn-comprar{
+    background:#0d6efd;
+    color:#fff;
+    border:none;
+    font-weight:600;
+}
+
+.btn-comprar:hover{
+    background:#0b5ed7;
+    color:#fff;
 }

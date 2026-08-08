@@ -1,77 +1,168 @@
-document.addEventListener("DOMContentLoaded", async () => {
+```javascript
+/* ==========================================================
+   LOJA PROMO BABY
+   Arquivo: js/produtos.js
+   Função: Ícones das lojas nos cards existentes
+========================================================== */
 
-    const listaProdutos = document.getElementById("listaProdutos");
+document.addEventListener("DOMContentLoaded", () => {
 
-    try {
+    console.log("====================================");
+    console.log("PRODUTOS.JS CARREGADO");
+    console.log("====================================");
 
-        const resposta = await fetch("dados/produtos.json");
-        const produtos = await resposta.json();
 
-        produtos.forEach(produto => {
+    // ======================================================
+    // LOCALIZA OS CARDS QUE JÁ EXISTEM NO INDEX.HTML
+    // ======================================================
 
-            listaProdutos.innerHTML += `
-                <div class="col produto"
-                     data-nome="${produto.nome}"
-                     data-categoria="${produto.categoria}"
-                     data-loja="${produto.loja}">
+    const produtos =
+        document.querySelectorAll(".produto");
 
-                    <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
 
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">
-                            -${produto.desconto}%
-                        </span>
+    console.log(
+        "CARDS ENCONTRADOS:",
+        produtos.length
+    );
 
-                        <button class="btn btn-favorite position-absolute top-0 end-0 m-2 p-0 border-0 bg-transparent text-muted">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
 
-                        <div class="text-center py-3 bg-light rounded mb-2">
-                            <img src="${produto.imagem}"
-                                 class="img-fluid"
-                                 alt="${produto.nome}">
-                        </div>
+    if (!produtos.length) {
 
-                        <div class="card-body p-1 d-flex flex-column">
+        console.warn(
+            "Nenhum card .produto encontrado."
+        );
 
-                            <span class="badge bg-primary align-self-start mb-2">
-                                ${produto.loja}
-                            </span>
-
-                            <h3 class="fs-6 fw-bold">
-                                ${produto.nome}
-                            </h3>
-
-                            <div class="text-warning mb-2">
-                                ⭐⭐⭐⭐⭐
-                                <span class="text-muted">(${produto.avaliacao})</span>
-                            </div>
-
-                            <p class="text-decoration-line-through text-muted mb-0">
-                                R$ ${produto.precoAntigo.toFixed(2)}
-                            </p>
-
-                            <p class="text-success fw-bold fs-5">
-                                R$ ${produto.preco.toFixed(2)}
-                            </p>
-
-                            <button class="btn btn-primary rounded-pill mt-auto btn-comprar">
-                                <i class="fa-solid fa-cart-shopping me-1"></i>
-                                Comprar Agora
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            `;
-
-        });
-
-    } catch (erro) {
-
-        console.error("Erro ao carregar produtos:", erro);
-
+        return;
     }
 
+
+    // ======================================================
+    // ÍCONES DAS LOJAS
+    // ======================================================
+
+    const lojas = {
+
+        "Shopee": {
+            imagem: "imagens/icones/shopee.png",
+            nome: "Shopee",
+            classe: "shopee"
+        },
+
+        "Mercado Livre": {
+            imagem: "imagens/icones/mercado-livre.png",
+            nome: "Mercado Livre",
+            classe: "mercado-livre"
+        },
+
+        "Amazon": {
+            imagem: "imagens/icones/amazon.png",
+            nome: "Amazon",
+            classe: "amazon"
+        },
+
+        "TikTok Shop": {
+            imagem: "imagens/icones/tiktok.png",
+            nome: "TikTok Shop",
+            classe: "tiktok"
+        }
+
+    };
+
+
+    // ======================================================
+    // PERCORRE OS CARDS EXISTENTES
+    // ======================================================
+
+    produtos.forEach((produto, indice) => {
+
+
+        const loja =
+            produto.dataset.loja;
+
+
+        console.log(
+            "CARD:",
+            indice + 1,
+            "| LOJA:",
+            loja
+        );
+
+
+        const dadosLoja =
+            lojas[loja];
+
+
+        if (!dadosLoja) {
+
+            console.warn(
+                "Ícone não encontrado para:",
+                loja
+            );
+
+            return;
+        }
+
+
+        // ==================================================
+        // LOCALIZA O BADGE EXISTENTE DA LOJA
+        // ==================================================
+
+        const badge =
+            produto.querySelector(
+                ".badge.bg-primary"
+            );
+
+
+        if (!badge) {
+
+            console.warn(
+                "Badge da loja não encontrado:",
+                loja
+            );
+
+            return;
+        }
+
+
+        // ==================================================
+        // COLOCA O ÍCONE DENTRO DO BADGE EXISTENTE
+        // ==================================================
+
+        badge.innerHTML = `
+
+            <img
+                src="${dadosLoja.imagem}"
+                alt="${dadosLoja.nome}"
+                class="icone-loja"
+            >
+
+            <span>
+                ${dadosLoja.nome}
+            </span>
+
+        `;
+
+
+        // Remove o estilo azul do Bootstrap
+        // para podermos usar as cores das lojas.
+
+        badge.classList.remove(
+            "bg-primary"
+        );
+
+
+        badge.classList.add(
+            "loja",
+            dadosLoja.classe
+        );
+
+
+    });
+
+
+    console.log(
+        "ÍCONES DAS LOJAS APLICADOS."
+    );
+
 });
+```

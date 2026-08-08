@@ -4,15 +4,18 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Loja Promo Baby</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
     <link rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -32,92 +35,125 @@
 </head>
 
 <body>
-    
 
 <!-- ==========================================================
-     CABEÇALHO
+     HEADER
 ========================================================== -->
 
 <header>
-  <div class="logo-container">
-    <!-- Título com cores separadas por tags span -->
-    <h1><span class="cor-azul">LOJA</span> <span class="cor-laranja">PROMO</span> <span class="cor-azul">BABY</span></h1>
-    <p>As melhores promoções da internet em um só lugar!</p>
-  </div>
 
-  <!-- Pesquisa -->
-<!-- Procure a sua busca-container e deixe os elementos
-  com esses IDs: -->
+    <div class="logo-container">
 
-<div class="busca-container">
+        <h1>
+            <span class="cor-azul">LOJA</span>
+            <span class="cor-laranja">PROMO</span>
+            <span class="cor-azul">BABY</span>
+        </h1>
 
-  <input 
-  type="text" 
-  id="inputBusca" 
-  placeholder="Pesquise produtos, categorias ou lojas...">
+        <p>
+            As melhores promoções da internet em um só lugar!
+        </p>
 
-  <button id="btnBuscar"
-  
-  >Buscar
+    </div>
 
-</button>
+    <!-- Busca -->
 
-</div>
+    <div class="busca-container">
 
-  
-  <!-- Ações -->
-  <div class="header-actions">
+        <input
+            type="text"
+            id="inputBusca"
+            placeholder="Pesquise produtos, categorias ou lojas...">
 
-<div class="action-item" id="btnFavoritos">
-❤️ Favoritos
-</div>
+        <button id="btnBuscar">
+            Buscar
+        </button>
 
-<div class="action-item" id="btnCarrinho">
-🛒 Carrinho
-</div>
+    </div>
 
-<a href="login.html" class="action-item" id="btnEntrar">
-    <span>👤</span> Entrar
-</a>
+    <!-- Ações -->
 
-  </div>
+    <div class="header-actions">
+
+        <div class="action-item" id="btnFavoritos">
+            ❤️ Favoritos
+        </div>
+
+        <div class="action-item" id="btnCarrinho">
+            🛒 Carrinho
+        </div>
+
+        <a href="login.html"
+           class="action-item"
+           id="btnEntrar">
+
+            <span>👤</span>
+
+            Entrar
+
+        </a>
+
+    </div>
 
 </header>
 
-<!-- Menu unificado e alinhado lado a lado -->
+<!-- ==========================================================
+     MENU
+========================================================== -->
 
 <nav class="menu py-2 shadow-sm">
 
-  <div class="container-nav">
+    <div class="container-nav">
 
-    <a href="#" class="nav-link active">🏠 Início</a>
-    <a href="#" class="nav-link">🏷️ Produtos</a>
-    <a href="#" class="nav-link">📂 Categorias</a>
-    <a href="#" class="nav-link">🔥 Ofertas</a>
-    <a href="#" class="nav-link">📞 Contato</a>
-  </div>
+        <a href="#" class="nav-link active">
+            🏠 Início
+        </a>
+
+        <a href="#" class="nav-link">
+            🏷️ Produtos
+        </a>
+
+        <a href="#" class="nav-link">
+            📂 Categorias
+        </a>
+
+        <a href="#" class="nav-link">
+            🔥 Ofertas
+        </a>
+
+        <a href="#" class="nav-link">
+            📞 Contato
+        </a>
+
+    </div>
+
 </nav>
 
-<!-- Resultado da Busca -->
-<section id="resultadoBusca" class="container my-4">
+<!-- ==========================================================
+     RESULTADO DA BUSCA
+========================================================== -->
+
+<section id="resultadoBusca"
+         class="container my-4">
+
 </section>
+
 <!-- ==========================================================
      HERO
 ========================================================== -->
 
 <section class="hero-section">
+
     <div class="container">
 
         <div class="row align-items-center">
 
-            <!-- TEXTO -->
+            <!-- Texto -->
 
             <div class="col-lg-6 hero-content">
 
                 <span class="badge bg-warning text-dark mb-3 px-3 py-2 text-uppercase fw-bold">
-
                     🔥 Super Ofertas
-
                 </span>
 
                 <h1 class="display-4 fw-bold mb-3">
@@ -131,29 +167,21 @@
                     Compare ofertas da
 
                     <span class="text-warning fw-semibold">
-
                         Shopee
-
                     </span>,
 
                     <span class="fw-semibold text-white">
-
                         Amazon
-
                     </span>,
 
                     <span class="text-warning fw-semibold">
-
                         Mercado Livre
-
                     </span>
 
                     e
 
                     <span class="text-info fw-semibold">
-
                         TikTok Shop
-
                     </span>
 
                     em um único lugar.
@@ -180,12 +208,16 @@
 
                 </div>
 
-
             </div>
+
+            <!-- Imagem -->
+
+            <div class="col-lg-6 hero-image text-center">
+
                 <img src="imagens/Marketplace.png"
-                    alt="Comparador Inteligente de Ofertas"
-                    class="img-fluid"
-                    loading="lazy">
+                     alt="Comparador Inteligente de Ofertas"
+                     class="img-fluid"
+                     loading="lazy">
 
             </div>
 
@@ -195,12 +227,10 @@
 
 </section>
 <!-- ==========================================================
-     PRODUTOS
+     PRODUTOS EM DESTAQUE
 ========================================================== -->
-
-<section id="promocoes" class="bg-white py-5">
-
-    <div class="container">
+</section>
+        <!-- Título da seção -->
 
         <div class="d-flex justify-content-between align-items-center mb-4">
 
@@ -223,112 +253,276 @@
 
         </div>
 
-        </div>
+        <!-- ==========================================================
+             LISTA DE PRODUTOS
+        ========================================================== -->
 
-         <div id="listaProdutos" class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3"></div>
+       <section id="promocoes" class="container py-5">
+       
+    <div class="row g-4">
 
-          <!-- Card  - Exemplo Shopee -->
+        <!-- CARD 1 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card product-card produto h-100"
+                 data-nome="Almofada de Maternidade"
+                 data-categoria="Maternidade"
+                 data-loja="Amazon">
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 produto"></div>
-  
+                <button class="wishlist-btn btn btn-light position-absolute top-0 end-0 m-2">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
 
-    <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
+                <img src="imagens/produtos/almofada-maternidade.webp" class="card-img-top" alt="Almofada de Maternidade">
 
-    </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Almofada de Maternidade</h5>
+                    <p class="card-text">Conforto para gestantes e amamentação.</p>
 
-<!-- Card 2 - Exemplo Amazon -->
+                    <p class="text-decoration-line-through text-muted mb-0">
+                        R$ 199,90
+                    </p>
 
-<div class="col-12 col-sm-6 col-md-4 col-lg-3 produto"></div>
-    
+                    <h4 class="text-warning fw-bold">
+                        R$ 149,90
+                    </h4>
 
-    <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
-
-        
-    </div>
-
-</div>
-
-<!-- Card 3 - Exemplo Mercado Livre -->
-<div class="col-12 col-sm-6 col-md-4 col-lg-3 produto"></div>
-     
-   <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm"></div>
-
-</div>
-
-</div>
-
-
-<!-- Card 4 - Exemplo TikTok Shop -->
-
-<div class="col-12 col-sm-6 col-md-4 col-lg-3 produto"></div>
-     
-
-    <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
-
-        
-        </div>
-
-    </div>
-
-</div>
-
-<!-- Card 5 - Exemplo Shopee -->
-
-<div class="col-12 col-sm-6 col-md-4 col-lg-3 produto"></div>
-     
-    <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
-
-        
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- Card 6 - Exemplo Amazon -->
-
-<div class="col-12 col-sm-6 col-md-4 col-lg-3 produto"></div>
-     
-
-    <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
-
-        
-
-        </div>
-
-    </div>
-
-</div>
-            <!-- PRODUTO 7 -->
-
-               <div class="col-12 col-sm-6 col-md-4 col-lg-3 produto"></div>
-    
-                <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
-
+                    <a href="#" class="btn btn-warning text-white btn-comprar buy-btn mt-auto">
+                        Comprar
+                    </a>
                 </div>
-
             </div>
+        </div>
 
-            <!-- PRODUTO 8 -->
+        <!-- CARD 2 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card product-card produto h-100"
+                 data-nome="Babá Eletrônica"
+                 data-categoria="Segurança"
+                 data-loja="Mercado Livre">
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 produto"></div>
-    
+                <button class="wishlist-btn btn btn-light position-absolute top-0 end-0 m-2">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
 
-                <div class="card product-card h-100 border rounded-3 p-2 position-relative shadow-sm">
+                <img src="imagens/produtos/baba-eletronica.webp" class="card-img-top" alt="Babá Eletrônica">
 
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Babá Eletrônica</h5>
+                    <p class="card-text">Monitoramento com áudio e vídeo HD.</p>
+
+                    <p class="text-decoration-line-through text-muted mb-0">
+                        R$ 599,90
+                    </p>
+
+                    <h4 class="text-warning fw-bold">
+                        R$ 469,90
+                    </h4>
+
+                    <a href="#" class="btn btn-warning text-white btn-comprar buy-btn mt-auto">
+                        Comprar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card product-card produto h-100"
+                 data-nome="Kit Bodies Infantil"
+                 data-categoria="Roupas"
+                 data-loja="Shopee">
+
+                <button class="wishlist-btn btn btn-light position-absolute top-0 end-0 m-2">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <img src="imagens/produtos/bodies.webp" class="card-img-top" alt="Bodies Infantil">
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Kit Bodies Infantil</h5>
+                    <p class="card-text">Kit com 5 bodies 100% algodão.</p>
+
+                    <p class="text-decoration-line-through text-muted mb-0">
+                        R$ 129,90
+                    </p>
+
+                    <h4 class="text-warning fw-bold">
+                        R$ 89,90
+                    </h4>
+
+                    <a href="#" class="btn btn-warning text-white btn-comprar buy-btn mt-auto">
+                        Comprar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card product-card produto h-100"
+                 data-nome="Bolsa de Maternidade"
+                 data-categoria="Maternidade"
+                 data-loja="Amazon">
+
+                <button class="wishlist-btn btn btn-light position-absolute top-0 end-0 m-2">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <img src="imagens/produtos/bolsa-maternidade.webp" class="card-img-top" alt="Bolsa de Maternidade">
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Bolsa de Maternidade</h5>
+                    <p class="card-text">Grande capacidade e bolso térmico.</p>
+
+                    <p class="text-decoration-line-through text-muted mb-0">
+                        R$ 249,90
+                    </p>
+
+                    <h4 class="text-warning fw-bold">
+                        R$ 189,90
+                    </h4>
+
+                    <a href="#" class="btn btn-warning text-white btn-comprar buy-btn mt-auto">
+                        Comprar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card product-card produto h-100"
+                 data-nome="Copo Antivazamento"
+                 data-categoria="Alimentação"
+                 data-loja="Mercado Livre">
+
+                <button class="wishlist-btn btn btn-light position-absolute top-0 end-0 m-2">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <img src="imagens/produtos/copo-antivazamento.webp" class="card-img-top" alt="Copo Antivazamento">
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Copo Antivazamento</h5>
+                    <p class="card-text">Ideal para crianças acima de 6 meses.</p>
+
+                    <p class="text-decoration-line-through text-muted mb-0">
+                        R$ 69,90
+                    </p>
+
+                    <h4 class="text-warning fw-bold">
+                        R$ 49,90
+                    </h4>
+
+                    <a href="#" class="btn btn-warning text-white btn-comprar buy-btn mt-auto">
+                        Comprar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card product-card produto h-100"
+                 data-nome="fone bluetooth"
+                 data-categoria="Eletrônicos"
+                 data-loja="Amazon">
+
+                <button class="wishlist-btn btn btn-light position-absolute top-0 end-0 m-2">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <img src="imagens/produtos/fone-bluetooth.webp" class="card-img-top" alt="fone bluetooth">
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">fone bluetooth</h5>
+                    <p class="card-text">Bluetooth 5.3 com estojo recarregável.</p>
+
+                    <p class="text-decoration-line-through text-muted mb-0">
+                        R$ 199,90
+                    </p>
+
+                    <h4 class="text-warning fw-bold">
+                        R$ 129,90
+                    </h4>
+
+                    <a href="#" class="btn btn-warning text-white btn-comprar buy-btn mt-auto">
+                        Comprar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card product-card produto h-100"
+                 data-nome="smartwatch-ultra"
+                 data-categoria="Eletrônicos"
+                 data-loja="Shopee">
+
+                <button class="wishlist-btn btn btn-light position-absolute top-0 end-0 m-2">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <img src="imagens/produtos/smartwatch-ultra.webp" class="card-img-top" alt="smartwatch-ultra">
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">smartwatch</h5>
+                    <p class="card-text">Monitor cardíaco e esportes.</p>
+
+                    <p class="text-decoration-line-through text-muted mb-0">
+                        R$ 399,90
+                    </p>
+
+                    <h4 class="text-warning fw-bold">
+                        R$ 299,90
+                    </h4>
+
+                    <a href="#" class="btn btn-warning text-white btn-comprar buy-btn mt-auto">
+                        Comprar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card product-card produto h-100"
+                 data-nome="Mordedor de Silicone"
+                 data-categoria="Higiene"
+                 data-loja="Mercado Livre">
+
+                <button class="wishlist-btn btn btn-light position-absolute top-0 end-0 m-2">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <img src="imagens/produtos/mordedor-silicone.webp" class="card-img-top" alt="Mordedor de Silicone">
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Mordedor de Silicone</h5>
+                    <p class="card-text">Silicone livre de BPA e fácil de higienizar.</p>
+
+                    <p class="text-decoration-line-through text-muted mb-0">
+                        R$ 59,90
+                    </p>
+
+                    <h4 class="text-warning fw-bold">
+                        R$ 39,90
+                    </h4>
+
+                    <a href="#" class="btn btn-warning text-white btn-comprar buy-btn mt-auto">
+                        Comprar
+                    </a>
+                </div>
+            </div>
         </div>
 
     </div>
 
-</section>
-
-         
-<!-- ==========================
+</section> 
+<!-- ==========================================================
      CONTATO
-========================== -->
+========================================================== -->
 
 <section id="contato" class="contato">
 
@@ -337,13 +531,28 @@
         <h2>📩 Entre em Contato</h2>
 
         <p>
-            Tem alguma dúvida ou sugestão? 
+            Tem alguma dúvida ou sugestão?
             Envie sua mensagem.
         </p>
 
         <form id="formContato">
 
-          <!-- Seu formulário permanece exatamente igual -->
+            <!-- Campos do formulário serão adicionados aqui -->
+
+        </form>
+
+    </div>
+
+</section>
+
+  <!-- ===========================================================
+            CAMPOS DO FORMULÁRIO
+            (Adicionar futuramente)
+=========================================================== -->
+            
+
+
+
 
         </form>
 
@@ -352,7 +561,8 @@
 </section>
 
 
-            <!-- ==========================================================
+
+<!-- ==========================================================
      RODAPÉ
 ========================================================== -->
 
@@ -383,6 +593,7 @@
         <p>
 
             Desenvolvido por
+
             <strong>Andrius Lopes</strong>
 
         </p>
@@ -403,23 +614,20 @@
 
 </footer>
 
+<!-- ==========================================================
+     SCRIPTS
+========================================================== -->
+
+<!-- Bootstrap -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- JavaScript da Loja -->
 
 <script src="js/script.js"></script>
 
 <script src="js/produtos.js"></script>
 
-<!-- ==========================================================
-     MODAL LOGIN
-========================================================== -->
-
-
-
-    ...
-
-</div>
-
 </body>
-</html>
 
+</html>
