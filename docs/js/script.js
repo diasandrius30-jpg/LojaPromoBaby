@@ -241,7 +241,7 @@ const produtos =
 
 
 
-function executarBusca() {
+window.executarBusca = function executarBusca() {
 
 
     if (!inputPesquisa) return;
