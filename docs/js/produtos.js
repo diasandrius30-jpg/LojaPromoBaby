@@ -106,22 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
         // LOCALIZA O BADGE EXISTENTE DA LOJA
         // ==================================================
 
-        const badge =
-            produto.querySelector(
-                ".badge.bg-primary"
-            );
+      let badge = produto.querySelector(".loja");
 
+if (!badge) {
+    badge = document.createElement("span");
+    badge.classList.add("badge", "loja", "mb-2");
 
-        if (!badge) {
+    const cardBody = produto.querySelector(".card-body");
 
-            console.warn(
-                "Badge da loja não encontrado:",
-                loja
-            );
-
-            return;
-        }
-
+    if (cardBody) {
+        cardBody.prepend(badge);
+    }
+}
 
         // ==================================================
         // COLOCA O ÍCONE DENTRO DO BADGE EXISTENTE
@@ -162,6 +158,4 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(
         "ÍCONES DAS LOJAS APLICADOS."
     );
-
 });
-```
