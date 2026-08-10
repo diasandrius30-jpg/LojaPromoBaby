@@ -374,14 +374,34 @@ window.executarBusca = function executarBusca() {
 
 
 
-    } else {
-
+      } else {
 
         mensagem.innerHTML = "";
 
-
     }
 
+
+    // ==========================================================
+    // SCROLL AUTOMÁTICO DOS RESULTADOS
+    // ==========================================================
+
+    if (encontrados > 0 && termo !== "") {
+
+        const secaoProdutos =
+            document.getElementById("promocoes");
+
+        if (secaoProdutos) {
+
+            secaoProdutos.scrollIntoView({
+
+                behavior: "smooth",
+                block: "start"
+
+            });
+
+        }
+
+    }
 
 }
 
@@ -395,7 +415,6 @@ if (btnBuscar) {
 
 
             e.preventDefault();
-
 
             executarBusca();
 
