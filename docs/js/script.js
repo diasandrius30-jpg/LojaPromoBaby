@@ -241,7 +241,7 @@ const produtos =
 
 
 
-function executarBusca() {
+window.executarBusca = function executarBusca() {
 
 
     if (!inputPesquisa) return;
@@ -374,19 +374,36 @@ function executarBusca() {
 
 
 
-    } else {
-
+      } else {
 
         mensagem.innerHTML = "";
-
 
     }
 
 
+    // ==========================================================
+    // SCROLL AUTOMÁTICO DOS RESULTADOS
+    // ==========================================================
+
+    if (encontrados > 0 && termo !== "") {
+
+        const secaoProdutos =
+            document.getElementById("promocoes");
+
+        if (secaoProdutos) {
+
+            secaoProdutos.scrollIntoView({
+
+                behavior: "smooth",
+                block: "start"
+
+            });
+
+        }
+
+    }
 
 }
-
-
 
 
 if (btnBuscar) {
@@ -398,7 +415,6 @@ if (btnBuscar) {
 
 
             e.preventDefault();
-
 
             executarBusca();
 
@@ -414,38 +430,22 @@ if (btnBuscar) {
 
 if (inputPesquisa) {
 
-
     inputPesquisa.addEventListener(
-        "keyup",
-        executarBusca
-    );
-
-
-
-    inputPesquisa.addEventListener(
-        "keypress",
+        "keydown",
         function(e) {
-
 
             if (e.key === "Enter") {
 
-
                 e.preventDefault();
-
 
                 executarBusca();
 
-
             }
-
 
         }
     );
 
-
 }
-
-
 
 
 
