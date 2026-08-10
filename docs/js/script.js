@@ -383,24 +383,7 @@ window.executarBusca = function executarBusca() {
     }
 
 
-
 }
-if (encontrados > 0 && termo !== "") {
-
-    const secaoProdutos =
-        document.getElementById("promocoes");
-
-    if (secaoProdutos) {
-
-        secaoProdutos.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
-
-}
-
 
 
 if (btnBuscar) {
