@@ -223,6 +223,59 @@ botoesFavorito.forEach((botao, indice) => {
 
 
 });
+
+// ==========================================================
+// 2.1 EXIBIR FAVORITOS
+// ==========================================================
+
+const btnFavoritos =
+    document.getElementById("btnFavoritos");
+
+if (btnFavoritos) {
+
+    btnFavoritos.addEventListener("click", function () {
+
+        const listaFavoritos =
+            JSON.parse(
+                localStorage.getItem("favoritos")
+            ) || [];
+
+        const produtos =
+            document.querySelectorAll(".produto");
+
+        produtos.forEach((produto, indice) => {
+
+            const coluna =
+                produto.parentElement;
+
+            if (coluna) {
+
+                coluna.style.display =
+                    listaFavoritos.includes(indice)
+                        ? ""
+                        : "none";
+
+            }
+
+        });
+
+        const secaoProdutos =
+            document.getElementById("promocoes");
+
+        if (secaoProdutos) {
+
+            secaoProdutos.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+    });
+
+}
+
+
 // ==========================================================
 // 3. BARRA DE PESQUISA
 // ==========================================================
@@ -234,6 +287,7 @@ const inputPesquisa =
 
 const btnBuscar =
     document.getElementById("btnBuscar");
+
 
 
 const produtos =
