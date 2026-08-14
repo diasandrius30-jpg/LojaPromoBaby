@@ -68,162 +68,84 @@ botoesComprar.forEach(botao => {
 });
 
 
-
 // ==========================================================
 // 2. FAVORITOS
 // ==========================================================
-
 
 const botoesFavorito = document.querySelectorAll(
     ".wishlist-btn, .btn-favorite"
 );
 
+botoesFavorito.forEach((botao) => {
 
+    const produto = botao.closest(".produto");
 
-botoesFavorito.forEach((botao, indice) => {
+    if (!produto) return;
 
+    const nomeProduto = produto.dataset.nome;
 
-    const favoritos =
+    let favoritos =
         JSON.parse(localStorage.getItem("favoritos")) || [];
 
-
-
-    if (favoritos.includes(indice)) {
-
+    if (favoritos.includes(nomeProduto)) {
 
         botao.classList.add("ativo");
 
-
         const icone = botao.querySelector("i");
 
-
         if (icone) {
-
-
-            icone.classList.remove(
-                "fa-regular"
-            );
-
-
-            icone.classList.add(
-                "fa-solid"
-            );
-
-
-            icone.classList.add(
-                "text-danger"
-            );
-
+            icone.classList.remove("fa-regular");
+            icone.classList.add("fa-solid");
+            icone.classList.add("text-danger");
         }
-
     }
 
-
-
-    botao.addEventListener("click", (event) => {
-
-
-        event.preventDefault();
-
-
-
-        botao.classList.toggle(
-            "ativo"
-        );
-
-
-
-        const icone =
-            botao.querySelector("i");
-
-
-
-        if (icone) {
-
-
-            if (
-                icone.classList.contains(
-                    "fa-regular"
-                )
-            ) {
-
-
-                icone.classList.remove(
-                    "fa-regular"
-                );
-
-
-                icone.classList.add(
-                    "fa-solid"
-                );
-
-
-                icone.classList.add(
-                    "text-danger"
-                );
-
-
-            } else {
-
-
-                icone.classList.remove(
-                    "fa-solid"
-                );
-
-
-                icone.classList.remove(
-                    "text-danger"
-                );
-
-
-                icone.classList.add(
-                    "fa-regular"
-                );
-
-            }
-
-        }
-
-
+    botao.addEventListener("click", function () {
 
         let listaFavoritos =
-            JSON.parse(
-                localStorage.getItem("favoritos")
-            ) || [];
+            JSON.parse(localStorage.getItem("favoritos")) || [];
 
-
-
-        if (
-            listaFavoritos.includes(indice)
-        ) {
-
+        if (listaFavoritos.includes(nomeProduto)) {
 
             listaFavoritos =
                 listaFavoritos.filter(
-                    item => item !== indice
+                    item => item !== nomeProduto
                 );
 
+            botao.classList.remove("ativo");
+
+            const icone = botao.querySelector("i");
+
+            if (icone) {
+                icone.classList.remove("fa-solid");
+                icone.classList.remove("text-danger");
+                icone.classList.add("fa-regular");
+            }
 
         } else {
 
+            listaFavoritos.push(nomeProduto);
 
-            listaFavoritos.push(indice);
+            botao.classList.add("ativo");
 
+            const icone = botao.querySelector("i");
+
+            if (icone) {
+                icone.classList.remove("fa-regular");
+                icone.classList.add("fa-solid");
+                icone.classList.add("text-danger");
+            }
         }
-
-
 
         localStorage.setItem(
             "favoritos",
             JSON.stringify(listaFavoritos)
         );
+atualizarContadorFavoritos();
 
-
-    });
-
+ });
 
 });
-
 // ==========================================================
 // 2.1 EXIBIR FAVORITOS
 // ==========================================================
@@ -243,7 +165,7 @@ if (btnFavoritos) {
         const produtos =
             document.querySelectorAll(".produto");
 
-        produtos.forEach((produto, indice) => {
+        produtos.forEach((produto) => {
 
             const coluna =
                 produto.parentElement;
@@ -251,7 +173,7 @@ if (btnFavoritos) {
             if (coluna) {
 
                 coluna.style.display =
-                    listaFavoritos.includes(indice)
+                    listaFavoritos.includes(produto.dataset.nome)
                         ? ""
                         : "none";
 
@@ -275,7 +197,26 @@ if (btnFavoritos) {
 
 }
 
+// ==========================================================
+// 2.2 CONTADOR DE FAVORITOS
+// ==========================================================
 
+function atualizarContadorFavoritos() {
+
+    const favoritos =
+        JSON.parse(
+            localStorage.getItem("favoritos")
+        ) || [];
+
+    if (btnFavoritos) {
+
+        btnFavoritos.innerHTML =
+            `❤️ Favoritos (${favoritos.length})`;
+
+    }
+}
+
+atualizarContadorFavoritos();
 // ==========================================================
 // 3. BARRA DE PESQUISA
 // ==========================================================
