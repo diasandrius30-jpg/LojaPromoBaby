@@ -41,7 +41,7 @@
     "precoAntigo": 49.90,
     "desconto": 20,
     "avaliacao": 4.9,
-    "imagem": "imagens/produtos/almofada.webp"
+    "imagem": "imagens/produtos/almofada-maternidade.webp"
   },
   {
     "id": 5,
@@ -63,7 +63,7 @@
     "precoAntigo": 499.90,
     "desconto": 20,
     "avaliacao": 4.5,
-    "imagem": "imagens/produtos/bolsa.webp"
+    "imagem": "imagens/produtos/bolsa-maternidade.webp"
   },
   {
     "id": 7,
@@ -74,7 +74,7 @@
     "precoAntigo": 119.90,
     "desconto": 25,
     "avaliacao": 4.8,
-    "imagem": "imagens/produtos/copo.webp"
+    "imagem": "imagens/produtos/copo-antivazamento.webp"
   },
   {
     "id": 8,
