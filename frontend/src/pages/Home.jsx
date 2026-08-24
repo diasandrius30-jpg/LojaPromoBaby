@@ -1,18 +1,16 @@
-import Header from "../components/Header";
+import ProductList from "../components/ProductList";
 
 function Home() {
   return (
-    <>
-      <Header />
+    <main>
+      <h1>Loja Promo Baby</h1>
 
-      <main>
-        <h2>Encontre os melhores produtos</h2>
+      <p>
+        Encontre produtos e ofertas para você e sua família.
+      </p>
 
-        <p>
-          Ofertas selecionadas para você e sua família.
-        </p>
-      </main>
-    </>
+      <ProductList />
+    </main>
   );
 }
 

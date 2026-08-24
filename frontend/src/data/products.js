@@ -1,0 +1,92 @@
+const products = [
+  {
+    id: 1,
+    nome: "Smartwatch-Ultra",
+    categoria: "Smartwatch",
+    loja: "Shopee",
+    preco: 579.90,
+    precoAntigo: 899.90,
+    desconto: 35,
+    avaliacao: 4.8,
+    imagem: "/imagens/produtos/smartwatch-ultra.webp"
+  },
+  {
+    id: 2,
+    nome: "Fone-Bluetooth",
+    categoria: "Fone",
+    loja: "Amazon",
+    preco: 249.90,
+    precoAntigo: 349.90,
+    desconto: 28,
+    avaliacao: 4.6,
+    imagem: "/imagens/produtos/fone-bluetooth.webp"
+  },
+  {
+    id: 3,
+    nome: "Babá Eletrônica",
+    categoria: "Babá",
+    loja: "Mercado Livre",
+    preco: 399.90,
+    precoAntigo: 499.90,
+    desconto: 20,
+    avaliacao: 4.9,
+    imagem: "/imagens/produtos/baba-eletronica.webp"
+  },
+  {
+    id: 4,
+    nome: "Almofada de Amamentação",
+    categoria: "Bebê",
+    loja: "Mercado Livre",
+    preco: 39.90,
+    precoAntigo: 49.90,
+    desconto: 20,
+    avaliacao: 4.9,
+    imagem: "/imagens/produtos/almofada-maternidade.webp"
+  },
+  {
+    id: 5,
+    nome: "Mordedor de Silicone",
+    categoria: "Mordedor",
+    loja: "Amazon",
+    preco: 29.90,
+    precoAntigo: 49.90,
+    desconto: 40,
+    avaliacao: 4.7,
+    imagem: "/imagens/produtos/mordedor-silicone.webp"
+  },
+  {
+    id: 6,
+    nome: "Bolsa de Maternidade",
+    categoria: "Bolsa",
+    loja: "Shopee",
+    preco: 399.90,
+    precoAntigo: 499.90,
+    desconto: 20,
+    avaliacao: 4.5,
+    imagem: "/imagens/produtos/bolsa-maternidade.webp"
+  },
+  {
+    id: 7,
+    nome: "Copo Antivazamento",
+    categoria: "Copo",
+    loja: "Amazon",
+    preco: 89.90,
+    precoAntigo: 119.90,
+    desconto: 25,
+    avaliacao: 4.8,
+    imagem: "/imagens/produtos/copo-antivazamento.webp"
+  },
+  {
+    id: 8,
+    nome: "Bodies de Algodão",
+    categoria: "Bodies",
+    loja: "Mercado Livre",
+    preco: 199.90,
+    precoAntigo: 299.90,
+    desconto: 33,
+    avaliacao: 4.6,
+    imagem: "/imagens/produtos/bodies.webp"
+  }
+];
+
+export default products;
